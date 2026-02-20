@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Kibum Moon | Ph.D. Student in Psychology | Georgetown University</title>
+    <meta name="title" content="Kibum Moon | Ph.D. Student in Psychology | Georgetown University" />
+    <meta name="description" content="Kibum Moon is a Ph.D. Student in Psychology at Georgetown University researching AI, creativity, and digital well-being. Explore publications on LLMs and computational social psychology." />
+    <meta name="author" content="Kibum Moon" />
+    <meta name="keywords" content="Kibum Moon, Psychology, Georgetown University, AI Creativity, LLMs, Digital Well-being, Computational Social Psychology, Researcher" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kibum-moon-674791267323.us-west1.run.app/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kibum-moon-674791267323.us-west1.run.app/" />
+    <meta property="og:title" content="Kibum Moon | Ph.D. Student in Psychology | Georgetown University" />
+    <meta property="og:description" content="Personal academic website of Kibum Moon. Researching the intersection of technology, psychology, and creativity." />
+    <meta property="og:image" content="https://psychology.georgetown.edu/wp-content/uploads/sites/449/2023/01/image-5-e1673445544639.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://kibum-moon-674791267323.us-west1.run.app/" />
+    <meta property="twitter:title" content="Kibum Moon | Ph.D. Student in Psychology | Georgetown University" />
+    <meta property="twitter:description" content="Personal academic website of Kibum Moon. Researching the intersection of technology, psychology, and creativity." />
+    <meta property="twitter:image" content="https://psychology.georgetown.edu/wp-content/uploads/sites/449/2023/01/image-5-e1673445544639.png" />
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kibum Moon",
+      "url": "https://kibum-moon-674791267323.us-west1.run.app/",
+      "image": "https://psychology.georgetown.edu/wp-content/uploads/sites/449/2023/01/image-5-e1673445544639.png",
+      "jobTitle": "Ph.D. Student in Psychology",
+      "affiliation": {
+        "@type": "EducationalOrganization",
+        "name": "Georgetown University"
+      },
+      "sameAs": [
+        "https://scholar.google.co.kr/citations?user=IhNP0EkAAAAJ&hl=en",
+        "https://orcid.org/"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Korea University"
+      },
+      "description": "Kibum Moon is a Ph.D. Student in Psychology at Georgetown University researching AI, creativity, and digital well-being."
+    }
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Exo 2', 'sans-serif'],
+            },
+            colors: {
+              'bg-dark': '#F8FAFC', 
+              'text-light': '#0F172A', 
+              'text-secondary': '#475569', 
+              'accent': '#0891B2', 
+              'card-dark': 'rgba(255, 255, 255, 0.85)', 
+              'charcoal': '#334155', 
+              'navy': '#0F172A',
+              'teal-accent': '#0891B2'
+            },
+            boxShadow: {
+              'glow-accent': '0 0 20px rgba(8, 145, 178, 0.15)',
+              'glow-accent-lg': '0 0 35px rgba(8, 145, 178, 0.25)',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F8FAFC; 
+        min-height: 100vh;
+        position: relative;
+        z-index: 0;
+        color: #0F172A;
+      }
+
+      #background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -10;
+        overflow: hidden;
+        background-color: #F8FAFC;
+      }
+      
+      #background-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F1F5F9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(8, 145, 178, 0.3);
+        border-radius: 10px;
+        transition: background 0.3s ease-in-out;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(8, 145, 178, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="background-container">
+      <canvas id="background-canvas"></canvas>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      const canvas = document.getElementById('background-canvas');
+      const ctx = canvas.getContext('2d');
+
+      let width, height, particles;
+      const PARTICLE_COUNT = 60;
+      const CONNECT_DISTANCE = 150;
+      const PARTICLE_SPEED = 0.3;
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * PARTICLE_SPEED;
+          this.vy = (Math.random() - 0.5) * PARTICLE_SPEED;
+          this.radius = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.15)'; 
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        resizeCanvas();
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < CONNECT_DISTANCE) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              const opacity = (1 - (distance / CONNECT_DISTANCE)) * 0.2;
+              ctx.strokeStyle = `rgba(8, 145, 178, ${opacity})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        ctx.fillStyle = '#F8FAFC';
+        ctx.fillRect(0, 0, width, height);
+        
+        const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width);
+        gradient.addColorStop(0, '#FFFFFF');
+        gradient.addColorStop(1, '#F8FAFC');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+
+        connectParticles();
+
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', init);
+      init();
+      animate();
+    </script>
+  </body>
+</html>
