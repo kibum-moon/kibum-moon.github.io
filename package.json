@@ -1,13 +1,12 @@
-
 {
   "name": "academic-personal-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://kibum-moon.github.io/kibum/",
+  "homepage": "https://kibum-moon.github.io/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kibum-moon/kibum.git"
+    "url": "https://github.com/kibum-moon/kibum-moon.github.io.git"
   },
   "scripts": {
     "dev": "vite",

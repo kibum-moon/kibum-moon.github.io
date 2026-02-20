@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Set base to '/kibum/' for GitHub Pages deployment
-  base: '/kibum/',
+  // Base is '/' by default, which is correct for User/Organization root domains
+  base: '/',
 })
