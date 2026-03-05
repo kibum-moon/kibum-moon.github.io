@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kibum-moon-674791267323.us-west1.run.app/sitemap.xml
+Sitemap: https://kibum-moon.github.io/sitemap.xml
