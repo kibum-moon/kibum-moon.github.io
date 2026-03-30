@@ -18,7 +18,7 @@ export const PROFILE_DATA = {
 
 export const SOCIAL_LINKS = {
     email: `mailto:${PROFILE_DATA.email}`,
-    website: "https://kibum-moon-674791267323.us-west1.run.app/",
+    website: "https://kibum-moon.github.io/",
     googleScholar: "https://scholar.google.co.kr/citations?user=IhNP0EkAAAAJ&hl=en",
     orcid: "",
     linkedIn: "",
