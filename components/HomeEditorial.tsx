@@ -6,6 +6,7 @@ import {
   PROFILE_DATA,
   PROFESSIONAL_EXPERIENCE_DATA,
   PUBLICATIONS_DATA,
+  RESEARCH_EXPERIENCE_DATA,
   RESEARCH_INTERESTS,
   SOCIAL_LINKS,
   TEACHING_EXPERIENCE_DATA,
@@ -23,6 +24,7 @@ const navigationLinks = [
   { label: 'About', href: '#about' },
   { label: 'Publications', href: '#publications' },
   { label: 'Teaching', href: '#teaching' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Awards', href: '#awards' },
 ];
 
@@ -32,7 +34,6 @@ const teachingHighlights = TEACHING_EXPERIENCE_DATA;
 const selectedAwards = HONORS_AWARDS_DATA.flatMap((category) =>
   category.items.map((item) => ({ ...item, category: category.category })),
 ).filter((award) => parseInt(award.period) >= 2021).slice(0, 4);
-const selectedExperience = PROFESSIONAL_EXPERIENCE_DATA.slice(0, 2);
 
 const formatAuthors = (authors: string[]) =>
   authors.map((author, index) => (
@@ -300,6 +301,50 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
                   <p className="text-[0.76rem] uppercase tracking-[0.2em] text-[#7e776b] shrink-0 md:text-right">{course.period}</p>
                 </article>
               ))}
+            </div>
+          </section>
+
+          <section id="experience" className="border border-[#e5ded2] bg-white p-6 shadow-[0_14px_35px_rgba(41,33,22,0.06)] md:p-8">
+            <SectionTitle title="Experience" />
+            
+            <div className="mb-8">
+              <h3 className="mb-4 text-[0.85rem] font-bold uppercase tracking-widest text-[#2457a6]">Research Experience</h3>
+              <div className="space-y-4">
+                {RESEARCH_EXPERIENCE_DATA.map((exp) => (
+                  <article key={`${exp.period}-${exp.title}`} className="border-b border-[#eee8dd] pb-4 first:pt-0 last:border-b-0 last:pb-0 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+                    <div>
+                      <h4 className="text-[1.05rem] font-medium leading-7 text-[#17140f]" style={headingStyle}>
+                        {exp.title}
+                      </h4>
+                      <p className="mt-1 text-[0.88rem] leading-6 text-[#4d473d]">{exp.institution}</p>
+                      {exp.details && <p className="mt-1 text-[0.85rem] italic leading-6 text-[#655f55]">{exp.details}</p>}
+                    </div>
+                    <p className="text-[0.76rem] uppercase tracking-[0.2em] text-[#7e776b] shrink-0 md:text-right">
+                      {exp.period}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-[0.85rem] font-bold uppercase tracking-widest text-[#2457a6]">Professional Experience</h3>
+              <div className="space-y-4">
+                {PROFESSIONAL_EXPERIENCE_DATA.map((exp) => (
+                  <article key={`${exp.period}-${exp.title}`} className="border-b border-[#eee8dd] pb-4 first:pt-0 last:border-b-0 last:pb-0 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+                    <div>
+                      <h4 className="text-[1.05rem] font-medium leading-7 text-[#17140f]" style={headingStyle}>
+                        {exp.title}
+                      </h4>
+                      <p className="mt-1 text-[0.88rem] leading-6 text-[#4d473d]">{exp.institution}</p>
+                      {exp.details && <p className="mt-1 text-[0.85rem] italic leading-6 text-[#655f55]">{exp.details}</p>}
+                    </div>
+                    <p className="text-[0.76rem] uppercase tracking-[0.2em] text-[#7e776b] shrink-0 md:text-right">
+                      {exp.period}
+                    </p>
+                  </article>
+                ))}
+              </div>
             </div>
           </section>
 

@@ -369,7 +369,7 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
     {
         category: "Graduate",
         items: [
-            { period: "2025", title: "SPSP Summer Institute in Social and Personality Psychology (SISPP)" },
+            { period: "2025", title: "SPSP Summer Institute in Social and Personality Psychology (SISPP)", details: "* Highly selective, 2-week-long advanced training program in social and personality psychology for early-career scholars." },
             { period: "2023 - 2025", title: "Georgetown Psychology Conference Travel Grant" },
             { period: "2021", title: "Fulbright Scholarship (Offered, Declined)", details: "* Principal Candidate for the 2022 Fulbright Graduate Student Program Award" },
         ]
