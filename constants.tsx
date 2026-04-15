@@ -12,7 +12,7 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Student in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "https://drive.google.com/file/d/1ogOO1HHNuTM9tr_bj7mLy00O8AgM05gX/", // Placeholder for CV file
+  cvUrl: "/cv.pdf", // Placeholder for CV file
   lastUpdated: "Sep 23, 2025",
 };
 
@@ -81,21 +81,23 @@ export const EDUCATION_DATA: CVEntry[] = [
 export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
-    authors: ["Wu, J.", "English, A. S.", "Zhou, X.", "Brooks, C.", "Moon, K.", "& Chentsova-Dutton, Y."],
+    authors: ["Wu, J.", "English, A.", "Zhou, X.", "Xu, Y.", "Brooks, C.", "Moon, K.", "& Chenstsova-Dutton, Y."],
     venue: "Personality and Social Psychology Bulletin",
     year: 2026,
     link: "https://doi.org/10.1177/01461672251404548",
     abstract: "",
-    tags: ["Culture", "Social Relationships"]
+    tags: ["Culture", "Social Relationships"],
+    image: "/covers/Wu_et_al.___Relational_Compartmentalization_How_Culture_Keeps_Our_Social_Worlds_Apart.png"
   },
     {
     title: "The Promise and Peril of Mental Health Apps",
-    authors: ["Kushlev, K.", "Moon, K.", "Harris, M.", "& Falgoust, G."],
+    authors: ["Kushlev, K.", "Moon, K.", "Harris, H.", "& Falgoust, G."],
     venue: "Policy Insights from the Behavioral and Brain Sciences",
     year: 2025,
     link: "https://doi.org/10.1177/23727322251405255",
     abstract: "",
-    tags: ["Digital Well-being", "Policy", "Mobile App"]
+    tags: ["Digital Well-being", "Policy", "Mobile App"],
+    image: "/covers/Kushlev_et_al.___2023___The_Promise_and_Peril_of_Mental_Health_Apps.png"
   },
 
   {
@@ -105,7 +107,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2025,
     link: "https://doi.org/10.1016/j.chbah.2025.100207",
     abstract: "",
-    tags: ["LLMs", "Creativity", "AI"]
+    tags: ["LLMs", "Creativity", "AI", "Higher Ed"],
+    image: "/covers/Moon_et_al.___2025___Homogenizing_Effect_of_Large_Language_Models_(LLMs)_on_Creative_Diversity_An_Empirical_Comparison_o.png"
   },
   {
     title: "Time-Specific Digital Detox Interventions: Effects and Effectiveness Among College Students",
@@ -114,34 +117,38 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2025,
     link: "https://doi.org/10.1037/tmb0000173",
     abstract: "",
-    tags: ["Digital Detox", "Well-being", "Intervention"]
+    tags: ["Digital Detox", "Well-being", "Intervention", "Higher Ed"],
+    image: "/covers/King_et_al.___2025___Time_Specific_Digital_Detox_Interventions_Effects_and_Effectiveness_Among_College_Students.png"
   },
   {
     title: "Comparative analysis of sleep physiology using qualitative and quantitative criteria for insomnia symptoms",
-    authors: ["Lee, R.", "Larson, O.", "Dhaliwal, S.", "Moon, K.", "Gerardy, B.", "de Chazal, P.", "... & Gehrman, P."],
+    authors: ["Lee, R.", "Larson, O.", "Dhaliwal, S.", "Moon, K.", "Gerardy, B.", "de Chazal, P.", "& Gehrman, P."],
     venue: "Sleep, zsae301",
     year: 2025,
     link: "https://doi.org/10.1093/sleep/zsae301",
     abstract: "",
-    tags: ["Clinical Psychology", "Sleep"]
+    tags: ["Clinical Psychology", "Sleep"],
+    image: "/covers/Lee_et_al.___2025___Comparative_analysis_of_sleep_physiology_using_qualitative_and_quantitative_criteria_for_insomnia_sy.png"
   },
   {
     title: "Childhood Maltreatment and Suicide Attempts in Major Depression and Bipolar Disorders in South Korea: A prospective Nationwide Cohort Study",
-    authors: ["Kim, S.", "Dunn, N.", "Moon, K.", "Casement, M.D.", "Nam, Y.", "Yeom, J.", "Cho, C.H.", "Lee, H.J."],
+    authors: ["Kim, S.", "Dunn, N.", "Moon, K.", "Casement, M.D.", "Nam, Y.", "Yeom, J.", "Cho, C.H.", "& Lee, H.J."],
     venue: "Journal of Affective Disorders",
     year: 2024,
     link: "https://doi.org/10.1016/j.jad.2024.06.012",
     abstract: "",
-    tags: ["Clinical Psychology", "Mental Health"]
+    tags: ["Clinical Psychology", "Mental Health"],
+    image: "/covers/Kim_et_al.___2024___Childhood_maltreatment_and_suicide_attempts_in_major_depression_and_bipolar_disorders_in_South_Korea.png"
   },
   {
     title: "Study Examines Difference between Communal Narcissism and Altruism in Korean College Students Using Close-Other Reports",
-    authors: ["Kim, H.", "Kim, J.", "Moon, K.", "Jeong, J.", "Ko, Y.G."],
+    authors: ["Kim, H.", "Kim, J.", "Moon, K.", "Jeong, J.", "& Ko, Y.G."],
     venue: "Korean Journal of Clinical Psychology, 42(3), 82-93",
     year: 2023,
-    link: "https://doi.org/10.15842/kjcp.2023.42.3.004",
+    link: "https://www.researchgate.net/publication/373979434",
     abstract: "",
-    tags: ["Social Psychology", "Narcissism"]
+    tags: ["Social Psychology", "Narcissism"],
+    image: "/covers/Narcissism_Altruism.png"
   },
   {
     title: "The Relationship between Mental Representations of Self and Social Evaluation: Examining the Validity and Usefulness of Visual Proxies of Self-Image",
@@ -150,7 +157,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2023,
     link: "https://doi.org/10.3389/fpsyg.2022.937905",
     abstract: "",
-    tags: ["Self-Image", "Mental Representation"]
+    tags: ["Self-Image", "Mental Representation"],
+    image: "/covers/Kim_et_al.___2023___The_relationship_between_mental_representations_of_self_and_social_evaluation_Examining_the_validit.png"
   },
   {
     title: "Online learning performance and engagement during the COVID-19 pandemic: Application of the dual-continua model of mental health",
@@ -159,7 +167,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2022,
     link: "https://doi.org/10.3389/fpsyg.2022.932777",
     abstract: "",
-    tags: ["Online Learning", "COVID-19", "Mental Health"]
+    tags: ["Online Learning", "COVID-19", "Mental Health", "Higher Ed"],
+    image: "/covers/Kim_et_al.___2022___Online_learning_performance_and_engagement_during_the_COVID_19_pandemic_Application_of_the_dual_con.png"
   },
   {
     title: "Development and validation of COVID-19 Impact Scale",
@@ -168,25 +177,28 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2022,
     link: "https://doi.org/10.1186/s40359-022-00793-w",
     abstract: "",
-    tags: ["Scale Development", "COVID-19"]
+    tags: ["Scale Development", "Clinical Psychology"],
+    image: "/covers/Min_et_al.___2022___Development_and_validation_of_COVID_19_Impact_Scale.png"
   },
   {
     title: "The Early Prediction Model of Student Performance Based on Deep Neural Network Using Massive LMS Log Data",
-    authors: ["Moon, K.", "Kim, J.", "Lee, J."],
+    authors: ["Moon, K.", "Kim, J.", "& Lee, J."],
     venue: "Journal of the Korea Contents Association",
     year: 2021,
     link: "https://doi.org/10.5392/JKCA.2021.21.10.001",
     abstract: "",
-    tags: ["Deep Learning", "Prediction Model"]
+    tags: ["Deep Learning", "Prediction Model", "Higher Ed"],
+    image: "/covers/Early_Prediction_Model_of_Student_Performance_Based_on_Deep_Neural_Network_Using_Massive_LMS_Log_Data.png"
   },
   {
     title: "Development and Application of an AI-Powered Adaptive Course Recommender System in Higher Education: An Example from K University",
-    authors: ["Lee, J.", "Moon, K.", "Han, S.", "Lee, S.", "Kwon, H.", "Han, J."],
+    authors: ["Lee, J.", "Moon, K.", "Han, S.", "Lee, S.", "Kwon, H.", "& Han, J."],
     venue: "Journal of Educational Technology",
     year: 2021,
     link: "https://doi.org/10.17232/KSET.37.2.267",
     abstract: "",
-    tags: ["AI", "Education", "Recommender System"]
+    tags: ["AI", "Education", "Recommender System", "Higher Ed"],
+    image: "/covers/Lee_et_al.___2021___Development_and_Application_of_an_AI_Powered_Adaptive_Course_Recommender_System_in_Higher_Education.png"
   },
   {
     title: "The Mirror of Mind: Visualizing Mental Representations of Self Through Reverse Correlation",
@@ -195,7 +207,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2020,
     link: "https://doi.org/10.3389/fpsyg.2020.01149",
     abstract: "",
-    tags: ["Reverse Correlation", "Self-Image"]
+    tags: ["Reverse Correlation", "Self-Image"],
+    image: "/covers/Moon_et_al.___2020___The_Mirror_of_Mind_Visualizing_Mental_Representations_of_Self_Through_Reverse_Correlation.png"
   },
   {
     title: "The Relationship Between Borderline Personality Features and Affective Responses to Altering Emotional Context",
@@ -204,7 +217,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2020,
     link: "https://doi.org/10.1007/s12144-020-01077-5",
     abstract: "",
-    tags: ["Clinical Psychology", "Personality"]
+    tags: ["Clinical Psychology", "Personality"],
+    image: "/covers/Kim_et_al.___2022___The_relationship_between_borderline_personality_features_and_affective_responses_to_altering_emotion.png"
   },
   {
     title: "A Validation of the Korean Version of Adolescent Positive Mental Health Scale",
@@ -213,7 +227,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2020,
     link: "https://doi.org/10.17315/kjhp.2020.25.4.012",
     abstract: "",
-    tags: ["Validation", "Mental Health"]
+    tags: ["Clinical Psychology"],
+    image: "/covers/Kim_Jin_Young_et_al.___2020___A_Validation_of_the_Korean_Version_of_Adolescent_Positive_Mental_Health_Scale_NEW.png"
   },
   {
     title: "The Effects of Ego Depletion and Psychological Burden on Fatigue in Everyday Life: Focusing on Narcissism",
@@ -222,17 +237,55 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2019,
     link: "https://doi.org/10.15842/kjcp.2019.38.1.005",
     abstract: "",
-    tags: ["Narcissism", "Ego Depletion"]
+    tags: ["Narcissism", "Ego Depletion"],
+    image: "/covers/Lee_et_al.___2019___The_Effects_of_Ego_Depletion_and_Psychological_Burden_on_Fatigue_in_Everyday_Life__Focusing_on_Narc.png"
   },
   {
     title: "A Validation Study of Mental Health Two-Factor Model: In a Sexual Minority Population",
     authors: ["Back, I.", "Moon, K.", "& Ko, Y."],
     venue: "The Korean Journal of Woman Psychology, 24(4)",
     year: 2019,
-    link: "#", // No DOI in provided CV
+    link: "#", 
     abstract: "",
-    tags: ["Validation", "Mental Health"]
+    tags: ["Clinical Psychology"],
+    image: "/covers/A_Validation_Study_of_Mental_Health_Two_Factor_Model_In_a_Sexual_Minority_Population.png"
   },
+  {
+    title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
+    authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
+    venue: "Under review",
+    year: 2026,
+    link: "https://doi.org/10.31234/osf.io/jsz58_v6",
+    abstract: "",
+    tags: ["AI", "Creativity", "Higher Ed"]
+  },
+  {
+    title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults",
+    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Shroeder, J."],
+    venue: "Under review",
+    year: 2026,
+    link: "#",
+    abstract: "",
+    tags: ["Digital Well-being"]
+  },
+  {
+    title: "Who values passion in education?",
+    authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
+    venue: "Under review",
+    year: 2026,
+    link: "https://doi.org/10.31234/osf.io/pytsa_v2",
+    abstract: "",
+    tags: ["Culture", "Higher Ed"]
+  },
+  {
+    title: "Which foot forward? Cultural models of self-presentation in college applications",
+    authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
+    venue: "Under review",
+    year: 2026,
+    link: "https://doi.org/10.31234/osf.io/upnq8_v1",
+    abstract: "",
+    tags: ["Culture", "Self-Image", "Higher Ed"]
+  }
 ];
 
 export const MANUSCRIPTS_DATA: Manuscript[] = [
@@ -349,7 +402,7 @@ export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Fall 2025", title: "AI & Data Driven Psychology – Main Instructor", institution: "Georgetown University" },
+    { period: "Fall 2025", title: "AI & Data Driven Psychology – Main Instructor (Std Eval: 4.86/5)", institution: "Georgetown University", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
     { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
     { period: "Spring 2024", title: "Physiological Psychology – Teaching Fellow", institution: "Georgetown University" },

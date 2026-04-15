@@ -7,6 +7,7 @@ export interface Publication {
   link: string;
   abstract: string;
   tags: string[];
+  image?: string;
 }
 
 export interface BlogPost {
@@ -33,6 +34,7 @@ export interface CVEntry {
     institution?: string;
     location?: string;
     details?: string | string[];
+    link?: string;
 }
 
 export interface Manuscript {

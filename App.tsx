@@ -1,32 +1,15 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
-import Research from './components/Research';
-import CV from './components/CV';
-import Blog from './components/Blog';
-
-import Footer from './components/Footer';
-import CVPage from './components/CVPage';
+import React, { useEffect } from 'react';
+import HomeEditorial from './components/HomeEditorial';
 
 const App: React.FC = () => {
-  const [showFullCV, setShowFullCV] = useState(false);
+  useEffect(() => {
+    const backgroundContainer = document.getElementById('background-container');
+    if (backgroundContainer) {
+      backgroundContainer.style.display = 'none';
+    }
+  }, []);
 
-  if (showFullCV) {
-    return <CVPage onBack={() => setShowFullCV(false)} />;
-  }
-
-  return (
-    <div className="font-sans text-text-light">
-      <Header />
-      <main>
-        <Home />
-        <Blog />
-        <Research />
-        <CV onShowFullCV={() => setShowFullCV(true)} />
-      </main>
-      <Footer />
-    </div>
-  ); 
+  return <HomeEditorial onShowFullCV={() => {}} />;
 };
 
 export default App;
