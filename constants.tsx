@@ -117,7 +117,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2025,
     link: "https://doi.org/10.1037/tmb0000173",
     abstract: "",
-    tags: ["Digital Detox", "Well-being", "Intervention", "Higher Ed"],
+    tags: ["Digital Detox", "Well-being", "Intervention"],
     image: "/covers/King_et_al.___2025___Time_Specific_Digital_Detox_Interventions_Effects_and_Effectiveness_Among_College_Students.png"
   },
   {
