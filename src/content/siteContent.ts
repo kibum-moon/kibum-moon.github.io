@@ -378,7 +378,7 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
     {
         category: "Undergraduate",
         items: [
-            { period: "2009 – 2014", title: "Undergraduate merit scholarships, Korea University", details: "* Recipient of multiple merit-based awards, including full-tuition scholarships (three semesters) and Semester High Honors (5 semesters)." },
+            { period: "2009 – 2014", title: "Undergraduate merit scholarships, Korea University", details: "* Recipient of multiple merit-based awards, including full-tuition scholarships (3 semesters) and Semester High Honors (5 semesters)." },
         ]
     }
 ];
