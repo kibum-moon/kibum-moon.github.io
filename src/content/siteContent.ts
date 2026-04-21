@@ -1,5 +1,5 @@
 
-import type { Publication, BlogPost, CVSection, CVEntry, Manuscript, Patent, ConferenceCategory, AwardCategory, Skill, TeachingCourse } from './types';
+import type { Publication, BlogPost, CVSection, CVEntry, Manuscript, Patent, ConferenceCategory, AwardCategory, Skill, TeachingCourse } from '../types/content';
 
 // --- EDITABLE CONTENT STARTS HERE ---
 
@@ -12,8 +12,8 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Student in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf", // Placeholder for CV file
-  lastUpdated: "Apr 20, 2026",
+  cvUrl: "/kibum_moon_cv.pdf",
+  lastUpdated: "Sep 23, 2025",
 };
 
 export const SOCIAL_LINKS = {
@@ -464,31 +464,35 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
-    title: "Our paper, 'Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart', has been published in Personality and Social Psychology Bulletin.",
+    eyebrow: "Paper",
+    title: "Culture can keep social worlds apart",
     date: "January 18, 2026",
-    summary: "",
+    summary: "New in PSPB: a paper on how culture shapes relational compartmentalization.",
     link: "https://doi.org/10.1177/01461672251404548"
   },
 
 
   {
-    title: "The Green Lab and our research on creativity and AI were recently featured in a lab spotlight by The Hoya.",
+    eyebrow: "Feature",
+    title: "Green Lab's AI creativity work gets a spotlight",
     date: "October 10, 2025",
-    summary: "",
+    summary: "The Hoya featured the lab and our work on creativity in the age of AI.",
     link: "https://thehoya.com/science/lab-spotlight-green-lab-explores-benefits-of-creativity-impacts-of-ai/"
   },
 
   {
-    title: "Our paper, 'Homogenizing Effect of Large Language Models (LLMs) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing', has been published in Computers in Human Behavior: Artificial Humans.",
+    eyebrow: "Paper",
+    title: "LLMs may narrow creative diversity",
     date: "September 1, 2025",
-    summary: "",
+    summary: "Published in CHB: Artificial Humans, comparing human and ChatGPT writing.",
     link: "https://doi.org/10.1016/j.chbah.2025.100207"
   },
 
   {
-    title: "We received a $2.5 million grant from the NSF to study the role of AI in human creativity.",
+    eyebrow: "Grant",
+    title: "NSF backs AI and creativity research",
     date: "December 5, 2024",
-    summary: "",
+    summary: "A $2.5M award supports new work on how AI shapes human creativity.",
     link: "https://thehoya.com/news/campus-life/gu-professors-research-team-receives-2-5-million-grant/"
   }
 

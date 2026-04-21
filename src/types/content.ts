@@ -11,6 +11,7 @@ export interface Publication {
 }
 
 export interface BlogPost {
+  eyebrow: string;
   title: string;
   date: string;
   summary: string;

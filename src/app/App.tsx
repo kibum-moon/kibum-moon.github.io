@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import HomeEditorial from './components/HomeEditorial';
+import HomePage from '../pages/HomePage';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -9,7 +9,7 @@ const App: React.FC = () => {
     }
   }, []);
 
-  return <HomeEditorial onShowFullCV={() => {}} />;
+  return <HomePage />;
 };
 
 export default App;

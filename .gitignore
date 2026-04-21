@@ -1,4 +1,9 @@
 Kibum_Moon_CV*/
-node_modules/
+public/Kibum_Moon_CV.docx
 asset/papers/
 papers/
+dist/
+node_modules/
+node_modules/.cache/gh-pages/
+venv/
+.DS_Store

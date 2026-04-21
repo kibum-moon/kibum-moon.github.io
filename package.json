@@ -9,12 +9,18 @@
     "url": "https://github.com/kibum-moon/kibum-moon.github.io.git"
   },
   "scripts": {
+    "cv:sync": "node scripts/sync-cv.mjs",
+    "cv:publish": "node scripts/publish-cv-update.mjs",
+    "cv:watch-publish": "node scripts/publish-cv-update.mjs --watch",
     "dev": "vite",
+    "prebuild": "npm run cv:sync",
     "build": "vite build",
+    "check": "npm run build && npm run structure:check",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "structure:check": "node scripts/check-repo-structure.mjs"
   },
   "dependencies": {
     "react": "^18.2.0",

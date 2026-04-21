@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>io.github.kibum-moon.homepage-cv-publish</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/kibummoon/Library/CloudStorage/GoogleDrive-km1735@georgetown.edu/My Drive/homepage/scripts/publish-cv-update.mjs</string>
+  </array>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>SOURCE_REPO_ROOT</key>
+    <string>/Users/kibummoon/Library/CloudStorage/GoogleDrive-km1735@georgetown.edu/My Drive/homepage</string>
+    <key>PUBLISH_REPO_ROOT</key>
+    <string>/Users/kibummoon/Library/Application Support/io.github.kibum-moon.homepage-cv-publish/repo</string>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/kibummoon/Library/CloudStorage/GoogleDrive-km1735@georgetown.edu/My Drive/homepage</string>
+
+  <key>WatchPaths</key>
+  <array>
+    <string>/Users/kibummoon/Library/CloudStorage/GoogleDrive-km1735@georgetown.edu/My Drive/homepage/kibum_moon_cv.pdf</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/kibummoon/Library/Logs/io.github.kibum-moon.homepage-cv-publish.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/kibummoon/Library/Logs/io.github.kibum-moon.homepage-cv-publish.err.log</string>
+</dict>
+</plist>

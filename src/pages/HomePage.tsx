@@ -10,12 +10,8 @@ import {
   RESEARCH_INTERESTS,
   SOCIAL_LINKS,
   TEACHING_EXPERIENCE_DATA,
-} from '../constants';
-import { PROFILE_IMAGE_URL } from './assets';
-
-interface HomeEditorialProps {
-  onShowFullCV: () => void;
-}
+} from '../content/siteContent';
+import { PROFILE_IMAGE_URL } from '../content/assets';
 
 const headingStyle = { fontFamily: '"Raleway", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Mono", monospace' };
@@ -43,15 +39,6 @@ const formatAuthors = (authors: string[]) =>
     </React.Fragment>
   ));
 
-const buildHref = (variant?: string) => {
-  if (typeof window === 'undefined') {
-    return variant ? `/?variant=${variant}` : '/';
-  }
-
-  const { pathname } = window.location;
-  return variant ? `${pathname}?variant=${variant}` : pathname;
-};
-
 const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
   <div className="mb-5 border-b border-[#ddd6cb] pb-3">
     <h2 className="text-3xl font-bold tracking-tight text-[#17140f]" style={headingStyle}>
@@ -66,22 +53,35 @@ const UpdatesRail: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
     className={`border border-[#e5ded2] bg-white/90 ${compact ? 'p-5' : 'p-6'} shadow-[0_14px_35px_rgba(41,33,22,0.06)]`}
     style={bodyStyle}
   >
-    <SectionTitle title="Updates" />
-    <div className="space-y-5">
-      {recentUpdates.map((update) => (
-        <article key={`${update.date}-${update.title}`} className="border-b border-[#eee8dd] pb-5 last:border-b-0 last:pb-0">
-          <p className="text-[0.78rem] uppercase tracking-[0.2em] text-[#7e776b]">{update.date}</p>
-          <h3 className="mt-2 text-[0.95rem] leading-6 text-[#22201a]">
-            <a
-              href={update.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-[#b5ac9b] underline-offset-4 transition-colors hover:text-[#2457a6]"
-            >
+    <SectionTitle title="Updates" subtitle="Recent papers, press, and funding with a little more pull." />
+    <div className="space-y-4">
+      {recentUpdates.map((update, index) => (
+        <a
+          key={`${update.date}-${update.title}`}
+          href={update.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block"
+        >
+          <article className="relative overflow-hidden border border-[#e8e1d5] bg-[#fcfaf4] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#2457a6] hover:bg-[#faf6ed] hover:shadow-[0_18px_40px_rgba(36,87,166,0.12)]">
+            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#2457a6] via-[#c96f4a] to-[#e2b04d] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="flex flex-wrap items-center gap-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#7e776b]">
+              <span className="border border-[#d7cfbf] bg-white px-2 py-1 text-[#4d473d]">{update.eyebrow}</span>
+              {index === 0 ? <span className="bg-[#17140f] px-2 py-1 text-white">Newest</span> : null}
+              <span className="ml-auto">{update.date}</span>
+            </div>
+            <h3 className="mt-3 text-[1rem] leading-6 text-[#17140f] transition-colors duration-300 group-hover:text-[#2457a6]">
               {update.title}
-            </a>
-          </h3>
-        </article>
+            </h3>
+            <p className="mt-2 text-[0.82rem] leading-6 text-[#5f584d]">
+              {update.summary}
+            </p>
+            <div className="mt-4 flex items-center justify-between border-t border-[#ece4d8] pt-3 text-[0.7rem] uppercase tracking-[0.18em] text-[#7e776b]">
+              <span>Open update</span>
+              <span className="text-base transition-transform duration-300 group-hover:translate-x-1">↗</span>
+            </div>
+          </article>
+        </a>
       ))}
     </div>
   </section>
@@ -102,7 +102,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
             <img src={publication.image} alt={publication.title} className="w-full aspect-[4/3] object-contain bg-white border border-[#ddd6cb] p-1" loading="lazy" />
           ) : (
             <div className="w-full aspect-[4/3] bg-[#efede6] border border-[#ddd6cb] flex flex-col justify-end p-5">
-              <h4 className="text-[1.1rem] font-serif leading-tight text-[#17140f] italic opacity-80" style={{ fontStyle: "italic" }}>
+              <h4 className="text-[1.1rem] font-serif leading-tight text-[#17140f] italic opacity-80" style={{ fontStyle: 'italic' }}>
                 {publication.venue.split(',')[0]}
               </h4>
             </div>
@@ -146,9 +146,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
   );
 };
 
-const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
-  const defaultHomepageHref = buildHref();
-
+const HomePage: React.FC = () => {
   const tabs = ['Selected', 'AI & Tech', 'Digital Well-being', 'Higher Ed', 'Clinical', 'Social/Culture'];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
@@ -216,9 +214,6 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
               >
                 Download CV →
               </a>
-              <p className="text-[0.72rem] uppercase tracking-[0.18em] text-[#7e776b]">
-                CV updated {PROFILE_DATA.lastUpdated}
-              </p>
             </div>
 
             <nav className="mt-8 border-t border-[#eee8dd] pt-6">
@@ -232,8 +227,6 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
                 ))}
               </ul>
             </nav>
-
-
           </div>
         </aside>
 
@@ -309,7 +302,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
 
           <section id="experience" className="border border-[#e5ded2] bg-white p-6 shadow-[0_14px_35px_rgba(41,33,22,0.06)] md:p-8">
             <SectionTitle title="Experience" />
-            
+
             <div className="mb-8">
               <h3 className="mb-4 text-[0.85rem] font-bold uppercase tracking-widest text-[#2457a6]">Research Experience</h3>
               <div className="space-y-4">
@@ -383,4 +376,4 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
   );
 };
 
-export default HomeEditorial;
+export default HomePage;
