@@ -107,26 +107,7 @@
     body {
       background-color: #F8FAFC;
       min-height: 100vh;
-      position: relative;
-      z-index: 0;
       color: #0F172A;
-    }
-
-    #background-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -10;
-      overflow: hidden;
-      background-color: #F8FAFC;
-    }
-
-    #background-canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
     }
 
     ::-webkit-scrollbar {
@@ -161,102 +142,8 @@
 </head>
 
 <body>
-  <div id="background-container">
-    <canvas id="background-canvas"></canvas>
-  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
-  <script>
-    const canvas = document.getElementById('background-canvas');
-    const ctx = canvas.getContext('2d');
-
-    let width, height, particles;
-    const PARTICLE_COUNT = 60;
-    const CONNECT_DISTANCE = 150;
-    const PARTICLE_SPEED = 0.3;
-
-    function resizeCanvas() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * PARTICLE_SPEED;
-        this.vy = (Math.random() - 0.5) * PARTICLE_SPEED;
-        this.radius = Math.random() * 2 + 1;
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(15, 23, 42, 0.15)';
-        ctx.fill();
-      }
-    }
-
-    function init() {
-      resizeCanvas();
-      particles = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function connectParticles() {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < CONNECT_DISTANCE) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            const opacity = (1 - (distance / CONNECT_DISTANCE)) * 0.2;
-            ctx.strokeStyle = `rgba(8, 145, 178, ${opacity})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      ctx.fillStyle = '#F8FAFC';
-      ctx.fillRect(0, 0, width, height);
-
-      const gradient = ctx.createRadialGradient(width / 2, height / 2, 0, width / 2, height / 2, width);
-      gradient.addColorStop(0, '#FFFFFF');
-      gradient.addColorStop(1, '#F8FAFC');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-
-      connectParticles();
-
-      requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', init);
-    init();
-    animate();
-  </script>
 </body>
 
 </html>

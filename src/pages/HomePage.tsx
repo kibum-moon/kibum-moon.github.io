@@ -120,12 +120,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
       </div>
 
       <div className="flex-1 space-y-3 mt-1">
-        <div>
-          <span className="text-[0.68rem] font-bold tracking-[0.25em] text-[#1f1a14] bg-[#f5efe3] border border-[#ddd6cb] px-2.5 py-1 uppercase" style={bodyStyle}>
-            {publication.year}
-          </span>
-        </div>
-        <h3 className="text-[1.1rem] font-bold leading-7 text-[#17140f] pt-2" style={headingStyle}>
+        <h3 className="text-[1.1rem] font-bold leading-7 text-[#17140f]" style={headingStyle}>
           <a
             href={publication.link}
             target="_blank"
@@ -135,7 +130,9 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
             {publication.title}
           </a>
         </h3>
-        <p className="text-[0.92rem] leading-7 text-[#4d473d]">{formatAuthors(publication.authors)}</p>
+        <p className="text-[0.92rem] leading-7 text-[#4d473d]">
+          {formatAuthors(publication.authors)} ({publication.year}).
+        </p>
         <p className="text-[0.92rem] italic leading-6 text-[#6c675d]">{publication.venue}</p>
         {publication.abstract && (
           <p className="text-[0.88rem] leading-7 text-[#4d473d]">{publication.abstract}</p>
