@@ -96,12 +96,21 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
 
   return (
     <article className="flex flex-col sm:flex-row gap-5 border-b border-[#e7e0d4] py-6 first:pt-0 items-start">
-      <div className="shrink-0 w-full sm:w-[200px]">
-        <a href={publication.link} target="_blank" rel="noopener noreferrer" className="block transition-opacity hover:opacity-80">
+      <div className="shrink-0 w-full sm:w-[190px]">
+        <a href={publication.link} target="_blank" rel="noopener noreferrer" className="group block">
           {hasCoverImage ? (
-            <img src={publication.image} alt={publication.title} className="w-full aspect-[4/3] object-contain bg-white border border-[#ddd6cb] p-1" loading="lazy" />
+            <div className="overflow-hidden border border-[#ddd6cb] bg-[#f5f1e8] p-2 shadow-[0_12px_26px_rgba(41,33,22,0.08)] transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_18px_34px_rgba(36,87,166,0.12)]">
+              <div className="aspect-[5/7] w-full bg-white">
+                <img
+                  src={publication.image}
+                  alt={publication.title}
+                  className="h-full w-full object-contain object-top"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           ) : (
-            <div className="w-full aspect-[4/3] bg-[#efede6] border border-[#ddd6cb] flex flex-col justify-end p-5">
+            <div className="flex aspect-[5/7] w-full flex-col justify-end border border-[#ddd6cb] bg-[#efede6] p-5">
               <h4 className="text-[1.1rem] font-serif leading-tight text-[#17140f] italic opacity-80" style={{ fontStyle: 'italic' }}>
                 {publication.venue.split(',')[0]}
               </h4>
