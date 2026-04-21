@@ -192,8 +192,7 @@ const HomePage: React.FC = () => {
       <div className="mx-auto grid max-w-[1600px] gap-8 px-5 py-8 md:px-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)_280px] xl:gap-12 xl:px-10">
         <aside className="lg:sticky lg:top-8 lg:self-start">
           <div className="border-r border-[#d5cec2] pr-6 lg:pr-8">
-            <p className="text-[0.72rem] uppercase tracking-[0.24em] text-[#827a6d]">Kibum Moon</p>
-            <h1 className="mt-3 text-4xl font-bold leading-tight text-[#17140f]" style={headingStyle}>
+            <h1 className="text-4xl font-bold leading-tight text-[#17140f]" style={headingStyle}>
               {PROFILE_DATA.name}
             </h1>
             <p className="mt-3 text-[0.95rem] leading-7 text-[#4d473d]">
