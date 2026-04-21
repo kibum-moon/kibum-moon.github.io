@@ -216,6 +216,9 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ onShowFullCV }) => {
               >
                 Download CV →
               </a>
+              <p className="text-[0.72rem] uppercase tracking-[0.18em] text-[#7e776b]">
+                CV updated {PROFILE_DATA.lastUpdated}
+              </p>
             </div>
 
             <nav className="mt-8 border-t border-[#eee8dd] pt-6">
