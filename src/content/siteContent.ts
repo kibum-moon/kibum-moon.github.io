@@ -372,18 +372,13 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
             { period: "2025", title: "SPSP Summer Institute in Social and Personality Psychology (SISPP)", details: "* Highly selective, 2-week-long advanced training program in social and personality psychology for early-career scholars." },
             { period: "2023 - 2025", title: "Georgetown Psychology Conference Travel Grant" },
             { period: "2021", title: "Fulbright Scholarship (Offered, Declined)", details: "* Principal Candidate for the 2022 Fulbright Graduate Student Program Award" },
+            { period: "2015 – 2017", title: "Korea University Research Assistance Scholarship", details: "* Full tuition for four semesters during M.A. training." },
         ]
     },
     {
         category: "Undergraduate",
         items: [
-            { period: "2015 – 2017", title: "Korea University Research Assistance Scholarship", details: "* Full tuition for 4 semesters" },
-            { period: "2014", title: "(Merit-Based) Korea University Alumni Scholarships", details: "* Full tuition - Selected as 1 of 177 students at Korea University selected for this merit-based scholarship, awarded for academic excellence and potential to positively impact society." },
-            { period: "2013", title: "(Merit-Based) Choonpha Hwangchungha Scholarships", details: "* Full tuition - Selected as 1 of 6 students at Korea University to receive this merit-based scholarship, awarded for academic excellence" },
-            { period: "2013", title: "(Merit-Based) Sung Ryun Scholarships", details: "* Full tuition - Selected as 1 of 65 students nationwide in South Korea for this scholarship, awarded for potential to become a global leader" },
-            { period: "2012, 2014", title: "(Merit-Based) Korea University Study Scholarships", details: "* $1000 - Awarded for high academic achievement" },
-            { period: "2009", title: "(Merit-Based) Korea University Honors Scholarships", details: "* 35% of the tuition - A merit-based scholarship awarded for students in the top 5% of GPA in the Department" },
-            { period: "2009 – 2014", title: "Korea University Semester High Honors", details: "* Awarded for achieving higher GPAs (over 4.0 out 4.5), for 5 semesters" },
+            { period: "2009 – 2014", title: "Undergraduate merit scholarships, Korea University", details: "* Recipient of multiple merit-based awards, including full-tuition scholarships (three semesters) and Semester High Honors (5 semesters)." },
         ]
     }
 ];

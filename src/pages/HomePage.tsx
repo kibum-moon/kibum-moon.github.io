@@ -27,9 +27,15 @@ const navigationLinks = [
 const recentUpdates = BLOG_DATA.slice(0, 4);
 const recentTalks = CONFERENCE_PRESENTATIONS_DATA.flatMap((category) => category.items).slice(0, 4);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
-const selectedAwards = HONORS_AWARDS_DATA.flatMap((category) =>
+const awardEndYear = (period: string) => {
+  const matches = period.match(/\d{4}/g);
+  if (!matches) return 0;
+  return Math.max(...matches.map(Number));
+};
+
+const orderedAwards = HONORS_AWARDS_DATA.flatMap((category) =>
   category.items.map((item) => ({ ...item, category: category.category })),
-).filter((award) => parseInt(award.period) >= 2021).slice(0, 4);
+).sort((a, b) => awardEndYear(b.period) - awardEndYear(a.period));
 
 const formatAuthors = (authors: string[]) =>
   authors.map((author, index) => (
@@ -356,11 +362,12 @@ const HomePage: React.FC = () => {
           </section>
 
           <section id="awards" className="py-10">
-            <SectionTitle title="Selected Honors & Awards" />
+            <SectionTitle title="Honors & Awards" />
             <div className="space-y-3">
-              {selectedAwards.map((award) => (
+              {orderedAwards.map((award) => (
                 <article key={`${award.period}-${award.title}`} className="flex flex-col gap-2 rounded-sm bg-[#f6f2ea] px-4 py-4 md:flex-row md:items-baseline md:justify-between">
                   <div>
+                    <p className="mb-1 text-[0.68rem] uppercase tracking-[0.2em] text-[#7d6b5a]">{award.category}</p>
                     <h3 className="text-[1.05rem] font-medium leading-7 text-[#17140f]" style={headingStyle}>
                       {award.title}
                     </h3>
