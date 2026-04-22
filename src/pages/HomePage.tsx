@@ -237,6 +237,9 @@ const HomePage: React.FC = () => {
               >
                 Download CV →
               </a>
+              <p className="text-[0.72rem] uppercase tracking-[0.18em] text-[#7e776b]">
+                CV updated {PROFILE_DATA.lastUpdated}
+              </p>
             </div>
 
             <nav className="mt-8 pt-6">
