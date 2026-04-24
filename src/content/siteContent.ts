@@ -460,34 +460,34 @@ export const CV_DATA: CVSection[] = [
 export const BLOG_DATA: BlogPost[] = [
   {
     eyebrow: "Paper",
-    title: "Culture can keep social worlds apart",
+    title: "How culture can keep social worlds apart",
     date: "January 18, 2026",
-    summary: "New in PSPB: a paper on how culture shapes relational compartmentalization.",
+    summary: "A new PSPB paper looks at how culture can quietly shape the way our relationships stay separated or overlap.",
     link: "https://doi.org/10.1177/01461672251404548"
   },
 
 
   {
     eyebrow: "Feature",
-    title: "Green Lab's AI creativity work gets a spotlight",
+    title: "A closer look at our AI and creativity work",
     date: "October 10, 2025",
-    summary: "The Hoya featured the lab and our work on creativity in the age of AI.",
+    summary: "The Hoya featured our lab and some of the bigger questions we are asking about creativity in the age of AI.",
     link: "https://thehoya.com/science/lab-spotlight-green-lab-explores-benefits-of-creativity-impacts-of-ai/"
   },
 
   {
     eyebrow: "Paper",
-    title: "LLMs may narrow creative diversity",
+    title: "Do LLMs narrow creative diversity?",
     date: "September 1, 2025",
-    summary: "Published in CHB: Artificial Humans, comparing human and ChatGPT writing.",
+    summary: "This paper compares human and ChatGPT writing and asks what may get flattened when many people rely on the same model.",
     link: "https://doi.org/10.1016/j.chbah.2025.100207"
   },
 
   {
     eyebrow: "Grant",
-    title: "NSF backs AI and creativity research",
+    title: "New support for AI and creativity research",
     date: "December 5, 2024",
-    summary: "A $2.5M award supports new work on how AI shapes human creativity.",
+    summary: "A new NSF-supported project is helping us study how AI might expand, narrow, or redirect human creativity.",
     link: "https://thehoya.com/news/campus-life/gu-professors-research-team-receives-2-5-million-grant/"
   }
 

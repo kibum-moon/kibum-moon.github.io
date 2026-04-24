@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import {
   BLOG_DATA,
-  CONFERENCE_PRESENTATIONS_DATA,
   HONORS_AWARDS_DATA,
   PROFILE_DATA,
   PROFESSIONAL_EXPERIENCE_DATA,
@@ -22,6 +21,7 @@ const inlineLinkClass = 'inline-flex items-center gap-2 transition-all duration-
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
+  { label: 'Updates', href: '#updates' },
   { label: 'Publications', href: '#publications' },
   { label: 'Teaching', href: '#teaching' },
   { label: 'Experience', href: '#experience' },
@@ -29,12 +29,17 @@ const navigationLinks = [
 ];
 
 const recentUpdates = BLOG_DATA.slice(0, 4);
-const recentTalks = CONFERENCE_PRESENTATIONS_DATA.flatMap((category) => category.items).slice(0, 4);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
 const awardEndYear = (period: string) => {
   const matches = period.match(/\d{4}/g);
   if (!matches) return 0;
   return Math.max(...matches.map(Number));
+};
+
+const formatUpdateDate = (date: string) => {
+  const parsedDate = new Date(date);
+  if (Number.isNaN(parsedDate.getTime())) return date;
+  return parsedDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
 const orderedAwards = HONORS_AWARDS_DATA.flatMap((category) =>
@@ -65,34 +70,37 @@ const Subheading: React.FC<{ title: string }> = ({ title }) => (
   </div>
 );
 
-const UpdatesRail: React.FC<{ compact?: boolean }> = ({ compact = false }) => (
-  <section
-    className={`${compact ? 'p-0' : 'p-0'}`}
-    style={bodyStyle}
-  >
-    <SectionTitle title="Updates" />
-    <div className="space-y-4">
+const UpdatesPanel: React.FC = () => (
+  <section id="updates" style={bodyStyle}>
+    <div className="mb-5">
+      <p className="text-[0.78rem] uppercase tracking-[0.2em] text-[#7c847d]">Latest Updates</p>
+    </div>
+    <div className="border-y border-[#d7ddd7]">
       {recentUpdates.map((update) => (
         <a
           key={`${update.date}-${update.title}`}
           href={update.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="group block"
+          aria-label={`Open update: ${update.title}`}
         >
-          <article className={`${cardLiftClass} px-3 py-3`}>
-            <span aria-hidden className={cardAccentClass} />
-            <div className="relative z-10">
-              <div className="flex flex-wrap items-center gap-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65]">
-                <span>{update.eyebrow}</span>
-                <span className="ml-auto">{update.date}</span>
-              </div>
-              <h3 className="mt-2 pr-4 text-[0.96rem] leading-5 text-[#17140f] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_10px_rgba(125,238,216,0.22)]">
-                {update.title}
-              </h3>
-              <p className="mt-1.5 text-[0.84rem] leading-5 text-[#575d58] transition-colors duration-200 group-hover:text-[#404743]">
-                {update.summary}
+          <article className="border-t border-[#d7ddd7] px-0 py-3 first:border-t-0 transition-all duration-200 hover:bg-[#f8fbf8]">
+            <div className="grid gap-2 md:grid-cols-[88px_minmax(0,1fr)_92px] md:items-start md:gap-4">
+              <p className="text-[0.76rem] uppercase tracking-[0.16em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#4f5752] md:pt-0.5">
+                {formatUpdateDate(update.date)}
               </p>
+              <div className="min-w-0">
+                <p className="text-[0.98rem] leading-7 text-[#2f3632] transition-colors duration-200 group-hover:text-[#1f2723]">
+                  <span className="font-semibold text-[#17140f] underline decoration-[#bdded6] decoration-1 underline-offset-4 transition-all duration-200 group-hover:decoration-[#1b8f7e] group-hover:text-[#1b8f7e]">
+                    {update.title}
+                  </span>
+                  {update.summary ? <span className="text-[#59605b]">. {update.summary}</span> : null}
+                </p>
+              </div>
+              <span className="inline-flex items-center justify-start text-[0.72rem] uppercase tracking-[0.18em] text-[#70817a] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#1b8f7e] md:justify-end md:pt-0.5">
+                Open →
+              </span>
             </div>
           </article>
         </a>
@@ -197,7 +205,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f1f3f0] text-[#1f1a14]" style={bodyStyle}>
-      <div className="mx-auto grid max-w-[1600px] gap-8 px-5 py-8 md:px-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)_280px] xl:gap-12 xl:px-10">
+      <div className="mx-auto grid max-w-[1420px] gap-8 px-5 py-8 md:px-8 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10 xl:px-10">
         <aside className="lg:sticky lg:top-8 lg:self-start">
           <div className="border-r border-[#d6dad4] pr-6 lg:pr-8">
             <h1 className="text-4xl font-bold leading-tight text-[#17140f]" style={headingStyle}>
@@ -259,27 +267,29 @@ const HomePage: React.FC = () => {
         <main className="min-w-0 border border-[#d8ddd7] bg-[#fcfdfb] px-6 py-7 md:px-8 md:py-8 xl:px-10">
           <section id="about" className="pb-10">
             <SectionTitle title="About" />
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-              <div className="space-y-5 text-[0.98rem] leading-8 text-[#313632]">
-                <p>{PROFILE_DATA.bio}</p>
+            <div className="space-y-8">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+                <div className="space-y-5 text-[0.98rem] leading-8 text-[#313632]">
+                  <p>{PROFILE_DATA.bio}</p>
+                </div>
+
+                <div className="border-t border-[#e1e6e0] pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+                  <p className="text-[0.78rem] uppercase tracking-[0.2em] text-[#7c847d]">Focus Areas</p>
+                  <ul className="mt-4 space-y-2 text-[0.95rem] leading-7 text-[#4b514c]">
+                    {RESEARCH_INTERESTS.map((interest) => (
+                      <li key={interest} className="flex items-start gap-2">
+                        <span className="text-[#a5b5ad]">―</span> {interest}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div>
-                <p className="text-[0.78rem] uppercase tracking-[0.2em] text-[#7c847d]">Focus Areas</p>
-                <ul className="mt-4 space-y-2 text-[0.95rem] leading-7 text-[#4b514c]">
-                  {RESEARCH_INTERESTS.map((interest) => (
-                    <li key={interest} className="flex items-start gap-2">
-                      <span className="text-[#a5b5ad]">―</span> {interest}
-                    </li>
-                  ))}
-                </ul>
+              <div className="border-t border-[#e1e6e0] pt-6">
+                <UpdatesPanel />
               </div>
             </div>
           </section>
-
-          <div className="xl:hidden">
-            <UpdatesRail compact />
-          </div>
 
           <section id="publications" className="py-10">
             <SectionTitle title="Publications" />
@@ -394,12 +404,6 @@ const HomePage: React.FC = () => {
             </div>
           </section>
         </main>
-
-        <aside className="hidden xl:block xl:sticky xl:top-8 xl:self-start">
-          <div className="scrollbar-hidden max-h-[calc(100vh-4rem)] overflow-y-auto border-l border-[#d6dad4] pl-8 pr-2">
-            <UpdatesRail />
-          </div>
-        </aside>
       </div>
 
       <footer className="px-5 py-5 text-center text-[0.78rem] uppercase tracking-[0.18em] text-[#7c847d] md:px-8 xl:px-10">
