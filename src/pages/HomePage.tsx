@@ -11,6 +11,7 @@ import {
   TEACHING_EXPERIENCE_DATA,
 } from '../content/siteContent';
 import { PROFILE_IMAGE_URL } from '../content/assets';
+import type { CVEntry } from '../types/content';
 
 const headingStyle = { fontFamily: '"Raleway", sans-serif' };
 const bodyStyle = { fontFamily: '"Roboto Mono", monospace' };
@@ -30,6 +31,41 @@ const navigationLinks = [
 
 const recentUpdates = BLOG_DATA.slice(0, 4);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
+const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
+  if (right.year !== left.year) return right.year - left.year;
+  return left.title.localeCompare(right.title);
+};
+const isUnderReviewPublication = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
+  publication.venue.trim().toLowerCase() === 'under review';
+const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
+  const publishedPublications = publications.filter((publication) => !isUnderReviewPublication(publication));
+  const underReviewPublications = publications.filter(isUnderReviewPublication).sort(sortPublications);
+  const yearGroups = Array.from(
+    publishedPublications.reduce((groups, publication) => {
+      const yearGroup = groups.get(publication.year) || [];
+      yearGroup.push(publication);
+      groups.set(publication.year, yearGroup);
+      return groups;
+    }, new Map<number, typeof PUBLICATIONS_DATA>()),
+  )
+    .sort(([leftYear], [rightYear]) => rightYear - leftYear)
+    .map(([year, yearPublications]) => ({
+      label: String(year),
+      publications: yearPublications,
+      showYear: false,
+    }));
+
+  if (underReviewPublications.length === 0) return yearGroups;
+
+  return [
+    ...yearGroups,
+    {
+      label: 'Under Review',
+      publications: underReviewPublications,
+      showYear: true,
+    },
+  ];
+};
 const awardEndYear = (period: string) => {
   const matches = period.match(/\d{4}/g);
   if (!matches) return 0;
@@ -42,9 +78,10 @@ const formatUpdateDate = (date: string) => {
   return parsedDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
-const orderedAwards = HONORS_AWARDS_DATA.flatMap((category) =>
-  category.items.map((item) => ({ ...item, category: category.category })),
-).sort((a, b) => awardEndYear(b.period) - awardEndYear(a.period));
+const orderedAwardGroups = HONORS_AWARDS_DATA.map((category) => ({
+  ...category,
+  items: [...category.items].sort((a, b) => awardEndYear(b.period) - awardEndYear(a.period)),
+}));
 
 const formatAuthors = (authors: string[]) =>
   authors.map((author, index) => (
@@ -109,7 +146,10 @@ const UpdatesPanel: React.FC = () => (
   </section>
 );
 
-const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> = ({ publication }) => {
+const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; showYear?: boolean }> = ({
+  publication,
+  showYear = true,
+}) => {
   const doiLabel = publication.link.startsWith('https://doi.org/')
     ? publication.link.replace('https://doi.org/', '')
     : 'Open link';
@@ -127,7 +167,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
       <article className={`${cardLiftClass} px-3 py-3 group-active:translate-y-[1px] group-active:scale-[0.992] group-active:border-[#9fd8ce] group-active:shadow-[0_10px_18px_rgba(44,52,49,0.08),0_0_14px_rgba(125,238,216,0.18)]`}>
         <span aria-hidden className={cardAccentClass} />
         <span aria-hidden className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-150 group-active:opacity-100 bg-[radial-gradient(circle_at_28%_50%,rgba(125,238,216,0.14),transparent_42%)]" />
-        <div className="relative z-10 grid gap-3 transition-transform duration-200 group-active:translate-x-[2px] md:grid-cols-[128px_minmax(0,1fr)] md:gap-4">
+        <div className={`relative z-10 grid gap-3 transition-transform duration-200 group-active:translate-x-[2px] ${showYear ? 'md:grid-cols-[128px_minmax(0,1fr)_72px]' : 'md:grid-cols-[128px_minmax(0,1fr)]'} md:gap-4`}>
           <div className="shrink-0 w-full sm:w-[128px]">
             {hasCoverImage ? (
               <div className="overflow-hidden border border-[#d8ddd7] bg-[#fafbf8] p-1 transition-all duration-300 group-hover:border-[#cfe2dc] group-hover:shadow-[0_12px_24px_rgba(45,54,50,0.08),0_0_14px_rgba(125,238,216,0.18)] group-active:border-[#9fd8ce]">
@@ -153,7 +193,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
               {publication.title}
             </h3>
             <p className="text-[0.88rem] leading-5 text-[#4b514c]">
-              {formatAuthors(publication.authors)} ({publication.year}).
+              {formatAuthors(publication.authors)}.
             </p>
             <p className="text-[0.88rem] italic leading-5 text-[#6c746d] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)] group-active:translate-x-2">
               {publication.venue}
@@ -167,19 +207,62 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
               </span>
             </div>
           </div>
+          {showYear ? (
+            <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:pt-1 md:text-right">
+              {publication.year}
+            </p>
+          ) : null}
         </div>
       </article>
     </a>
   );
 };
 
+const ExperienceCard: React.FC<{ entry: CVEntry }> = ({ entry }) => {
+  const cardContent = (
+    <>
+      <span aria-hidden className={cardAccentClass} />
+      <div className="relative z-10">
+        <h4 className="text-[1.05rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
+          {entry.title}
+        </h4>
+        <p className="mt-1 text-[0.88rem] leading-6 text-[#4b514c] transition-colors duration-200 group-hover:text-[#414742]">{entry.institution}</p>
+        {entry.details && <p className="mt-1 text-[0.85rem] italic leading-6 text-[#626863] transition-colors duration-200 group-hover:text-[#4a514c]">{entry.details}</p>}
+      </div>
+      <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:text-right">
+        {entry.period}
+      </p>
+    </>
+  );
+
+  if (!entry.link) {
+    return <article className={rowCardClass}>{cardContent}</article>;
+  }
+
+  return (
+    <a
+      href={entry.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={rowCardClass}
+      aria-label={`Open ${entry.institution || entry.title}`}
+    >
+      {cardContent}
+    </a>
+  );
+};
+
 const HomePage: React.FC = () => {
-  const tabs = ['Selected', 'AI & Tech', 'Digital Well-being', 'Higher Ed', 'Clinical', 'Social/Culture'];
+  const tabs = ['Selected', 'AI & Tech', 'Digital Well-being', 'Higher Ed', 'Clinical', 'Social/Culture', 'All'];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const displayedPublications = useMemo(() => {
+    if (activeTab === 'All') {
+      return [...PUBLICATIONS_DATA].sort(sortPublications);
+    }
+
     if (activeTab === 'Selected') {
-      const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.'));
+      const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.')).sort(sortPublications);
       const targetTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
       const targetIdx = selected.findIndex(p => p.title === targetTitle);
       if (targetIdx > -1) {
@@ -200,8 +283,12 @@ const HomePage: React.FC = () => {
     if (activeTab === 'AI & Tech') {
       filtered = filtered.filter(pub => !pub.title.includes('The Promise and Peril'));
     }
-    return filtered;
+    return filtered.sort(sortPublications);
   }, [activeTab]);
+  const publicationGroups = useMemo(
+    () => (activeTab === 'All' ? groupAllPublications(displayedPublications) : []),
+    [activeTab, displayedPublications],
+  );
 
   return (
     <div className="min-h-screen bg-[#f1f3f0] text-[#1f1a14]" style={bodyStyle}>
@@ -307,11 +394,30 @@ const HomePage: React.FC = () => {
                 </button>
               ))}
             </div>
-            <div className="space-y-3">
-              {displayedPublications.map((publication) => (
-                <PublicationCard key={`${publication.year}-${publication.title}`} publication={publication} />
-              ))}
-            </div>
+            {activeTab === 'All' ? (
+              <div className="space-y-7">
+                {publicationGroups.map(({ label, publications, showYear }) => (
+                  <div key={label}>
+                    <Subheading title={label} />
+                    <div className="space-y-3">
+                      {publications.map((publication) => (
+                        <PublicationCard
+                          key={`${publication.year}-${publication.title}`}
+                          publication={publication}
+                          showYear={showYear}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {displayedPublications.map((publication) => (
+                  <PublicationCard key={`${publication.year}-${publication.title}`} publication={publication} />
+                ))}
+              </div>
+            )}
           </section>
 
           <section id="teaching" className="py-10">
@@ -324,7 +430,7 @@ const HomePage: React.FC = () => {
                     <h3 className="flex flex-wrap items-center gap-2 text-[1.08rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
                       <span>{course.title}</span>
                       {course.link && (
-                        <a href={course.link} target="_blank" rel="noopener noreferrer" className="border border-[#d6dad4] px-2 py-0.5 text-[0.65rem] uppercase tracking-widest text-[#5f6761] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#cfe2dc] hover:text-[#1b8f7e] hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)] hover:shadow-[0_0_12px_rgba(125,238,216,0.14)]">
+                        <a href={course.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full border border-[#cfe2dc] bg-[#f2fbf8] px-2 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-[#1b8f7e] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9fd8ce] hover:bg-[#e7f7f3] hover:text-[#146f62] hover:shadow-[0_8px_16px_rgba(45,54,50,0.06),0_0_12px_rgba(125,238,216,0.16)]">
                           Syllabus
                         </a>
                       )}
@@ -344,19 +450,7 @@ const HomePage: React.FC = () => {
               <Subheading title="Research Experience" />
               <div className="space-y-3">
                 {RESEARCH_EXPERIENCE_DATA.map((exp) => (
-                  <article key={`${exp.period}-${exp.title}`} className={rowCardClass}>
-                    <span aria-hidden className={cardAccentClass} />
-                    <div className="relative z-10">
-                      <h4 className="text-[1.05rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
-                        {exp.title}
-                      </h4>
-                      <p className="mt-1 text-[0.88rem] leading-6 text-[#4b514c] transition-colors duration-200 group-hover:text-[#414742]">{exp.institution}</p>
-                      {exp.details && <p className="mt-1 text-[0.85rem] italic leading-6 text-[#626863] transition-colors duration-200 group-hover:text-[#4a514c]">{exp.details}</p>}
-                    </div>
-                    <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:text-right">
-                      {exp.period}
-                    </p>
-                  </article>
+                  <ExperienceCard key={`${exp.period}-${exp.title}`} entry={exp} />
                 ))}
               </div>
             </div>
@@ -365,19 +459,7 @@ const HomePage: React.FC = () => {
               <Subheading title="Professional Experience" />
               <div className="space-y-3">
                 {PROFESSIONAL_EXPERIENCE_DATA.map((exp) => (
-                  <article key={`${exp.period}-${exp.title}`} className={rowCardClass}>
-                    <span aria-hidden className={cardAccentClass} />
-                    <div className="relative z-10">
-                      <h4 className="text-[1.05rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
-                        {exp.title}
-                      </h4>
-                      <p className="mt-1 text-[0.88rem] leading-6 text-[#4b514c] transition-colors duration-200 group-hover:text-[#414742]">{exp.institution}</p>
-                      {exp.details && <p className="mt-1 text-[0.85rem] italic leading-6 text-[#626863] transition-colors duration-200 group-hover:text-[#4a514c]">{exp.details}</p>}
-                    </div>
-                    <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:text-right">
-                      {exp.period}
-                    </p>
-                  </article>
+                  <ExperienceCard key={`${exp.period}-${exp.title}`} entry={exp} />
                 ))}
               </div>
             </div>
@@ -385,21 +467,27 @@ const HomePage: React.FC = () => {
 
           <section id="awards" className="py-10">
             <SectionTitle title="Honors & Awards" />
-            <div className="space-y-3">
-              {orderedAwards.map((award) => (
-                <article key={`${award.period}-${award.title}`} className={rowCardClass}>
-                  <span aria-hidden className={cardAccentClass} />
-                  <div className="relative z-10">
-                    <p className="mb-1 text-[0.68rem] uppercase tracking-[0.2em] text-[#6b746d] transition-colors duration-200 group-hover:text-[#5d6761]">{award.category}</p>
-                    <h3 className="text-[1.05rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
-                      {award.title}
-                    </h3>
-                    {award.details ? <p className="mt-1 text-[0.88rem] leading-6 text-[#626863] transition-colors duration-200 group-hover:text-[#4a514c]">{award.details}</p> : null}
+            <div className="space-y-8">
+              {orderedAwardGroups.map((group) => (
+                <div key={group.category}>
+                  <Subheading title={group.category} />
+                  <div className="space-y-3">
+                    {group.items.map((award) => (
+                      <article key={`${award.period}-${award.title}`} className={rowCardClass}>
+                        <span aria-hidden className={cardAccentClass} />
+                        <div className="relative z-10">
+                          <h3 className="text-[1.05rem] font-medium leading-7 text-[#17140f] transition-colors duration-200 group-hover:text-[#1b8f7e] group-hover:[text-shadow:0_0_8px_rgba(125,238,216,0.2)]" style={headingStyle}>
+                            {award.title}
+                          </h3>
+                          {award.details ? <p className="mt-1 text-[0.88rem] leading-6 text-[#626863] transition-colors duration-200 group-hover:text-[#4a514c]">{award.details}</p> : null}
+                        </div>
+                        <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:text-right">
+                          {award.period}
+                        </p>
+                      </article>
+                    ))}
                   </div>
-                  <p className="relative z-10 text-[0.76rem] uppercase tracking-[0.2em] text-[#7c847d] transition-colors duration-200 group-hover:text-[#636b65] shrink-0 md:text-right">
-                    {award.period}
-                  </p>
-                </article>
+                </div>
               ))}
             </div>
           </section>

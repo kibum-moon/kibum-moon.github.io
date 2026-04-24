@@ -384,15 +384,15 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
 ];
 
 export const RESEARCH_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Jan. 2023 – Present", title: "Graduate Researcher", institution: "Laboratory for Relational Cognition – Georgetown University", details: "PI: Dr. Adam Green" },
-    { period: "Aug. 2022 – Present", title: "Graduate Researcher", institution: "Digital Health and Happiness Lab – Georgetown University", details: "PI: Dr. Kostadin Kushlev" },
+    { period: "Jan. 2023 – Present", title: "Graduate Researcher", institution: "Laboratory for Relational Cognition – Georgetown University", details: "PI: Dr. Adam Green", link: "https://cng.georgetown.edu/" },
+    { period: "Aug. 2022 – Present", title: "Graduate Researcher", institution: "Digital Health and Happiness Lab – Georgetown University", details: "PI: Dr. Kostadin Kushlev", link: "https://www.kushlev.com/lab" },
     { period: "Feb. 2019 – Sep. 2019", title: "Clinical Researcher", institution: "Student Counseling Center – Korea University" },
     { period: "Feb. 2019 – Sep. 2019", title: "Post-Master Research Associate", institution: "Mentoring Counseling Center – Korea University" },
     { period: "Sep. 2015 – Feb. 2018", title: "Master Student Researcher", institution: "The Happiness Lab – Korea University", details: "PI: Dr. Young-gun Ko" },
 ];
 
 export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University" },
+    { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University", link: "https://oads.georgetown.edu/meet-the-team/" },
     { period: "Oct. 2019 – Feb. 2022", title: "Full-time Data Scientist", institution: "Data Hub Team, Office of Digital Information – Korea University" },
 ];
 
