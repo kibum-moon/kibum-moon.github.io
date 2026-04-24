@@ -31,12 +31,19 @@ const navigationLinks = [
 
 const recentUpdates = BLOG_DATA.slice(0, 4);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
+const featuredSelectedPublicationTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
   if (right.year !== left.year) return right.year - left.year;
   return left.title.localeCompare(right.title);
 };
 const isUnderReviewPublication = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
   publication.venue.trim().toLowerCase() === 'under review';
+const sortPublishedFirst = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
+  const leftIsUnderReview = isUnderReviewPublication(left);
+  const rightIsUnderReview = isUnderReviewPublication(right);
+  if (leftIsUnderReview !== rightIsUnderReview) return leftIsUnderReview ? 1 : -1;
+  return sortPublications(left, right);
+};
 const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
   const publishedPublications = publications.filter((publication) => !isUnderReviewPublication(publication));
   const underReviewPublications = publications.filter(isUnderReviewPublication).sort(sortPublications);
@@ -262,9 +269,8 @@ const HomePage: React.FC = () => {
     }
 
     if (activeTab === 'Selected') {
-      const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.')).sort(sortPublications);
-      const targetTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
-      const targetIdx = selected.findIndex(p => p.title === targetTitle);
+      const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.')).sort(sortPublishedFirst);
+      const targetIdx = selected.findIndex(p => p.title === featuredSelectedPublicationTitle);
       if (targetIdx > -1) {
         const [target] = selected.splice(targetIdx, 1);
         selected.unshift(target);
@@ -283,7 +289,7 @@ const HomePage: React.FC = () => {
     if (activeTab === 'AI & Tech') {
       filtered = filtered.filter(pub => !pub.title.includes('The Promise and Peril'));
     }
-    return filtered.sort(sortPublications);
+    return filtered.sort(sortPublishedFirst);
   }, [activeTab]);
   const publicationGroups = useMemo(
     () => (activeTab === 'All' ? groupAllPublications(displayedPublications) : []),
