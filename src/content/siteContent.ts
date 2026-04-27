@@ -402,6 +402,7 @@ export const RESEARCH_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
+    { period: "Jan. 2026 – Present", title: "Consultant", institution: "Hubside" },
     { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University", link: "https://oads.georgetown.edu/meet-the-team/" },
     { period: "Oct. 2019 – Feb. 2022", title: "Full-time Data Scientist", institution: "Data Hub Team, Office of Digital Information – Korea University" },
 ];
