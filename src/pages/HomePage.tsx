@@ -15,11 +15,11 @@ import type { CVEntry } from '../types/content';
 
 const headingStyle = {};
 const bodyStyle = {};
-const cardLiftClass = 'group relative overflow-hidden rounded-lg glass-card transition-all duration-300 hover:-translate-y-1 hover:border-accent-1/35 hover:shadow-glass-hover';
+const cardLiftClass = 'group relative overflow-hidden rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover hover:border-accent-2/30';
 const rowCardClass = `${cardLiftClass} flex flex-col gap-3 px-5 py-5 md:flex-row md:items-baseline md:justify-between`;
-const cardAccentClass = 'pointer-events-none absolute inset-y-4 left-0 w-[3px] rounded-r-sm bg-gradient-to-b from-accent-1 to-accent-2 opacity-0 transition-all duration-300 group-hover:inset-y-3 group-hover:opacity-100';
+const cardAccentClass = 'pointer-events-none absolute inset-y-4 left-0 w-[4px] bg-gradient-to-b from-accent-1 to-accent-2 opacity-0 transition-all duration-300 group-hover:inset-y-3 group-hover:opacity-100 rounded-r-md';
 const inlineLinkClass = 'inline-flex items-center transition-colors duration-200 hover:text-accent-1 font-medium';
-const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-text-secondary transition-colors duration-200 hover:border-accent-1 hover:text-accent-1 font-medium';
+const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-text-secondary transition-colors duration-200 hover:border-accent-2 hover:text-accent-2 font-medium';
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
@@ -101,7 +101,7 @@ const formatAuthors = (authors: string[]) =>
 
 const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, subtitle }) => (
   <div className="mb-8">
-    <h2 className="text-4xl font-extrabold tracking-tight text-text-primary font-heading">
+    <h2 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-text-primary to-text-secondary font-heading">
       {title}
     </h2>
     {subtitle ? <p className="mt-3 max-w-2xl text-base leading-7 text-text-secondary">{subtitle}</p> : null}
@@ -110,7 +110,7 @@ const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, s
 
 const Subheading: React.FC<{ title: string }> = ({ title }) => (
   <div className="mb-5 flex items-center gap-3">
-    <span className="h-2.5 w-2.5 rounded-full bg-accent-2 shadow-[0_0_0_3px_rgba(15,118,110,0.12)]" aria-hidden />
+    <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-tr from-accent-1 to-accent-3 shadow-[0_0_8px_rgba(59,130,246,0.5)]" aria-hidden />
     <h3 className="text-[0.85rem] font-bold uppercase tracking-[0.2em] text-text-secondary">{title}</h3>
   </div>
 );
@@ -120,7 +120,7 @@ const UpdatesPanel: React.FC = () => (
     <div className="mb-6">
       <p className="text-[0.85rem] font-bold uppercase tracking-[0.2em] text-text-secondary">Latest Updates</p>
     </div>
-    <div className="border-y border-[#d8d4ca]">
+    <div className="border-y border-gray-200">
       {recentUpdates.map((update) => (
         <a
           key={`${update.date}-${update.title}`}
@@ -130,20 +130,20 @@ const UpdatesPanel: React.FC = () => (
           className="group block"
           aria-label={`Open update: ${update.title}`}
         >
-          <article className="rounded-md border-t border-[#d8d4ca] px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-[#fffaf1]/70">
+          <article className="border-t border-gray-200 px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-white/40 rounded-lg">
             <div className="grid gap-2 md:grid-cols-[100px_minmax(0,1fr)_92px] md:items-start md:gap-4">
               <p className="text-[0.8rem] font-medium uppercase tracking-[0.1em] text-text-secondary transition-colors duration-200 group-hover:text-accent-1 md:pt-0.5">
                 {formatUpdateDate(update.date)}
               </p>
               <div className="min-w-0">
                 <p className="text-[1rem] leading-7 text-text-primary transition-colors duration-200">
-                  <span className="font-semibold text-text-primary decoration-accent-1/25 decoration-2 underline-offset-4 transition-all duration-300 group-hover:text-accent-1 group-hover:decoration-accent-1 group-hover:underline">
+                  <span className="font-semibold text-text-primary decoration-accent-2/30 decoration-2 underline-offset-4 transition-all duration-300 group-hover:decoration-accent-2 group-hover:text-accent-2 group-hover:underline">
                     {update.title}
                   </span>
                   {update.summary ? <span className="text-text-secondary">. {update.summary}</span> : null}
                 </p>
               </div>
-              <span className="inline-flex items-center justify-start text-[0.75rem] font-bold uppercase tracking-[0.15em] text-text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-1 md:justify-end md:pt-0.5">
+              <span className="inline-flex items-center justify-start text-[0.75rem] font-bold uppercase tracking-[0.15em] text-text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-2 md:justify-end md:pt-0.5">
                 Open &rarr;
               </span>
             </div>
@@ -180,8 +180,8 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
         <div className={`relative z-10 grid gap-4 transition-transform duration-300 group-hover:translate-x-1 ${showYear ? 'md:grid-cols-[160px_minmax(0,1fr)_80px]' : 'md:grid-cols-[160px_minmax(0,1fr)]'} md:gap-6`}>
           <div className="shrink-0 w-full sm:w-[160px]">
             {hasCoverImage ? (
-              <div className="overflow-hidden rounded-md border border-[#d8d4ca]/70 bg-[#fffdf8]/70 p-1 shadow-sm transition-all duration-300 group-hover:border-accent-1/35 group-hover:shadow-md">
-                <div className={`${imageAspectClass} w-full bg-white rounded-sm overflow-hidden`}>
+              <div className="overflow-hidden rounded-md border border-gray-200/50 bg-white/50 p-1 shadow-sm transition-all duration-300 group-hover:border-accent-2/30 group-hover:shadow-md">
+                <div className={`${imageAspectClass} w-full bg-white rounded overflow-hidden`}>
                   <img
                     src={publication.image}
                     alt={publication.title}
@@ -191,7 +191,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
                 </div>
               </div>
             ) : (
-              <div className="flex aspect-[4/3] w-full flex-col justify-end rounded-md border border-[#d8d4ca]/70 bg-gradient-to-br from-[#fffaf1] to-[#eef6f2] p-3 transition-all duration-300 group-hover:border-accent-1/35 group-hover:from-[#f4fbf7] group-hover:to-[#fff6df]">
+              <div className="flex aspect-[4/3] w-full flex-col justify-end rounded-md border border-gray-200/50 bg-gradient-to-br from-gray-50/50 to-gray-100/50 p-3 transition-all duration-300 group-hover:border-accent-2/30 group-hover:from-blue-50/50 group-hover:to-purple-50/50">
                 <h4 className="text-[0.95rem] font-heading font-medium leading-tight text-text-primary opacity-60">
                   {publication.venue.split(',')[0]}
                 </h4>
@@ -205,7 +205,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
             <p className="text-[0.85rem] leading-snug text-text-secondary">
               {formatAuthors(publication.authors)}.
             </p>
-            <p className="text-[0.85rem] font-medium italic text-text-secondary opacity-80 transition-all duration-200 group-hover:text-accent-1">
+            <p className="text-[0.85rem] font-medium italic text-text-secondary opacity-80 transition-all duration-200 group-hover:text-accent-2">
               {publication.venue}
             </p>
             {publication.abstract && (
@@ -301,10 +301,15 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen text-text-primary font-sans relative overflow-hidden">
+      {/* Decorative background blurs */}
+      <div className="absolute top-0 -left-40 w-96 h-96 bg-accent-1/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob pointer-events-none" />
+      <div className="absolute top-0 -right-40 w-96 h-96 bg-accent-3/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000 pointer-events-none" />
+      <div className="absolute -bottom-40 left-20 w-96 h-96 bg-accent-2/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000 pointer-events-none" />
+
       <div className="mx-auto grid max-w-[1420px] gap-8 px-5 py-8 md:px-8 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-12 xl:px-10 relative z-10">
         <aside className="lg:sticky lg:top-12 lg:self-start">
-          <div className="lg:border-r border-[#d8d4ca] lg:pr-8">
-            <h1 className="text-5xl font-extrabold leading-tight text-text-primary font-heading">
+          <div className="lg:border-r border-gray-200/60 lg:pr-8">
+            <h1 className="text-5xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-text-primary to-text-secondary font-heading">
               {PROFILE_DATA.name}
             </h1>
             <p className="mt-4 text-[1rem] leading-7 text-text-secondary font-medium">
@@ -314,16 +319,16 @@ const HomePage: React.FC = () => {
             </p>
 
             <div className="group mt-10 w-full max-w-[220px]">
-              <div className="glass-card rounded-lg p-2 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-accent-1/40 group-hover:shadow-glass-hover">
+              <div className="glass-card p-2 rounded-3xl transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-glass-hover group-hover:border-accent-2/40">
                 <img
                   src={PROFILE_IMAGE_URL}
                   alt={PROFILE_DATA.name}
-                  className="aspect-[4/5] w-full rounded-md object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="aspect-[4/5] w-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </div>
 
-            <div className="mt-8 text-[0.92rem] leading-6 text-text-secondary">
+            <div className="mt-8 text-[0.92rem] leading-6 text-[#4b514c]">
               <p className="break-words">{PROFILE_DATA.email}</p>
               <div className="mt-4 space-y-1.5">
                 <a href={SOCIAL_LINKS.googleScholar} target="_blank" rel="noopener noreferrer" className={sidebarContactLinkClass}>
@@ -336,7 +341,7 @@ const HomePage: React.FC = () => {
             </div>
 
             <nav className="mt-8 pt-6">
-              <ul className="space-y-3 text-[0.78rem] uppercase tracking-[0.18em] text-text-secondary">
+              <ul className="space-y-3 text-[0.78rem] uppercase tracking-[0.18em] text-[#75807a]">
                 {navigationLinks.map((link) => (
                   <li key={link.href}>
                     <a href={link.href} className={inlineLinkClass}>
@@ -349,7 +354,7 @@ const HomePage: React.FC = () => {
           </div>
         </aside>
 
-        <main className="min-w-0 glass-card rounded-lg border border-[#d8d4ca]/70 px-6 py-8 shadow-sm md:px-10 md:py-12 xl:px-12">
+        <main className="min-w-0 glass-card rounded-3xl px-6 py-8 md:px-10 md:py-12 xl:px-12 shadow-sm border border-white/60">
           <section id="about" className="pb-12">
             <SectionTitle title="About" />
             <div className="space-y-10">
@@ -358,7 +363,7 @@ const HomePage: React.FC = () => {
                   <p>{PROFILE_DATA.bio}</p>
                 </div>
 
-                <div className="border-t border-[#d8d4ca] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                <div className="border-t border-gray-200/60 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
                   <p className="text-[0.85rem] font-bold uppercase tracking-[0.2em] text-text-secondary">Focus Areas</p>
                   <ul className="mt-5 space-y-3 text-[0.95rem] leading-7 text-text-primary">
                     {RESEARCH_INTERESTS.map((interest) => (
@@ -370,7 +375,7 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="border-t border-[#d8d4ca] pt-6">
+              <div className="border-t border-[#e1e6e0] pt-6">
                 <UpdatesPanel />
               </div>
             </div>
@@ -384,8 +389,8 @@ const HomePage: React.FC = () => {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`rounded-full px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.15em] transition-all duration-300 ${activeTab === tab
-                      ? 'bg-accent-1 text-white shadow-md shadow-accent-1/20 scale-105'
-                      : 'bg-[#fffdf8]/65 border border-[#d8d4ca] text-text-secondary hover:-translate-y-0.5 hover:border-accent-1/50 hover:text-accent-1 hover:shadow-sm'
+                      ? 'bg-gradient-to-r from-accent-1 to-accent-2 text-white shadow-md shadow-accent-1/30 scale-105'
+                      : 'bg-white/50 border border-gray-200 text-text-secondary hover:-translate-y-0.5 hover:border-accent-2/50 hover:text-accent-2 hover:shadow-sm'
                     }`}
                 >
                   {tab}
@@ -428,7 +433,7 @@ const HomePage: React.FC = () => {
                     <h3 className="flex flex-wrap items-center gap-2 text-[1.1rem] font-bold leading-7 text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
                       <span>{course.title}</span>
                       {course.link && (
-                        <a href={course.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/20">
+                        <a href={course.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30">
                           Syllabus
                         </a>
                       )}

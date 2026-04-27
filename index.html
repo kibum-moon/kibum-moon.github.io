@@ -86,19 +86,19 @@
             heading: ['Outfit', 'sans-serif'],
           },
           colors: {
-            'bg-light': '#f6f2eb',
-            'text-primary': '#17211b',
-            'text-secondary': '#59635d',
-            'accent-1': '#0f766e',
-            'accent-2': '#b7791f',
-            'accent-3': '#375a7f',
+            'bg-light': '#fdfdfd',
+            'text-primary': '#111827',
+            'text-secondary': '#4B5563',
+            'accent-1': '#3b82f6', // Blue
+            'accent-2': '#8b5cf6', // Violet
+            'accent-3': '#ec4899', // Pink
           },
           backgroundImage: {
-            'paper-wash': 'linear-gradient(135deg, rgba(246,242,235,0.98), rgba(238,246,242,0.92) 52%, rgba(250,247,241,0.98))',
+            'mesh-light': 'radial-gradient(at 40% 20%, rgba(59,130,246,0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(139,92,246,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(236,72,153,0.1) 0px, transparent 50%)',
           },
           boxShadow: {
-            'glass': '0 4px 28px rgba(36, 43, 38, 0.06)',
-            'glass-hover': '0 14px 34px rgba(36, 43, 38, 0.10)',
+            'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',
+            'glass-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
@@ -127,10 +127,12 @@
   </script>
   <style>
     body {
-      background-color: #f6f2eb;
+      background-color: #fdfdfd;
       min-height: 100vh;
-      color: #17211b;
-      background-image: linear-gradient(135deg, rgba(246,242,235,0.98), rgba(238,246,242,0.92) 52%, rgba(250,247,241,0.98));
+      color: #111827;
+      background-image: radial-gradient(at 40% 20%, rgba(59,130,246,0.08) 0px, transparent 50%), 
+                        radial-gradient(at 80% 0%, rgba(139,92,246,0.08) 0px, transparent 50%), 
+                        radial-gradient(at 0% 50%, rgba(236,72,153,0.08) 0px, transparent 50%);
       background-attachment: fixed;
     }
 
@@ -143,11 +145,11 @@
       background: transparent;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(15, 118, 110, 0.22);
+      background: rgba(139, 92, 246, 0.2);
       border-radius: 8px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(15, 118, 110, 0.38);
+      background: rgba(139, 92, 246, 0.4);
     }
     
     .scrollbar-hidden {
@@ -159,14 +161,14 @@
     }
     
     .glass-card {
-      background: rgba(255, 252, 246, 0.78);
+      background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(205, 198, 184, 0.56);
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
     .text-gradient {
-      background: linear-gradient(to right, #0f766e, #b7791f, #375a7f);
+      background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
