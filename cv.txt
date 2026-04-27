@@ -1,4 +1,4 @@
- Last Updated ( April  14, 202 6)  
+ Last Updated ( April  26, 202 6)  
 1 / 9 
  Kibum Moon  
 km1735@georgetown.edu     |    Homepage  
@@ -37,7 +37,7 @@ Kushlev, K. Moon, K.,  Harris, H., Falgoust, G. (2025) The Promise and Peril of 
 Insights from the Behavioral and Brain Sciences , 13(1), 101 -110.  
 Doi: 10.1177/23727322251405255  
 Moon, K. , Green, A. E., & Kushlev, K. (2025). Homogenizing Effect of Large Language Models (LLMs) on 
-Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing.  Computers in Human  Last Updated ( April  14, 202 6)  
+Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing.  Computers in Human  Last Updated ( April  26, 202 6)  
 2 / 9 
  Behavior: Artificial Humans , 100207.  
 Doi: 10.1016/j.chbah.2025.100207  
@@ -72,7 +72,7 @@ Affective Responses to Altering Emotional Context. Current Psychology , 41.
 Doi: 10.1007/s12144 -020 -01077 -5 
 Moon, K ., Kim, J., Lee, J. (2021) The Early Prediction Model of Student Performance Based on Deep Neural 
 Network Using Massive LMS Log Data. Journal of the Korea Contents Association , 21(10) , 1-10. 
-Doi: 10.5392/JKCA.2021.21.10.001    Last Updated ( April  14, 202 6)  
+Doi: 10.5392/JKCA.2021.21.10.001    Last Updated ( April  26, 202 6)  
 3 / 9 
  Lee, J., Moon, K ., Han, S., Lee, S., Kwon, H., Han, J. (2021) Development and Application of an AI -Powered 
 Adaptive Course Recommender System in Higher Education: An Example from K University. Journal of 
@@ -108,7 +108,7 @@ Moon, K. , Lee, J., Lee, S., Han, S., Kwon, H., Han, J., Kim, G.T. (2022). Syste
 Related Courses Based on Graph Data and Recording Medium for Performing the Same .   
 Patent Number: 10 -2557827  
 Moon, K. , Lee, J., Lee, S., Han, S., Kwon, H., Han, J., Kim, G.T. (2022). System and Method for Integrated 
-Recommendation of Learning Activities Based on Keywords of Interest Using Academic Domain Embedding and  Last Updated ( April  14, 202 6)  
+Recommendation of Learning Activities Based on Keywords of Interest Using Academic Domain Embedding and  Last Updated ( April  26, 202 6)  
 4 / 9 
  Recording Medium for Performing the Same .  
 Patent Number: 10 -2540417  
@@ -145,7 +145,7 @@ International Society for the Study of Creativity and Innovation (ISSCI), virtua
 Kushlev,  K., Moon, K. , Green, A. E. (2024, February 8 -10).  Does ChatGPT promote or hinder human 
 creativity?  Annual Convention of the Society for Personality and Social Psychology, San Diego, CA.  
 Moon, K . (2020). The Impact of COVID -19 on Quality Education: Focusing on Socio -economic Disparity in 
-Online Learning . Oral presentation at the 3rd K.U. Innovation Forum, Seoul, Republic of Korea   Last Updated ( April  14, 202 6)  
+Online Learning . Oral presentation at the 3rd K.U. Innovation Forum, Seoul, Republic of Korea   Last Updated ( April  26, 202 6)  
 5 / 9 
  Lee, J., Moon, K ., Lee, S., Han, S., Han, J., & Kwon, H. (2019). Convergence in University Interdisciplinary 
 Education . Oral presentation at 2019 Korea Academy of Complexity Studies, Seoul, Republic of Korea  
@@ -182,7 +182,7 @@ Kim, S., Kim, J., Moon, K ., Kang , W., Ko, Y. (2021). The Relationship between 
 Health . The 2021 Spring Conference of Korean Clinical Psychology Association, Seoul, South Korea  
 Kim, D., Shin, W., Han., K., Lee, J., Moon, K ., Lee, S., Han, S., Han, S. (2020). A system for recommending 
 university liberal arts courses using collaborative filtering . Short Paper at the 2020 Fall Conference of 
-Korean Institute of Industrial Engineers, Seoul, South Korea   Last Updated ( April  14, 202 6)  
+Korean Institute of Industrial Engineers, Seoul, South Korea   Last Updated ( April  26, 202 6)  
 6 / 9 
  Kim, H., Moon, K ., Kim, J., & Ko, Y.  (2020). The Relationship Between Communal Narcissism and Altruism . 
 The 2020 Fall Conference of Korean Clinical Psychology Association,  Virtual  
@@ -219,7 +219,7 @@ scholarship, awarded for academic excellence and potential to positively impact 
 awarded for academic excellence . 
 2013  (Merit -Based) Sung Ryun Scholarships  
 * Full tuition – Selected as 1 of 65 students nationwide in South Korea for this scholarship, awarded for 
-potential to become a global leader .  Last Updated ( April  14, 202 6)  
+potential to become a global leader .  Last Updated ( April  26, 202 6)  
 7 / 9 
  2012, 2014  (Merit -Based) Korea University Study Scholarships  
 * $1000 – Awarded for high academic achievement . 
@@ -250,11 +250,13 @@ The Happiness Lab – Korea University
 PI: Dr. Young -gun Ko  
  
 PROFESSIONAL EXPERIENCE  
+Jan. 2026 – Present  Consultant  
+Hubside  
 Oct. 2022 – Present  Graduate Research Affiliate  
 Office of Assessment and Decision Support – Georgetown University  
 Oct. 2019 – Feb. 2022  Full -time Data Scientist  
 Data Hub Team, Office of Digital Information – Korea University  
-   Last Updated ( April  14, 202 6)  
+   Last Updated ( April  26, 202 6)  
 8 / 9 
  TEACHING  EXPERIENCE  
 Fall 2025  AI & Data Driven Psychology – Main Instructor  (Student Eval uation : 4.86/5)  
@@ -287,7 +289,7 @@ Deep Learning
 Frameworks  Natural Language Processing (NLP), Dimension reduction, predictive modeling, 
 time serial analyses, graph analytics, network representation learning, 
 recommendation system, Pytorch, Tensorflow, Scikit -learn, Stellargraph, 
-Genism, Tidymodels.   Last Updated ( April  14, 202 6)  
+Genism, Tidymodels.   Last Updated ( April  26, 202 6)  
 9 / 9 
  Data Visualization 
 Tools  R Shiny, Plotly/Dash, Gephi, Tableau, Power BI, Adobe Photoshop, Illustrator  
