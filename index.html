@@ -87,14 +87,14 @@
           },
           colors: {
             'bg-light': '#fdfdfd',
-            'text-primary': '#111827',
-            'text-secondary': '#4B5563',
-            'accent-1': '#3b82f6', // Blue
-            'accent-2': '#8b5cf6', // Violet
-            'accent-3': '#ec4899', // Pink
+            'text-primary': '#0f172a',
+            'text-secondary': '#475569',
+            'accent-1': '#1e293b', // Deep Slate
+            'accent-2': '#334155', // Slate
+            'accent-3': '#64748b', // Light Slate
           },
           backgroundImage: {
-            'mesh-light': 'radial-gradient(at 40% 20%, rgba(59,130,246,0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(139,92,246,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(236,72,153,0.1) 0px, transparent 50%)',
+            'mesh-light': 'radial-gradient(at 0% 0%, rgba(30,41,59,0.04) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(30,41,59,0.02) 0px, transparent 50%)',
           },
           boxShadow: {
             'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',
@@ -129,10 +129,8 @@
     body {
       background-color: #fdfdfd;
       min-height: 100vh;
-      color: #111827;
-      background-image: radial-gradient(at 40% 20%, rgba(59,130,246,0.08) 0px, transparent 50%), 
-                        radial-gradient(at 80% 0%, rgba(139,92,246,0.08) 0px, transparent 50%), 
-                        radial-gradient(at 0% 50%, rgba(236,72,153,0.08) 0px, transparent 50%);
+      color: #0f172a;
+      background-image: radial-gradient(at 0% 0%, rgba(30,41,59,0.05) 0px, transparent 80%);
       background-attachment: fixed;
     }
 
@@ -145,11 +143,11 @@
       background: transparent;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(139, 92, 246, 0.2);
+      background: rgba(30, 41, 59, 0.2);
       border-radius: 8px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(139, 92, 246, 0.4);
+      background: rgba(30, 41, 59, 0.4);
     }
     
     .scrollbar-hidden {
@@ -168,7 +166,7 @@
     }
 
     .text-gradient {
-      background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+      background: linear-gradient(to right, #1e293b, #64748b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;

@@ -191,7 +191,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
                 </div>
               </div>
             ) : (
-              <div className="flex aspect-[4/3] w-full flex-col justify-end rounded-md border border-gray-200/50 bg-gradient-to-br from-gray-50/50 to-gray-100/50 p-3 transition-all duration-300 group-hover:border-accent-2/30 group-hover:from-blue-50/50 group-hover:to-purple-50/50">
+              <div className="flex aspect-[4/3] w-full flex-col justify-end rounded-md border border-gray-200/50 bg-gradient-to-br from-gray-50/50 to-gray-100/50 p-3 transition-all duration-300 group-hover:border-accent-2/30 group-hover:from-slate-50 group-hover:to-slate-100">
                 <h4 className="text-[0.95rem] font-heading font-medium leading-tight text-text-primary opacity-60">
                   {publication.venue.split(',')[0]}
                 </h4>
