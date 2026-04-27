@@ -14,6 +14,7 @@ Edit [src/content/siteContent.ts](/Users/kibummoon/Library/CloudStorage/GoogleDr
 ## Assets
 
 - Publication cover images live in `public/covers/`.
+- Use `imageKind: "figure"` on a publication only when the image is a figure or chart that should render in a wider frame. Leave it unset for normal paper covers.
 - The editable CV source lives at `kibum_moon_cv.pdf` in the repo root.
 - The generated homepage CV PDF lives at `public/kibum_moon_cv.pdf`.
 - The profile photo URL is defined in `src/content/assets.ts`.

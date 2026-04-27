@@ -8,6 +8,7 @@ export interface Publication {
   abstract: string;
   tags: string[];
   image?: string;
+  imageKind?: 'cover' | 'figure';
 }
 
 export interface BlogPost {

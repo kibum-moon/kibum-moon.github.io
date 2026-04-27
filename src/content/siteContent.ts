@@ -108,7 +108,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.1016/j.chbah.2025.100207",
     abstract: "",
     tags: ["LLMs", "Creativity", "AI", "Higher Ed"],
-    image: "/covers/Moon_et_al.___2025___Homogenizing_Effect_of_Large_Language_Models_(LLMs)_on_Creative_Diversity_An_Empirical_Comparison_o.png"
+    image: "/covers/figure_homogenizing_creative_diversity.png",
+    imageKind: "figure"
   },
   {
     title: "Time-Specific Digital Detox Interventions: Effects and Effectiveness Among College Students",
@@ -118,7 +119,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.1037/tmb0000173",
     abstract: "",
     tags: ["Digital Detox", "Well-being", "Intervention"],
-    image: "/covers/King_et_al.___2025___Time_Specific_Digital_Detox_Interventions_Effects_and_Effectiveness_Among_College_Students.png"
+    image: "/covers/figure_digital_detox_affect_balance.png",
+    imageKind: "figure"
   },
   {
     title: "Comparative analysis of sleep physiology using qualitative and quantitative criteria for insomnia symptoms",
@@ -148,7 +150,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://www.researchgate.net/publication/373979434",
     abstract: "",
     tags: ["Social Psychology", "Narcissism"],
-    image: "/covers/Narcissism_Altruism.png"
+    image: "/covers/figure_narcissism_altruism_path_model.png",
+    imageKind: "figure"
   },
   {
     title: "The Relationship between Mental Representations of Self and Social Evaluation: Examining the Validity and Usefulness of Visual Proxies of Self-Image",
@@ -158,7 +161,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.3389/fpsyg.2022.937905",
     abstract: "",
     tags: ["Self-Image", "Mental Representation"],
-    image: "/covers/Kim_et_al.___2023___The_relationship_between_mental_representations_of_self_and_social_evaluation_Examining_the_validit.png"
+    image: "/covers/figure_self_social_evaluation_standard_cis.png",
+    imageKind: "figure"
   },
   {
     title: "Online learning performance and engagement during the COVID-19 pandemic: Application of the dual-continua model of mental health",
@@ -168,7 +172,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.3389/fpsyg.2022.932777",
     abstract: "",
     tags: ["Online Learning", "COVID-19", "Mental Health", "Higher Ed"],
-    image: "/covers/Kim_et_al.___2022___Online_learning_performance_and_engagement_during_the_COVID_19_pandemic_Application_of_the_dual_con.png"
+    image: "/covers/figure_online_learning_performance_engagement.png",
+    imageKind: "figure"
   },
   {
     title: "Development and validation of COVID-19 Impact Scale",
@@ -188,7 +193,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.5392/JKCA.2021.21.10.001",
     abstract: "",
     tags: ["Deep Learning", "Prediction Model", "Higher Ed"],
-    image: "/covers/Early_Prediction_Model_of_Student_Performance_Based_on_Deep_Neural_Network_Using_Massive_LMS_Log_Data.png"
+    image: "/covers/figure_early_prediction_dnn_algorithm.png",
+    imageKind: "figure"
   },
   {
     title: "Development and Application of an AI-Powered Adaptive Course Recommender System in Higher Education: An Example from K University",
@@ -198,7 +204,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.17232/KSET.37.2.267",
     abstract: "",
     tags: ["AI", "Education", "Recommender System", "Higher Ed"],
-    image: "/covers/Lee_et_al.___2021___Development_and_Application_of_an_AI_Powered_Adaptive_Course_Recommender_System_in_Higher_Education.png"
+    image: "/covers/figure_ai_recommender_data_hub.png",
+    imageKind: "figure"
   },
   {
     title: "The Mirror of Mind: Visualizing Mental Representations of Self Through Reverse Correlation",
@@ -208,7 +215,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://doi.org/10.3389/fpsyg.2020.01149",
     abstract: "",
     tags: ["Reverse Correlation", "Self-Image"],
-    image: "/covers/Moon_et_al.___2020___The_Mirror_of_Mind_Visualizing_Mental_Representations_of_Self_Through_Reverse_Correlation.png"
+    image: "/covers/figure_mirror_of_mind_average_self_cis.png",
+    imageKind: "figure"
   },
   {
     title: "The Relationship Between Borderline Personality Features and Affective Responses to Altering Emotional Context",
@@ -257,7 +265,9 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/jsz58_v6",
     abstract: "",
-    tags: ["AI", "Creativity", "Higher Ed"]
+    tags: ["AI", "Creativity", "Higher Ed"],
+    image: "/covers/figure_creative_link_ai_semantic_diversity.png",
+    imageKind: "figure"
   },
   {
     title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults",

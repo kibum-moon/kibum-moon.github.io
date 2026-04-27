@@ -18,7 +18,8 @@ const bodyStyle = { fontFamily: '"Roboto Mono", monospace' };
 const cardLiftClass = 'group relative overflow-hidden rounded-sm border border-transparent bg-[#f7f8f5] transition-all duration-300 hover:-translate-y-1 hover:border-[#cfe2dc] hover:shadow-[0_18px_36px_rgba(44,52,49,0.08),0_0_0_1px_rgba(238,248,245,0.82),0_0_18px_rgba(125,238,216,0.22)]';
 const rowCardClass = `${cardLiftClass} flex flex-col gap-2 px-4 py-4 md:flex-row md:items-baseline md:justify-between`;
 const cardAccentClass = 'pointer-events-none absolute inset-y-4 left-0 w-[3px] bg-[#63d6c5] opacity-0 transition-all duration-300 group-hover:inset-y-3 group-hover:opacity-100';
-const inlineLinkClass = 'inline-flex items-center gap-2 transition-all duration-200 hover:translate-x-1 hover:text-[#1b8f7e] hover:[text-shadow:0_0_8px_rgba(125,238,216,0.24)]';
+const inlineLinkClass = 'inline-flex items-center transition-colors duration-200 hover:text-[#1b8f7e]';
+const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-[#4b514c] transition-colors duration-200 hover:border-[#1b8f7e] hover:text-[#1b8f7e]';
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
@@ -162,6 +163,9 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
     : 'Open link';
 
   const hasCoverImage = Boolean(publication.image);
+  const isFigureImage = publication.imageKind === 'figure';
+  const imageAspectClass = isFigureImage ? 'aspect-[4/3]' : 'aspect-[5/7]';
+  const imageFitClass = isFigureImage ? 'object-contain object-center' : 'object-contain object-top';
 
   return (
     <a
@@ -178,11 +182,11 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
           <div className="shrink-0 w-full sm:w-[128px]">
             {hasCoverImage ? (
               <div className="overflow-hidden border border-[#d8ddd7] bg-[#fafbf8] p-1 transition-all duration-300 group-hover:border-[#cfe2dc] group-hover:shadow-[0_12px_24px_rgba(45,54,50,0.08),0_0_14px_rgba(125,238,216,0.18)] group-active:border-[#9fd8ce]">
-                <div className="aspect-[5/7] w-full bg-white">
+                <div className={`${imageAspectClass} w-full bg-white`}>
                   <img
                     src={publication.image}
                     alt={publication.title}
-                    className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.03] group-active:scale-[0.985]"
+                    className={`h-full w-full ${imageFitClass} transition-transform duration-500 group-hover:scale-[1.03] group-active:scale-[0.985]`}
                     loading="lazy"
                   />
                 </div>
@@ -320,27 +324,16 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-8 space-y-3 text-[0.92rem] leading-6 text-[#4b514c]">
-              <p>{PROFILE_DATA.email}</p>
-              <a
-                href={SOCIAL_LINKS.googleScholar}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={inlineLinkClass}
-              >
-                Google Scholar →
-              </a>
-              <a
-                href={PROFILE_DATA.cvUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={inlineLinkClass}
-              >
-                Download CV →
-              </a>
-              <p className="text-[0.72rem] uppercase tracking-[0.18em] text-[#7e776b]">
-                CV updated {PROFILE_DATA.lastUpdated}
-              </p>
+            <div className="mt-8 text-[0.92rem] leading-6 text-[#4b514c]">
+              <p className="break-words">{PROFILE_DATA.email}</p>
+              <div className="mt-4 space-y-1.5">
+                <a href={SOCIAL_LINKS.googleScholar} target="_blank" rel="noopener noreferrer" className={sidebarContactLinkClass}>
+                  Google Scholar
+                </a>
+                <a href={PROFILE_DATA.cvUrl} target="_blank" rel="noopener noreferrer" className={sidebarContactLinkClass}>
+                  Download CV
+                </a>
+              </div>
             </div>
 
             <nav className="mt-8 pt-6">
