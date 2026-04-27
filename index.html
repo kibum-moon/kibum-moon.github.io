@@ -70,34 +70,56 @@
     }
     </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Exo 2', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
           },
           colors: {
-            'bg-dark': '#F8FAFC',
-            'text-light': '#0F172A',
-            'text-secondary': '#475569',
-            'accent': '#0891B2',
-            'card-dark': 'rgba(255, 255, 255, 0.85)',
-            'charcoal': '#334155',
-            'navy': '#0F172A',
-            'teal-accent': '#0891B2'
+            'bg-light': '#fdfdfd',
+            'text-primary': '#111827',
+            'text-secondary': '#4B5563',
+            'accent-1': '#3b82f6', // Blue
+            'accent-2': '#8b5cf6', // Violet
+            'accent-3': '#ec4899', // Pink
+          },
+          backgroundImage: {
+            'mesh-light': 'radial-gradient(at 40% 20%, rgba(59,130,246,0.1) 0px, transparent 50%), radial-gradient(at 80% 0%, rgba(139,92,246,0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgba(236,72,153,0.1) 0px, transparent 50%)',
           },
           boxShadow: {
-            'glow-accent': '0 0 20px rgba(8, 145, 178, 0.15)',
-            'glow-accent-lg': '0 0 35px rgba(8, 145, 178, 0.25)',
+            'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',
+            'glass-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 15s linear infinite',
+            'gradient-x': 'gradient-x 15s ease infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            'gradient-x': {
+              '0%, 100%': {
+                'background-size': '200% 200%',
+                'background-position': 'left center'
+              },
+              '50%': {
+                'background-size': '200% 200%',
+                'background-position': 'right center'
+              },
+            }
           }
         },
       },
@@ -105,36 +127,51 @@
   </script>
   <style>
     body {
-      background-color: #F8FAFC;
+      background-color: #fdfdfd;
       min-height: 100vh;
-      color: #0F172A;
+      color: #111827;
+      background-image: radial-gradient(at 40% 20%, rgba(59,130,246,0.08) 0px, transparent 50%), 
+                        radial-gradient(at 80% 0%, rgba(139,92,246,0.08) 0px, transparent 50%), 
+                        radial-gradient(at 0% 50%, rgba(236,72,153,0.08) 0px, transparent 50%);
+      background-attachment: fixed;
     }
 
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 8px;
+      height: 8px;
     }
-
     ::-webkit-scrollbar-track {
-      background: #F1F5F9;
+      background: transparent;
     }
-
     ::-webkit-scrollbar-thumb {
-      background: rgba(8, 145, 178, 0.3);
-      border-radius: 10px;
-      transition: background 0.3s ease-in-out;
+      background: rgba(139, 92, 246, 0.2);
+      border-radius: 8px;
     }
-
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(8, 145, 178, 0.5);
+      background: rgba(139, 92, 246, 0.4);
     }
-
+    
     .scrollbar-hidden {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+    .scrollbar-hidden::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
-    .scrollbar-hidden::-webkit-scrollbar {
-      display: none;
+    .text-gradient {
+      background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 
@@ -149,7 +186,7 @@
   }
 }
 </script>
-  <script type="module" crossorigin src="/assets/index-BeSxpk3u.js"></script>
+  <script type="module" crossorigin src="/assets/index-CnzZykMi.js"></script>
 </head>
 
 <body>
