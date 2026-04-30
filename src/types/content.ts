@@ -9,6 +9,7 @@ export interface Publication {
   tags: string[];
   image?: string;
   imageKind?: 'cover' | 'figure';
+  isCardClickable?: boolean;
 }
 
 export interface BlogPost {

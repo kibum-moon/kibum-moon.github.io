@@ -164,17 +164,11 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
 
   const hasCoverImage = Boolean(publication.image);
   const isFigureImage = publication.imageKind === 'figure';
+  const isCardClickable = publication.isCardClickable !== false && publication.link !== '#';
   const imageAspectClass = isFigureImage ? 'aspect-[4/3]' : 'aspect-[5/7]';
   const imageFitClass = isFigureImage ? 'object-contain object-center' : 'object-contain object-top';
 
-  return (
-    <a
-      href={publication.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block"
-      aria-label={`Open publication: ${publication.title}`}
-    >
+  const publicationCard = (
       <article className={`${cardLiftClass} px-5 py-4`}>
         <span aria-hidden className={cardAccentClass} />
         <div className={`relative z-10 grid gap-4 transition-transform duration-300 group-hover:translate-x-1 ${showYear ? 'md:grid-cols-[160px_minmax(0,1fr)_80px]' : 'md:grid-cols-[160px_minmax(0,1fr)]'} md:gap-6`}>
@@ -211,11 +205,13 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
             {publication.abstract && (
               <p className="text-[0.8rem] leading-snug text-gray-600 mt-1">{publication.abstract}</p>
             )}
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.15em] text-accent-1/70">
-              <span className="inline-flex items-center gap-2 transition-all duration-200 group-hover:text-accent-1">
-                {doiLabel}
-              </span>
-            </div>
+            {isCardClickable ? (
+              <div className="flex flex-wrap items-center gap-2 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.15em] text-accent-1/70">
+                <span className="inline-flex items-center gap-2 transition-all duration-200 group-hover:text-accent-1">
+                  {doiLabel}
+                </span>
+              </div>
+            ) : null}
           </div>
           {showYear ? (
             <p className="relative z-10 text-[0.75rem] font-bold uppercase tracking-[0.15em] text-gray-400 transition-colors duration-200 group-hover:text-accent-3 shrink-0 md:pt-0.5 md:text-right">
@@ -224,6 +220,21 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
           ) : null}
         </div>
       </article>
+  );
+
+  if (!isCardClickable) {
+    return <div className="block">{publicationCard}</div>;
+  }
+
+  return (
+    <a
+      href={publication.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block"
+      aria-label={`Open publication: ${publication.title}`}
+    >
+      {publicationCard}
     </a>
   );
 };

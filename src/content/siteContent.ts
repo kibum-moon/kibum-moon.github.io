@@ -276,7 +276,10 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2026,
     link: "#",
     abstract: "",
-    tags: ["Digital Well-being"]
+    tags: ["Digital Well-being"],
+    image: "/covers/figure_social_technology_life_satisfaction.png",
+    imageKind: "figure",
+    isCardClickable: false
   },
   {
     title: "Who values passion in education?",
