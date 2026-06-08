@@ -473,13 +473,23 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
+    eyebrow: "Conference",
+    title: "SfNC2026: Liberty to Create",
+    date: "June 1, 2026",
+    summary: "SfNC2026 will convene around Liberty to Create at FringeArts in Philadelphia.",
+    link: "https://www.tsfnc.org/sfnc2026-liberty-to-create",
+    image: "https://images.squarespace-cdn.com/content/v1/5e59499653df9c045ea75fd2/810648d4-b294-4e73-8391-4c41d19c220a/Copy+of+SfNC2026+Square.gif?format=750w",
+    imageAlt: "SfNC2026 Liberty to Create event thumbnail"
+  },
+
+  {
     eyebrow: "Media",
     title: "The New York Times featured two AI-era creativity studies",
     date: "May 27, 2026",
     summary: "The article discusses what large-scale college essays reveal about AI's effects on creativity.",
     link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
-    image: "/covers/figure_creative_link_ai_semantic_diversity.png",
-    imageAlt: "Semantic diversity figure from AI-era creativity research"
+    image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
+    imageAlt: "New York Times link preview image for the AI and creativity guest essay"
   },
 
   {
@@ -505,16 +515,6 @@ export const BLOG_DATA: BlogPost[] = [
     date: "September 1, 2025",
     summary: "This paper compares human and ChatGPT writing and asks what may get flattened when many people rely on the same model.",
     link: "https://doi.org/10.1016/j.chbah.2025.100207"
-  },
-
-  {
-    eyebrow: "Talk",
-    title: "Presented AI-era creativity work at SfNC",
-    date: "June 1, 2025",
-    summary: "Presented The Creative Link Between Words and Ideas is Weakening in the AI Era at SfNC in Philadelphia.",
-    link: "https://doi.org/10.31234/osf.io/jsz58_v6",
-    image: "/covers/figure_homogenizing_creative_diversity.png",
-    imageAlt: "Figure from AI and creative diversity research"
   },
 
   {
