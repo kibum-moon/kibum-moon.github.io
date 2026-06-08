@@ -46,7 +46,7 @@ export const EDUCATION_DATA: CVEntry[] = [
         details: "Advisor: Kostadin Kushlev, Ph.D. & Adam Green, Ph.D. (Co-Advising)",
     },
     {
-        period: "Sep. 2022 – May 2024",
+        period: "Aug. 2022 – May 2024",
         title: "Master of Public Policy (MPP)",
         institution: "Georgetown University",
         location: "Washington, DC",
@@ -271,8 +271,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
   },
   {
     title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults",
-    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Shroeder, J."],
-    venue: "Under review",
+    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Schroeder, J."],
+    venue: "Under revision, Nature Human Behaviour",
     year: 2026,
     link: "#",
     abstract: "",
@@ -303,14 +303,38 @@ export const PUBLICATIONS_DATA: Publication[] = [
 
 export const MANUSCRIPTS_DATA: Manuscript[] = [
     {
-        authors: ["Kushlev, K.", "Harris, M.", "Moon, K."],
-        title: "The Promise and Peril of Mental Health Apps.",
-        status: "in progress",
-        link: "https://psyarxiv.com/4uh7f"
+        authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
+        title: "The Creative Link Between Words and Ideas is Weakening in the AI Era.",
+        status: "under review",
+        link: "https://doi.org/10.31234/osf.io/jsz58_v6"
+    },
+    {
+        authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Schroeder, J."],
+        title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults.",
+        status: "under revision, Nature Human Behaviour",
+        link: "#"
+    },
+    {
+        authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
+        title: "Who values passion in education?",
+        status: "under review",
+        link: "https://doi.org/10.31234/osf.io/pytsa_v2"
+    },
+    {
+        authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
+        title: "Which foot forward? Cultural models of self-presentation in college applications.",
+        status: "under review",
+        link: "https://doi.org/10.31234/osf.io/upnq8_v1"
     }
 ];
 
 export const PATENTS_DATA: Patent[] = [
+    {
+        inventors: ["Green, A. E.", "Johnson, D. R.", "Kleinmintz, O. M.", "Moon, K.", "Liu, Y."],
+        year: 2026,
+        title: "Generative Diversity System and Method.",
+        id: "Application Number: PCT/US2026/015181"
+    },
     {
         inventors: ["Moon, K.", "Lee, J.", "Lee, S.", "Han, S.", "Kwon, H.", "Han, J.", "Kim, G.T."],
         year: 2022,
@@ -347,6 +371,7 @@ export const CONFERENCE_PRESENTATIONS_DATA: ConferenceCategory[] = [
     {
         category: "Conference Talks & Data Blitz",
         items: [
+            { authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."], date: "2025, June 1-3", title: "The Creative Link Between Words and Ideas is Weakening in the AI Era.", conference: "Annual Conference of the Society for the Neuroscience of Creativity (SfNC)", location: "Philadelphia, PA." },
             { authors: ["Moon, K.", "Johnson, D.", "Beaty, R. E.", "Kushlev, K.", "Patterson, J. D.", "Green, A. E."], date: "2025, March 13-15", title: "AI Creativity Assessment and AI-driven Homogenization in College Admissions.", conference: "Annual Conference of The Society for the Psychology of Aesthetics, Creativity, and the Arts (Division 10 of the American Psychological Association)", location: "New Haven, CT." },
             { authors: ["Moon, K.", "Kushlev, K.", "Patterson, J. D.", "Beaty, R. E.", "Green, A. E."], date: "2024, April 11-12", title: "A Computational Approach to Creativity: Fostering Success and Equity in College Admissions.", conference: "Annual Conference of the Society for the Neuroscience of Creativity (SfNC)", location: "Toronto, Canada" },
             { authors: ["Moon, K.", "Patterson, J. D.", "Kushlev, K.", "Beaty, R. E.", "Green, A. E."], date: "2024, February 8", title: "A Computational Approach to Creativity: Fostering Success and Equity in College Admissions.", conference: "The Computational Social Psychology Preconference at the Annual Convention of the Society for Personality and Social Psychology", location: "San Diego, CA" },
@@ -361,7 +386,9 @@ export const CONFERENCE_PRESENTATIONS_DATA: ConferenceCategory[] = [
     {
         category: "Posters",
         items: [
-            { authors: ["Moon, K.", "Kushlev, K.", "Patterson, J. D.", "Beaty, R. E., Green, A. E."], date: "2024, April 13-16", title: "A Computational Approach to Creativity: Fostering Success and Equity in College Admissions.", conference: "The Cognitive Neuroscience Society (CNS) 2024 Annual Meeting", location: "Toronto, Canada." },
+            { authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."], date: "2026, February 27", title: "LLM-Era College Admissions Essays Exhibit Paradoxical Semantic Trends.", conference: "Annual Convention of the Society for Personality and Social Psychology (SPSP)", location: "Chicago, IL." },
+            { authors: ["Kahn, J.", "King, D.", "Moon, K.", "Kushlev, K."], date: "2026, February 26", title: "Digital detox: Effective or inconsequential?", conference: "Psychology of Media and Technology Preconference at the Annual Convention of the Society for Personality and Social Psychology (SPSP)", location: "Chicago, IL." },
+            { authors: ["Moon, K.", "Kushlev, K.", "Patterson, J. D.", "Beaty, R. E.", "Green, A. E."], date: "2024, April 13-16", title: "A Computational Approach to Creativity: Fostering Success and Equity in College Admissions.", conference: "Annual Meeting of the Cognitive Neuroscience Society (CNS)", location: "Toronto, Canada." },
             { authors: ["Moon, K.", "Kronthal, E.", "Green, A. E.", "Kushlev, K."], date: "2024, April 11-12", title: "Human-Generated Content Achieves More Divergence in Aggregate than LLM-Generated Content: An Empirical Comparison of Human and ChatGPT Creativity.", conference: "Annual Conference of the Society for the Neuroscience of Creativity (SfNC)", location: "Toronto, Canada" },
             { authors: ["Moon, K.", "Kronthal, E.", "Green, A. E.", "Kushlev, K."], date: "2024, February 8-10", title: "Does ChatGPT promote or hinder human creativity?", conference: "Annual Convention of the Society for Personality and Social Psychology", location: "San Diego, CA." },
             { authors: ["Kim, S.", "Dunn, N.", "Moon, K.", "Casement, M.", "Yeom, J., Lee, H."], date: "2023, July 15", title: "The Longitudinal Relationship Between Childhood Trauma and Suicide Attempts Among Patients with Early Mood Disorders in South Korea.", conference: "2023 APA Division 45 Research Conference", location: "San Diego, CA." },
@@ -382,36 +409,42 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
     {
         category: "Graduate",
         items: [
-            { period: "2025", title: "SPSP Summer Institute in Social and Personality Psychology (SISPP)", details: "* Highly selective, 2-week-long advanced training program in social and personality psychology for early-career scholars." },
+            { period: "2025", title: "Fellow in NSF-funded Summer Institute for Social and Personality Psychology (SISPP), Northwestern University", details: "Completed two weeks of training in Culture and Social-Personality Processes: Concepts, Methods, and Implications, led by Dr. Heejung Kim and Dr. Dov Cohen." },
             { period: "2023 - 2025", title: "Georgetown Psychology Conference Travel Grant" },
-            { period: "2021", title: "Fulbright Scholarship (Offered, Declined)", details: "* Principal Candidate for the 2022 Fulbright Graduate Student Program Award" },
-            { period: "2015 – 2017", title: "Korea University Research Assistance Scholarship", details: "* Full tuition for four semesters during M.A. training." },
+            { period: "2022 – present", title: "Ph.D. Fellowship, Georgetown University", details: "Full tuition and stipend" },
+            { period: "2021", title: "Fulbright Scholarship (Offered, Declined)", details: "Principal Candidate for the 2022 Fulbright Graduate Student Program Award" },
+            { period: "2015 – 2017", title: "Korea University Research Assistance Scholarship", details: "Full tuition for 4 semesters" },
         ]
     },
     {
         category: "Undergraduate",
         items: [
-            { period: "2009 – 2014", title: "Undergraduate merit scholarships, Korea University", details: "* Recipient of multiple merit-based awards, including full-tuition scholarships (3 semesters) and Semester High Honors (5 semesters)." },
+            { period: "2014", title: "(Merit-Based) Korea University Alumni Scholarships", details: "Full tuition -- Selected as 1 of 177 students at Korea University" },
+            { period: "2013 Fall", title: "(Merit-Based) Choonpha Hwangchungha Scholarships", details: "Full tuition -- Selected as 1 of 6 students at Korea University" },
+            { period: "2013 Spring", title: "(Merit-Based) Sung Ryun Scholarships", details: "Full tuition -- Selected as 1 of 65 students nationwide in South Korea" },
+            { period: "2012, 2014", title: "(Merit-Based) Korea University Study Scholarships", details: "$1000 -- Awarded for high academic achievement." },
+            { period: "2009", title: "(Merit-Based) Korea University Honors Scholarships", details: "35% of tuition" },
+            { period: "2009 – 2014", title: "Korea University Semester High Honors", details: "Awarded for achieving higher GPAs (over 4.0 out 4.5), for 5 semesters" },
         ]
     }
 ];
 
 export const RESEARCH_EXPERIENCE_DATA: CVEntry[] = [
     { period: "Jan. 2023 – Present", title: "Graduate Researcher", institution: "Laboratory for Relational Cognition – Georgetown University", details: "PI: Dr. Adam Green", link: "https://cng.georgetown.edu/" },
-    { period: "Aug. 2022 – Present", title: "Graduate Researcher", institution: "Digital Health and Happiness Lab – Georgetown University", details: "PI: Dr. Kostadin Kushlev", link: "https://www.kushlev.com/lab" },
+    { period: "Aug. 2022 – Present", title: "Graduate Researcher", institution: "Happy Tech Lab – Georgetown University", details: "PI: Dr. Kostadin Kushlev", link: "https://www.kushlev.com/lab" },
     { period: "Feb. 2019 – Sep. 2019", title: "Clinical Researcher", institution: "Student Counseling Center – Korea University" },
     { period: "Feb. 2019 – Sep. 2019", title: "Post-Master Research Associate", institution: "Mentoring Counseling Center – Korea University" },
     { period: "Sep. 2015 – Feb. 2018", title: "Master Student Researcher", institution: "The Happiness Lab – Korea University", details: "PI: Dr. Young-gun Ko" },
 ];
 
 export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University", link: "https://oads.georgetown.edu/meet-the-team/" },
-    { period: "Jan. 2026 – May 2026", title: "Consultant", institution: "Hubside" },
+    { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University", link: "https://oads.georgetown.edu/" },
+    { period: "Jan. 2026 – May 2026", title: "Consultant", institution: "Hupside", link: "https://www.hupside.com/" },
     { period: "Oct. 2019 – Feb. 2022", title: "Data Scientist", institution: "Data Hub Team, Office of Digital Information – Korea University" },
 ];
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Fall 2025", title: "AI & Data Driven Psychology – Main Instructor (Std Eval: 4.86/5)", institution: "Georgetown University", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
+    { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
     { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
     { period: "Spring 2024", title: "Physiological Psychology – Teaching Fellow", institution: "Georgetown University" },
@@ -422,11 +455,12 @@ export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const PROFESSIONAL_SKILLS_DATA: Skill[] = [
-    { category: "Statistical Software & Programming Languages", list: "R, Python, SQL, JavaScript, Linux, Git, MATLAB, SPSS, STATA, JAMOVI, M-Plus" },
-    { category: "Statistical Analysis", list: "Multilevel models (MLM), structural equation models (SEM), RI-CLMP, factor analyses, generalized regression models, social network analyses, actor-partner interdependent models (APIM), ecological diversity analyses, Bayesian analyses, bootstrapping." },
-    { category: "Machine Learning & Deep Learning Frameworks", list: "Natural Language Processing (NLP), Dimension reduction, predictive modeling, time serial analyses, graph analytics, network representation learning, recommendation system, Pytorch, Tensorflow, Scikit-learn, Stellargraph, Genism, Tidymodels." },
-    { category: "Data Visualization Tools", list: "R Shiny, Plotly/Dash, Gephi, Tableau, Power BI, Adobe Photoshop, Illustrator" },
-    { category: "Language", list: "English (proficient), Korean (native), Japanese (Intermediate)" },
+    { category: "Data Tools", list: "R, Python, SQL, JavaScript, Linux, Git, MATLAB" },
+    { category: "Statistical Software", list: "SPSS, Stata, Mplus, jamovi" },
+    { category: "Statistical Modeling", list: "Bayesian modeling, econometrics, structural equation modeling (SEM; RI-CLPM, APIM, factor analysis), multilevel modeling, generalized linear models, bootstrapping, micro-simulation" },
+    { category: "AI & Computational Modeling", list: "Large language models (LLMs; prompt engineering, fine-tuning, transformer models, AI agents), classical NLP, deep learning, predictive modeling, time-series modeling, dimensionality reduction, graph analytics, recommender systems" },
+    { category: "Visualization", list: "R Shiny, Plotly/Dash, Gephi, Tableau, Power BI" },
+    { category: "Languages", list: "Korean (native), English (fluent), Japanese (intermediate)" },
 ];
 
 // FIX: Add empty TEACHING_DATA to resolve import error in Teaching.tsx
@@ -449,14 +483,14 @@ export const CV_DATA: CVSection[] = [
         title: "Selected Research Experience",
         items: [
             { period: "Jan 2023 - Present", title: "Graduate Researcher", institution: "Laboratory for Relational Cognition – Georgetown University (PI: Dr. Adam Green)" },
-            { period: "Aug 2022 - Present", title: "Graduate Researcher", institution: "Digital Health and Happiness Lab – Georgetown University (PI: Dr. Kostadin Kushlev)" },
+            { period: "Aug 2022 - Present", title: "Graduate Researcher", institution: "Happy Tech Lab – Georgetown University (PI: Dr. Kostadin Kushlev)" },
             { period: "Feb 2019 - Sep 2019", title: "Clinical Researcher", institution: "Student Counseling Center – Korea University" },
         ]
     },
     {
         title: "Selected Teaching Experience",
         items: [
-            { period: "Fall 2025", title: "AI & Data Driven Psychology – Main Instructor (Std Eval: 4.86 / 5)", institution: "Georgetown University" },
+            { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University" },
             { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
             { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
         ]
@@ -464,7 +498,8 @@ export const CV_DATA: CVSection[] = [
     {
         title: "Selected Honors & Awards",
         items: [
-            { period: "2025", title: "SPSP Summer Institute in Social and Personality Psychology (SISPP)" },
+            { period: "2025", title: "Fellow in NSF-funded Summer Institute for Social and Personality Psychology (SISPP), Northwestern University" },
+            { period: "2022 - present", title: "Ph.D. Fellowship, Georgetown University", institution: "Full tuition and stipend" },
             { period: "2021", title: "Fulbright Scholarship (Offered, Declined)", institution: "Principal Candidate for the 2022 Fulbright Graduate Student Program Award" },
             { period: "2015 - 2017", title: "Korea University Research Assistance Scholarship" },
         ]
