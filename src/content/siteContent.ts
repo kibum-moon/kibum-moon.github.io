@@ -423,7 +423,7 @@ export const HONORS_AWARDS_DATA: AwardCategory[] = [
             { period: "2013 Fall", title: "(Merit-Based) Choonpha Hwangchungha Scholarships", details: "Full tuition -- Selected as 1 of 6 students at Korea University" },
             { period: "2013 Spring", title: "(Merit-Based) Sung Ryun Scholarships", details: "Full tuition -- Selected as 1 of 65 students nationwide in South Korea" },
             { period: "2012, 2014", title: "(Merit-Based) Korea University Study Scholarships", details: "$1000 -- Awarded for high academic achievement." },
-            { period: "2009", title: "(Merit-Based) Korea University Honors Scholarships", details: "35% of tuition" },
+            { period: "2009", title: "(Merit-Based) Korea University Honors Scholarships", details: "35% of tuition -- Awarded for students in the top 5% of GPA in the Department." },
             { period: "2009 – 2014", title: "Korea University Semester High Honors", details: "Awarded for achieving higher GPAs (over 4.0 out 4.5), for 5 semesters" },
         ]
     }
