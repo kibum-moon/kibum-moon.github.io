@@ -30,7 +30,7 @@ const navigationLinks = [
   { label: 'Awards', href: '#awards' },
 ];
 
-const recentUpdates = BLOG_DATA.slice(0, 4);
+const recentUpdates = BLOG_DATA.slice(0, 6);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
 const featuredSelectedPublicationTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
@@ -136,12 +136,24 @@ const UpdatesPanel: React.FC = () => (
                 {formatUpdateDate(update.date)}
               </p>
               <div className="min-w-0">
-                <p className="text-[1rem] leading-7 text-text-primary transition-colors duration-200">
-                  <span className="font-semibold text-text-primary decoration-accent-2/30 decoration-2 underline-offset-4 transition-all duration-300 group-hover:decoration-accent-2 group-hover:text-accent-2 group-hover:underline">
-                    {update.title}
-                  </span>
-                  {update.summary ? <span className="text-text-secondary">. {update.summary}</span> : null}
-                </p>
+                <div className="flex gap-3">
+                  {update.image ? (
+                    <div className="mt-1 h-16 w-20 shrink-0 overflow-hidden rounded-md border border-gray-200 bg-white/70">
+                      <img
+                        src={update.image}
+                        alt={update.imageAlt ?? ''}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : null}
+                  <p className="text-[1rem] leading-7 text-text-primary transition-colors duration-200">
+                    <span className="font-semibold text-text-primary decoration-accent-2/30 decoration-2 underline-offset-4 transition-all duration-300 group-hover:decoration-accent-2 group-hover:text-accent-2 group-hover:underline">
+                      {update.title}
+                    </span>
+                    {update.summary ? <span className="text-text-secondary">. {update.summary}</span> : null}
+                  </p>
+                </div>
               </div>
               <span className="inline-flex items-center justify-start text-[0.75rem] font-bold uppercase tracking-[0.15em] text-text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-2 md:justify-end md:pt-0.5">
                 Open &rarr;

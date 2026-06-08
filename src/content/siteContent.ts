@@ -405,9 +405,9 @@ export const RESEARCH_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "Jan. 2026 – Present", title: "Consultant", institution: "Hubside" },
     { period: "Oct. 2022 – Present", title: "Graduate Research Affiliate", institution: "Office of Assessment and Decision Support – Georgetown University", link: "https://oads.georgetown.edu/meet-the-team/" },
-    { period: "Oct. 2019 – Feb. 2022", title: "Full-time Data Scientist", institution: "Data Hub Team, Office of Digital Information – Korea University" },
+    { period: "Jan. 2026 – May 2026", title: "Consultant", institution: "Hubside" },
+    { period: "Oct. 2019 – Feb. 2022", title: "Data Scientist", institution: "Data Hub Team, Office of Digital Information – Korea University" },
 ];
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
@@ -473,6 +473,16 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
+    eyebrow: "Media",
+    title: "The New York Times featured two AI-era creativity studies",
+    date: "May 27, 2026",
+    summary: "The article discusses what large-scale college essays reveal about AI's effects on creativity.",
+    link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
+    image: "/covers/figure_creative_link_ai_semantic_diversity.png",
+    imageAlt: "Semantic diversity figure from AI-era creativity research"
+  },
+
+  {
     eyebrow: "Paper",
     title: "How culture can keep social worlds apart",
     date: "January 18, 2026",
@@ -495,6 +505,16 @@ export const BLOG_DATA: BlogPost[] = [
     date: "September 1, 2025",
     summary: "This paper compares human and ChatGPT writing and asks what may get flattened when many people rely on the same model.",
     link: "https://doi.org/10.1016/j.chbah.2025.100207"
+  },
+
+  {
+    eyebrow: "Talk",
+    title: "Presented AI-era creativity work at SfNC",
+    date: "June 1, 2025",
+    summary: "Presented The Creative Link Between Words and Ideas is Weakening in the AI Era at SfNC in Philadelphia.",
+    link: "https://doi.org/10.31234/osf.io/jsz58_v6",
+    image: "/covers/figure_homogenizing_creative_diversity.png",
+    imageAlt: "Figure from AI and creative diversity research"
   },
 
   {

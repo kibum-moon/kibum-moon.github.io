@@ -18,6 +18,8 @@ export interface BlogPost {
   date: string;
   summary: string;
   link: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export interface CVSection {
