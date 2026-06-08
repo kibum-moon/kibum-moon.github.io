@@ -474,19 +474,19 @@ export const CV_DATA: CVSection[] = [
 export const BLOG_DATA: BlogPost[] = [
   {
     eyebrow: "Conference",
-    title: "SfNC2026: Liberty to Create",
+    title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
     date: "June 1, 2026",
-    summary: "SfNC2026 will convene around Liberty to Create at FringeArts in Philadelphia.",
-    link: "https://www.tsfnc.org/sfnc2026-liberty-to-create",
+    summary: "I presented this work at SfNC2026: Liberty to Create in Philadelphia.",
+    link: "https://www.tsfnc.org/sfnc2026-liberty-to-create-speaker-program",
     image: "https://images.squarespace-cdn.com/content/v1/5e59499653df9c045ea75fd2/810648d4-b294-4e73-8391-4c41d19c220a/Copy+of+SfNC2026+Square.gif?format=750w",
     imageAlt: "SfNC2026 Liberty to Create event thumbnail"
   },
 
   {
     eyebrow: "Media",
-    title: "The New York Times featured two AI-era creativity studies",
+    title: "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
     date: "May 27, 2026",
-    summary: "The article discusses what large-scale college essays reveal about AI's effects on creativity.",
+    summary: "The New York Times featured two of my first-authored papers on AI-era creativity.",
     link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
     image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
     imageAlt: "New York Times link preview image for the AI and creativity guest essay"
