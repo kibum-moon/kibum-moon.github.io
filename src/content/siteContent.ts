@@ -528,6 +528,14 @@ export const BLOG_DATA: BlogPost[] = [
   },
 
   {
+    eyebrow: "Paper",
+    title: "How culture can keep social worlds apart",
+    date: "January 18, 2026",
+    summary: "A new PSPB paper looks at how culture can quietly shape the way our relationships stay separated or overlap.",
+    link: "https://doi.org/10.1177/01461672251404548"
+  },
+
+  {
     eyebrow: "Media",
     title: "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
     date: "May 27, 2026",
@@ -535,14 +543,6 @@ export const BLOG_DATA: BlogPost[] = [
     link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
     image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
     imageAlt: "New York Times link preview image for the AI and creativity guest essay"
-  },
-
-  {
-    eyebrow: "Paper",
-    title: "How culture can keep social worlds apart",
-    date: "January 18, 2026",
-    summary: "A new PSPB paper looks at how culture can quietly shape the way our relationships stay separated or overlap.",
-    link: "https://doi.org/10.1177/01461672251404548"
   },
 
 
