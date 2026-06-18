@@ -293,7 +293,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "Which foot forward? Cultural models of self-presentation in college applications",
     authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-    venue: "Under review",
+    venue: "Under revision, Higher Education",
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/upnq8_v1",
     abstract: "",
@@ -323,7 +323,7 @@ export const MANUSCRIPTS_DATA: Manuscript[] = [
     {
         authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
         title: "Which foot forward? Cultural models of self-presentation in college applications.",
-        status: "under review",
+        status: "under revision, Higher Education",
         link: "https://doi.org/10.31234/osf.io/upnq8_v1"
     }
 ];
@@ -508,6 +508,16 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
+    eyebrow: "Media",
+    title: "Summer Challenge: Put Your Phone Away for Better Sleep",
+    date: "June 11, 2026",
+    summary: "The New York Times cited our digital detox study as part of its Touch Grass Challenge.",
+    link: "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
+    image: "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png",
+    imageAlt: "New York Times link preview image for the Touch Grass Challenge sleep article"
+  },
+
+  {
     eyebrow: "Conference",
     title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
     date: "June 1, 2026",
@@ -519,12 +529,12 @@ export const BLOG_DATA: BlogPost[] = [
 
   {
     eyebrow: "Media",
-    title: "Summer Challenge: Put Your Phone Away for Better Sleep",
-    date: "June 11, 2026",
-    summary: "The New York Times cited our digital detox study as part of its Touch Grass Challenge.",
-    link: "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
-    image: "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png",
-    imageAlt: "New York Times link preview image for the Touch Grass Challenge sleep article"
+    title: "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
+    date: "May 27, 2026",
+    summary: "The New York Times featured two of my first-authored papers on AI-era creativity.",
+    link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
+    image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
+    imageAlt: "New York Times link preview image for the AI and creativity guest essay"
   },
 
   {
@@ -533,16 +543,6 @@ export const BLOG_DATA: BlogPost[] = [
     date: "January 18, 2026",
     summary: "A new PSPB paper looks at how culture can quietly shape the way our relationships stay separated or overlap.",
     link: "https://doi.org/10.1177/01461672251404548"
-  },
-
-  {
-    eyebrow: "Media",
-    title: "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
-    date: "May 27, 2026",
-    summary: "The New York Times featured two of my first-authored papers on AI-era creativity.",
-    link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
-    image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
-    imageAlt: "New York Times link preview image for the AI and creativity guest essay"
   },
 
 

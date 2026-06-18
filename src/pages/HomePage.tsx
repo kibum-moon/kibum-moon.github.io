@@ -37,17 +37,17 @@ const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PU
   if (right.year !== left.year) return right.year - left.year;
   return left.title.localeCompare(right.title);
 };
-const isUnderReviewPublication = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
-  publication.venue.trim().toLowerCase() === 'under review';
+const isUnderConsiderationPublication = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
+  /^under (review|revision)\b/.test(publication.venue.trim().toLowerCase());
 const sortPublishedFirst = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
-  const leftIsUnderReview = isUnderReviewPublication(left);
-  const rightIsUnderReview = isUnderReviewPublication(right);
-  if (leftIsUnderReview !== rightIsUnderReview) return leftIsUnderReview ? 1 : -1;
+  const leftIsUnderConsideration = isUnderConsiderationPublication(left);
+  const rightIsUnderConsideration = isUnderConsiderationPublication(right);
+  if (leftIsUnderConsideration !== rightIsUnderConsideration) return leftIsUnderConsideration ? 1 : -1;
   return sortPublications(left, right);
 };
 const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
-  const publishedPublications = publications.filter((publication) => !isUnderReviewPublication(publication));
-  const underReviewPublications = publications.filter(isUnderReviewPublication).sort(sortPublications);
+  const publishedPublications = publications.filter((publication) => !isUnderConsiderationPublication(publication));
+  const underConsiderationPublications = publications.filter(isUnderConsiderationPublication).sort(sortPublications);
   const yearGroups = Array.from(
     publishedPublications.reduce((groups, publication) => {
       const yearGroup = groups.get(publication.year) || [];
@@ -63,13 +63,13 @@ const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
       showYear: false,
     }));
 
-  if (underReviewPublications.length === 0) return yearGroups;
+  if (underConsiderationPublications.length === 0) return yearGroups;
 
   return [
     ...yearGroups,
     {
-      label: 'Under Review',
-      publications: underReviewPublications,
+      label: 'Under Review / Revision',
+      publications: underConsiderationPublications,
       showYear: true,
     },
   ];
