@@ -13,7 +13,7 @@ export const PROFILE_DATA = {
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf",
-  lastUpdated: "Jun 8, 2026",
+  lastUpdated: "Jun 18, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -515,6 +515,16 @@ export const BLOG_DATA: BlogPost[] = [
     link: "https://www.tsfnc.org/sfnc2026-liberty-to-create-speaker-program",
     image: "https://images.squarespace-cdn.com/content/v1/5e59499653df9c045ea75fd2/810648d4-b294-4e73-8391-4c41d19c220a/Copy+of+SfNC2026+Square.gif?format=750w",
     imageAlt: "SfNC2026 Liberty to Create event thumbnail"
+  },
+
+  {
+    eyebrow: "Media",
+    title: "Summer Challenge: Put Your Phone Away for Better Sleep",
+    date: "June 11, 2026",
+    summary: "The New York Times cited our digital detox study as part of its Touch Grass Challenge.",
+    link: "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
+    image: "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png",
+    imageAlt: "New York Times link preview image for the Touch Grass Challenge sleep article"
   },
 
   {
