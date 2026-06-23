@@ -13,7 +13,7 @@ export const PROFILE_DATA = {
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf",
-  lastUpdated: "Jun 8, 2026",
+  lastUpdated: "Jun 23, 2026",
 };
 
 export const SOCIAL_LINKS = {
