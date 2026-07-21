@@ -263,7 +263,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
     authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
     venue: "Under review",
     year: 2026,
-    link: "https://doi.org/10.31234/osf.io/jsz58_v6",
+    link: "https://osf.io/preprints/psyarxiv/jsz58",
     abstract: "",
     tags: ["AI", "Creativity", "Higher Ed"],
     image: "/covers/figure_creative_link_ai_semantic_diversity.png",
@@ -306,7 +306,7 @@ export const MANUSCRIPTS_DATA: Manuscript[] = [
         authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
         title: "The Creative Link Between Words and Ideas is Weakening in the AI Era.",
         status: "under review",
-        link: "https://doi.org/10.31234/osf.io/jsz58_v6"
+        link: "https://osf.io/preprints/psyarxiv/jsz58"
     },
     {
         authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Schroeder, J."],
