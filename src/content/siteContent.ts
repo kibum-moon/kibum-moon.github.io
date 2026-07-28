@@ -505,7 +505,7 @@ export const BLOG_DATA: BlogPost[] = [
     eyebrow: "Paper",
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
     date: "July 28, 2026",
-    summary: "Kosta and I are co-first authors on this paper, which has been accepted for publication in Nature Human Behaviour. More details soon.",
+    summary: "Kosta and I are co-first authors on this paper, which has been accepted for publication in Nature Human Behaviour. More details soon!",
     link: "https://www.nature.com/nathumbehav/",
     image: "https://media.springernature.com/full/nature-cms/uploads/product/nathumbehav/header-e3536822626c69ce82d4c250369d92d9.svg",
     imageAlt: "Nature Human Behaviour journal logo"
