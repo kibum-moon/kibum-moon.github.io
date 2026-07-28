@@ -502,6 +502,24 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
+    eyebrow: "Paper",
+    title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
+    date: "July 28, 2026",
+    summary: "Kosta and I are co-first authors on this paper, which has been accepted for publication in Nature Human Behaviour. More details soon.",
+    link: "https://www.nature.com/nathumbehav/",
+    image: "https://media.springernature.com/lw630/nature-cms/uploads/cms/pages/4149/top_item_image/NHB_Hero_JUL26-f958e1f48858c6d8e2e8eb437da665c7.jpg",
+    imageAlt: "Nature Human Behaviour official journal image"
+  },
+
+  {
+    eyebrow: "Workshop",
+    title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings",
+    date: "July 2026",
+    summary: "I designed and delivered a hands-on computational workshop on semantic embeddings and generative diversity at the University of Warwick.",
+    link: "https://warwick.ac.uk/"
+  },
+
+  {
     eyebrow: "Media",
     title: "Summer Challenge: Put Your Phone Away for Better Sleep",
     date: "June 11, 2026",
