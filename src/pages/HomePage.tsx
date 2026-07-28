@@ -33,6 +33,7 @@ const navigationLinks = [
 const recentUpdates = BLOG_DATA.slice(0, 6);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
 const featuredSelectedPublicationTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
+const socialTechnologyPublicationTitle = "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults";
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
   if (right.year !== left.year) return right.year - left.year;
   return left.title.localeCompare(right.title);
@@ -296,12 +297,15 @@ const HomePage: React.FC = () => {
 
     if (activeTab === 'Selected') {
       const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.')).sort(sortPublishedFirst);
-      const targetIdx = selected.findIndex(p => p.title === featuredSelectedPublicationTitle);
-      if (targetIdx > -1) {
-        const [target] = selected.splice(targetIdx, 1);
-        selected.unshift(target);
-      }
-      return selected;
+      const featuredPublications = [featuredSelectedPublicationTitle, socialTechnologyPublicationTitle]
+        .map((title) => PUBLICATIONS_DATA.find((publication) => publication.title === title))
+        .filter((publication): publication is (typeof PUBLICATIONS_DATA)[0] => Boolean(publication));
+      const featuredTitles = new Set(featuredPublications.map((publication) => publication.title));
+
+      return [
+        ...featuredPublications,
+        ...selected.filter((publication) => !featuredTitles.has(publication.title)),
+      ];
     }
     const themeMap: Record<string, string[]> = {
       'AI & Tech': ['AI', 'LLMs', 'Deep Learning', 'Recommender System', 'Mobile App', 'Online Learning', 'Prediction Model', 'Education', 'Creativity'],
