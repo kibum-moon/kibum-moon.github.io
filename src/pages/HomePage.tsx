@@ -143,7 +143,7 @@ const UpdatesPanel: React.FC = () => (
                       <img
                         src={update.image}
                         alt={update.imageAlt ?? ''}
-                        className={`h-full w-full ${update.image.endsWith('.svg') ? 'object-contain p-2' : 'object-cover'}`}
+                        className={`h-full w-full ${update.image.includes('.svg') ? 'object-contain p-2' : 'object-cover'}`}
                         loading="lazy"
                       />
                     </div>

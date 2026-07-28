@@ -515,8 +515,10 @@ export const BLOG_DATA: BlogPost[] = [
     eyebrow: "Workshop",
     title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings",
     date: "July 2026",
-    summary: "I designed and delivered a hands-on computational workshop on semantic embeddings and generative diversity at the University of Warwick.",
-    link: "https://warwick.ac.uk/"
+    summary: "At Warwick, I led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.",
+    link: "https://warwick.ac.uk/fac/sci/psych/",
+    image: "https://dam.assets.warwick.ac.uk/images/assets/header_wordmark_146x39.svg/Zz0yYjhiNTU5MjRhY2ExMWYwYjlkOTRlYzRjNDI3ZDU1Yg==",
+    imageAlt: "University of Warwick wordmark"
   },
 
   {
