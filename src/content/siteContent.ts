@@ -13,7 +13,7 @@ export const PROFILE_DATA = {
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf",
-  lastUpdated: "Jul 23, 2026",
+  lastUpdated: "Jul 28, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -270,9 +270,9 @@ export const PUBLICATIONS_DATA: Publication[] = [
     imageKind: "figure"
   },
   {
-    title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults",
-    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Schroeder, J."],
-    venue: "Under revision, Nature Human Behaviour",
+    title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
+    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Fast, N.", "Schroeder, J."],
+    venue: "Nature Human Behaviour, in press",
     year: 2026,
     link: "#",
     abstract: "",
@@ -307,12 +307,6 @@ export const MANUSCRIPTS_DATA: Manuscript[] = [
         title: "The Creative Link Between Words and Ideas is Weakening in the AI Era.",
         status: "under review",
         link: "https://osf.io/preprints/psyarxiv/jsz58"
-    },
-    {
-        authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Iyer, R.", "Fast, N.", "Schroeder, J."],
-        title: "Social Technology Use Is Not Associated with Greater Subsequent Life Satisfaction: A Five-Wave Panel Study of U.S. Adults.",
-        status: "under revision, Nature Human Behaviour",
-        link: "#"
     },
     {
         authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
