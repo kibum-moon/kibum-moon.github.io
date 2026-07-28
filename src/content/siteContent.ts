@@ -507,8 +507,8 @@ export const BLOG_DATA: BlogPost[] = [
     date: "July 28, 2026",
     summary: "Kosta and I are co-first authors on this paper, which has been accepted for publication in Nature Human Behaviour. More details soon.",
     link: "https://www.nature.com/nathumbehav/",
-    image: "https://media.springernature.com/lw630/nature-cms/uploads/cms/pages/4149/top_item_image/NHB_Hero_JUL26-f958e1f48858c6d8e2e8eb437da665c7.jpg",
-    imageAlt: "Nature Human Behaviour official journal image"
+    image: "https://media.springernature.com/full/nature-cms/uploads/product/nathumbehav/header-e3536822626c69ce82d4c250369d92d9.svg",
+    imageAlt: "Nature Human Behaviour journal logo"
   },
 
   {
