@@ -438,6 +438,7 @@ export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
+    { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick", details: "Led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.", link: "/workshops/warwick-text-analytics-workshop.pptx" },
     { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
     { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
@@ -484,6 +485,7 @@ export const CV_DATA: CVSection[] = [
     {
         title: "Selected Teaching Experience",
         items: [
+            { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick" },
             { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University" },
             { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
             { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },

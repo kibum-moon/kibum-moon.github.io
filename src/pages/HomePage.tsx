@@ -461,7 +461,7 @@ const HomePage: React.FC = () => {
                       <span>{course.title}</span>
                       {course.link && (
                         <a href={course.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30">
-                          Syllabus
+                          {course.link.endsWith('.pptx') ? 'Slides' : 'Syllabus'}
                         </a>
                       )}
                     </h3>
