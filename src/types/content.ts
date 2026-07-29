@@ -18,6 +18,10 @@ export interface BlogPost {
   date: string;
   summary: string;
   link: string;
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
   image?: string;
   imageAlt?: string;
 }
@@ -40,6 +44,10 @@ export interface CVEntry {
     location?: string;
     details?: string | string[];
     link?: string;
+    links?: Array<{
+      label: string;
+      href: string;
+    }>;
 }
 
 export interface Manuscript {

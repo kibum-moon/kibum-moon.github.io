@@ -3,6 +3,13 @@ import type { Publication, BlogPost, CVSection, CVEntry, Manuscript, Patent, Con
 
 // --- EDITABLE CONTENT STARTS HERE ---
 
+const WARWICK_WORKSHOP_MATERIAL_URL = "https://drive.google.com/file/d/1PRuHo6GPnmtcSPSW2tCLG9QOUxV-wkcj/view?usp=sharing";
+const WARWICK_WORKSHOP_PROGRAM_URL = "https://warwick.ac.uk/research/spotlights/behaviour/news-events/warwicktextanalyticsworkshop/";
+const WARWICK_WORKSHOP_LINKS = [
+  { label: "Material", href: WARWICK_WORKSHOP_MATERIAL_URL },
+  { label: "Program", href: WARWICK_WORKSHOP_PROGRAM_URL },
+];
+
 export const PROFILE_DATA = {
   name: "Kibum Moon",
   title: "Ph.D. Student in Psychology",
@@ -438,7 +445,7 @@ export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
 ];
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
-    { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick", details: "Led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.", link: "/workshops/warwick-text-analytics-workshop.pptx" },
+    { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick", details: "Led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.", link: WARWICK_WORKSHOP_MATERIAL_URL, links: WARWICK_WORKSHOP_LINKS },
     { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
     { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
@@ -518,7 +525,8 @@ export const BLOG_DATA: BlogPost[] = [
     title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings",
     date: "July 2026",
     summary: "At Warwick, I led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.",
-    link: "/workshops/warwick-text-analytics-workshop.pptx",
+    link: WARWICK_WORKSHOP_MATERIAL_URL,
+    links: WARWICK_WORKSHOP_LINKS,
     image: "https://dam.assets.warwick.ac.uk/images/assets/header_wordmark_146x39.svg/Zz0yYjhiNTU5MjRhY2ExMWYwYjlkOTRlYzRjNDI3ZDU1Yg==",
     imageAlt: "University of Warwick wordmark"
   },

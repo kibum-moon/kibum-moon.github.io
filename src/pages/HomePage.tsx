@@ -20,6 +20,7 @@ const rowCardClass = `${cardLiftClass} flex flex-col gap-3 px-5 py-5 md:flex-row
 const cardAccentClass = 'pointer-events-none absolute inset-y-4 left-0 w-[4px] bg-gradient-to-b from-accent-1 to-accent-2 opacity-0 transition-all duration-300 group-hover:inset-y-3 group-hover:opacity-100 rounded-r-md';
 const inlineLinkClass = 'inline-flex items-center transition-colors duration-200 hover:text-accent-1 font-medium';
 const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-text-secondary transition-colors duration-200 hover:border-accent-2 hover:text-accent-2 font-medium';
+const pillLinkClass = 'inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30';
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
@@ -123,45 +124,60 @@ const UpdatesPanel: React.FC = () => (
     </div>
     <div className="border-y border-gray-200">
       {recentUpdates.map((update) => (
-        <a
+        <article
           key={`${update.date}-${update.title}`}
-          href={update.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block"
-          aria-label={`Open update: ${update.title}`}
+          className="group border-t border-gray-200 px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-white/40 rounded-lg"
         >
-          <article className="border-t border-gray-200 px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-white/40 rounded-lg">
-            <div className="grid gap-2 md:grid-cols-[100px_minmax(0,1fr)_92px] md:items-start md:gap-4">
-              <p className="text-[0.8rem] font-medium uppercase tracking-[0.1em] text-text-secondary transition-colors duration-200 group-hover:text-accent-1 md:pt-0.5">
-                {formatUpdateDate(update.date)}
-              </p>
-              <div className="min-w-0">
-                <div className="flex gap-3">
-                  {update.image ? (
-                    <div className="mt-1 h-16 w-20 shrink-0 overflow-hidden rounded-md border border-gray-200 bg-white/70">
-                      <img
-                        src={update.image}
-                        alt={update.imageAlt ?? ''}
-                        className={`h-full w-full ${update.image.includes('.svg') ? 'object-contain p-2' : 'object-cover'}`}
-                        loading="lazy"
-                      />
-                    </div>
-                  ) : null}
+          <div className="grid gap-2 md:grid-cols-[100px_minmax(0,1fr)_92px] md:items-start md:gap-4">
+            <p className="text-[0.8rem] font-medium uppercase tracking-[0.1em] text-text-secondary transition-colors duration-200 group-hover:text-accent-1 md:pt-0.5">
+              {formatUpdateDate(update.date)}
+            </p>
+            <div className="min-w-0">
+              <div className="flex gap-3">
+                {update.image ? (
+                  <div className="mt-1 h-16 w-20 shrink-0 overflow-hidden rounded-md border border-gray-200 bg-white/70">
+                    <img
+                      src={update.image}
+                      alt={update.imageAlt ?? ''}
+                      className={`h-full w-full ${update.image.includes('.svg') ? 'object-contain p-2' : 'object-cover'}`}
+                      loading="lazy"
+                    />
+                  </div>
+                ) : null}
+                <div className="min-w-0">
                   <p className="text-[1rem] leading-7 text-text-primary transition-colors duration-200">
-                    <span className="font-semibold text-text-primary decoration-accent-2/30 decoration-2 underline-offset-4 transition-all duration-300 group-hover:decoration-accent-2 group-hover:text-accent-2 group-hover:underline">
+                    <a
+                      href={update.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-text-primary decoration-accent-2/30 decoration-2 underline-offset-4 transition-all duration-300 hover:text-accent-2 hover:underline group-hover:decoration-accent-2"
+                    >
                       {update.title}
-                    </span>
+                    </a>
                     {update.summary ? <span className="text-text-secondary">. {update.summary}</span> : null}
                   </p>
+                  {update.links?.length ? (
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {update.links.map((action) => (
+                        <a key={`${update.title}-${action.label}`} href={action.href} target="_blank" rel="noopener noreferrer" className={pillLinkClass}>
+                          {action.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </div>
-              <span className="inline-flex items-center justify-start text-[0.75rem] font-bold uppercase tracking-[0.15em] text-text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent-2 md:justify-end md:pt-0.5">
-                Open &rarr;
-              </span>
             </div>
-          </article>
-        </a>
+            <a
+              href={update.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-start text-[0.75rem] font-bold uppercase tracking-[0.15em] text-text-secondary transition-all duration-300 hover:text-accent-2 group-hover:translate-x-1 md:justify-end md:pt-0.5"
+            >
+              Open &rarr;
+            </a>
+          </div>
+        </article>
       ))}
     </div>
   </section>
@@ -459,11 +475,16 @@ const HomePage: React.FC = () => {
                   <div className="relative z-10">
                     <h3 className="flex flex-wrap items-center gap-2 text-[1.1rem] font-bold leading-7 text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
                       <span>{course.title}</span>
-                      {course.link && (
-                        <a href={course.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30">
-                          {course.link.endsWith('.pptx') ? 'Slides' : 'Syllabus'}
+                      {(course.links?.length
+                        ? course.links
+                        : course.link
+                          ? [{ label: course.link.endsWith('.pptx') ? 'Slides' : 'Syllabus', href: course.link }]
+                          : []
+                      ).map((action) => (
+                        <a key={`${course.title}-${action.label}`} href={action.href} target="_blank" rel="noopener noreferrer" className={pillLinkClass}>
+                          {action.label}
                         </a>
-                      )}
+                      ))}
                     </h3>
                     <p className="mt-1 text-[0.9rem] font-medium leading-6 text-text-secondary">{course.institution}</p>
                   </div>
