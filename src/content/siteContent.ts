@@ -4,7 +4,7 @@ import type { Publication, BlogPost, CVSection, CVEntry, Manuscript, Patent, Con
 // --- EDITABLE CONTENT STARTS HERE ---
 
 const WARWICK_WORKSHOP_MATERIAL_URL = "https://drive.google.com/file/d/1PRuHo6GPnmtcSPSW2tCLG9QOUxV-wkcj/view?usp=sharing";
-const WARWICK_WORKSHOP_PROGRAM_URL = "https://warwick.ac.uk/research/spotlights/behaviour/news-events/warwicktextanalyticsworkshop/";
+const WARWICK_WORKSHOP_PROGRAM_URL = "/workshops/warwick-text-analytics-workshop.pptx";
 const WARWICK_WORKSHOP_LINKS = [
   { label: "Material", href: WARWICK_WORKSHOP_MATERIAL_URL },
   { label: "Program", href: WARWICK_WORKSHOP_PROGRAM_URL },
