@@ -552,16 +552,6 @@ export const BLOG_DATA: BlogPost[] = [
   },
 
   {
-    eyebrow: "Conference",
-    title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
-    date: "June 1, 2026",
-    summary: "I presented this work at SfNC2026: Liberty to Create in Philadelphia.",
-    link: "https://www.tsfnc.org/sfnc2026-liberty-to-create-speaker-program",
-    image: "https://images.squarespace-cdn.com/content/v1/5e59499653df9c045ea75fd2/810648d4-b294-4e73-8391-4c41d19c220a/Copy+of+SfNC2026+Square.gif?format=750w",
-    imageAlt: "SfNC2026 Liberty to Create event thumbnail"
-  },
-
-  {
     eyebrow: "Media",
     title: "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
     date: "May 27, 2026",
@@ -579,14 +569,6 @@ export const BLOG_DATA: BlogPost[] = [
     link: "https://doi.org/10.1177/01461672251404548"
   },
 
-
-  {
-    eyebrow: "Feature",
-    title: "A closer look at our AI and creativity work",
-    date: "October 10, 2025",
-    summary: "The Hoya featured our lab and some of the bigger questions we are asking about creativity in the age of AI.",
-    link: "https://thehoya.com/science/lab-spotlight-green-lab-explores-benefits-of-creativity-impacts-of-ai/"
-  },
 
   {
     eyebrow: "Paper",

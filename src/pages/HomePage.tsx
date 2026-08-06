@@ -31,7 +31,7 @@ const navigationLinks = [
   { label: 'Awards', href: '#awards' },
 ];
 
-const recentUpdates = BLOG_DATA.slice(0, 6);
+const recentUpdates = BLOG_DATA.slice(0, 8);
 const teachingHighlights = TEACHING_EXPERIENCE_DATA;
 const featuredSelectedPublicationTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
 const socialTechnologyPublicationTitle = "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults";
