@@ -93,7 +93,9 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2026,
     link: "https://escholarship.org/content/qt6nk8f4xn/qt6nk8f4xn.pdf",
     abstract: "",
-    tags: ["AI", "LLMs", "Creativity", "Evaluation"]
+    tags: ["AI", "LLMs", "Creativity", "Evaluation"],
+    image: "/covers/figure_self_preference_bias_llm_evaluations.png",
+    imageKind: "figure"
   },
   {
     title: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
