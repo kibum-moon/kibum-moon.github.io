@@ -87,6 +87,15 @@ export const EDUCATION_DATA: CVEntry[] = [
 
 export const PUBLICATIONS_DATA: Publication[] = [
   {
+    title: "The Persistence of Self-Preference Bias in LLM Evaluations of Creativity",
+    authors: ["Tabatabaeian, S.", "Moon, K.", "Johnson, D.", "Kay, M. S.", "& Green, A. E."],
+    venue: "Proceedings of the Annual Meeting of the Cognitive Science Society, 48",
+    year: 2026,
+    link: "https://escholarship.org/content/qt6nk8f4xn/qt6nk8f4xn.pdf",
+    abstract: "",
+    tags: ["AI", "LLMs", "Creativity", "Evaluation"]
+  },
+  {
     title: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
     authors: ["Wu, J.", "English, A.", "Zhou, X.", "Xu, Y.", "Brooks, C.", "Moon, K.", "& Chenstsova-Dutton, Y."],
     venue: "Personality and Social Psychology Bulletin",
@@ -279,6 +288,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
     authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Fast, N.", "Schroeder, J."],
+    coFirstAuthors: ["Kushlev, K.", "Moon, K."],
     venue: "Nature Human Behaviour, in press",
     year: 2026,
     link: "#",

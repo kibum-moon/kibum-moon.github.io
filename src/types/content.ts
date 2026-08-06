@@ -2,6 +2,7 @@
 export interface Publication {
   title: string;
   authors: string[];
+  coFirstAuthors?: string[];
   venue: string;
   year: number;
   link: string;

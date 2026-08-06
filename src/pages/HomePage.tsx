@@ -93,11 +93,12 @@ const orderedAwardGroups = HONORS_AWARDS_DATA.map((category) => ({
   items: [...category.items].sort((a, b) => awardEndYear(b.period) - awardEndYear(a.period)),
 }));
 
-const formatAuthors = (authors: string[]) =>
+const formatAuthors = (authors: string[], coFirstAuthors: string[] = []) =>
   authors.map((author, index) => (
     <React.Fragment key={`${author}-${index}`}>
       {index > 0 ? ', ' : null}
       {author === 'Moon, K.' ? <strong className="font-semibold text-text-primary">Moon, K.</strong> : author}
+      {coFirstAuthors.includes(author) ? <sup className="ml-0.5 text-[0.65em]">*</sup> : null}
     </React.Fragment>
   ));
 
@@ -226,8 +227,11 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; sh
               {publication.title}
             </h3>
             <p className="text-[0.85rem] leading-snug text-text-secondary">
-              {formatAuthors(publication.authors)}.
+              {formatAuthors(publication.authors, publication.coFirstAuthors)}.
             </p>
+            {publication.coFirstAuthors?.length ? (
+              <p className="text-[0.75rem] italic leading-snug text-text-secondary">* Co-first authors</p>
+            ) : null}
             <p className="text-[0.85rem] font-medium italic text-text-secondary opacity-80 transition-all duration-200 group-hover:text-accent-2">
               {publication.venue}
             </p>
