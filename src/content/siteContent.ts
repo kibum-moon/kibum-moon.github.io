@@ -521,6 +521,16 @@ export const BLOG_DATA: BlogPost[] = [
   },
 
   {
+    eyebrow: "Feature",
+    title: "Georgetown Spotlights Dr. Adam Green's Vision for Human Creativity",
+    date: "July 27, 2026",
+    summary: "The feature profiles Dr. Adam Green—recently named Georgetown's Innovator of the Year—and highlights our study of over 370,000 college admissions essays on AI-era creativity.",
+    link: "https://www.georgetown.edu/news/ai-human-creativity-research/",
+    image: "/updates/georgetown-ai-human-creativity.png",
+    imageAlt: "Brain illustration combining analytical formulas with colorful creative expression"
+  },
+
+  {
     eyebrow: "Workshop",
     title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings",
     date: "July 2026",
