@@ -19,7 +19,7 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Student in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=d0b2f676bcaf",
+  cvUrl: "/kibum_moon_cv.pdf?v=a91269821340",
   lastUpdated: "Aug 10, 2026",
 };
 
