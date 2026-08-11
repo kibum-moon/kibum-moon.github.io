@@ -277,7 +277,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
     image: "/covers/A_Validation_Study_of_Mental_Health_Two_Factor_Model_In_a_Sexual_Minority_Population.png"
   },
   {
-    title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
+    title: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
     authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
     venue: "Under review",
     year: 2026,
@@ -323,7 +323,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
 export const MANUSCRIPTS_DATA: Manuscript[] = [
     {
         authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
-        title: "The Creative Link Between Words and Ideas is Weakening in the AI Era.",
+        title: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions.",
         status: "under review",
         link: "https://osf.io/preprints/psyarxiv/jsz58"
     },
