@@ -37,7 +37,7 @@ export const RESEARCH_INTERESTS: string[] = [
   "AI & Human Creativity",
   "Computational Social Science",
   "Digital Well-Being & Mental Health",
-  "Culture & Social Relationships",
+  "Self, Culture & Relationships",
 ];
 
 // --- FULL CV DATA ---
