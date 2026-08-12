@@ -34,12 +34,10 @@ export const SOCIAL_LINKS = {
 };
 
 export const RESEARCH_INTERESTS: string[] = [
-  "Creativity & Large Language Models (LLMs)",
-  "Digital Well-being & Mental Health",
-  "Computational Social Psychology",
-  "AI-driven Homogenization",
-  "Online Learning & Engagement",
-  "Human-Computer Interaction",
+  "AI & Human Creativity",
+  "Computational Social Science",
+  "Digital Well-Being & Mental Health",
+  "Culture & Social Relationships",
 ];
 
 // --- FULL CV DATA ---
