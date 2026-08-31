@@ -1,57 +1,71 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import {
   BLOG_DATA,
-  HONORS_AWARDS_DATA,
   PROFILE_DATA,
-  PROFESSIONAL_EXPERIENCE_DATA,
   PUBLICATIONS_DATA,
-  RESEARCH_EXPERIENCE_DATA,
   RESEARCH_INTERESTS,
+  RESEARCH_PROGRAMS,
   SOCIAL_LINKS,
   TEACHING_EXPERIENCE_DATA,
 } from '../content/siteContent';
 import { PROFILE_IMAGE_URL } from '../content/assets';
-import type { CVEntry } from '../types/content';
 
-const headingStyle = {};
-const bodyStyle = {};
-const cardLiftClass = 'group relative overflow-hidden rounded-2xl glass-card transition-all duration-300 hover:-translate-y-1 hover:shadow-glass-hover hover:border-accent-2/30';
-const rowCardClass = `${cardLiftClass} flex flex-col gap-3 px-5 py-5 md:flex-row md:items-baseline md:justify-between`;
-const cardAccentClass = 'hidden';
 const inlineLinkClass = 'inline-flex items-center transition-colors duration-200 hover:text-accent-1 font-medium';
 const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-text-secondary transition-colors duration-200 hover:border-accent-2 hover:text-accent-2 font-medium';
 const pillLinkClass = 'inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30';
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Updates', href: '#updates' },
+  { label: 'News & Updates', href: '#updates' },
+  { label: 'Research', href: '#research' },
   { label: 'Publications', href: '#publications' },
   { label: 'Teaching', href: '#teaching' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Awards', href: '#awards' },
 ];
 
-const recentUpdates = BLOG_DATA.slice(0, 8);
-const teachingHighlights = TEACHING_EXPERIENCE_DATA;
-const featuredSelectedPublicationTitle = "The Creative Link Between Words and Ideas is Weakening in the AI Era";
-const socialTechnologyPublicationTitle = "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults";
+const highlightedUpdateTitles = [
+  'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
+  'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
+  "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
+] as const;
+const recentUpdates = highlightedUpdateTitles
+  .map((title) => BLOG_DATA.find((update) => update.title === title))
+  .filter((update): update is (typeof BLOG_DATA)[number] => Boolean(update));
+
+const highlightedTeachingTitles = [
+  'AI & Data-Driven Psychology – Main Instructor',
+  'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor',
+  'Digital Well-being – Teaching Tutorials',
+] as const;
+const teachingHighlights = highlightedTeachingTitles
+  .map((title) => TEACHING_EXPERIENCE_DATA.find((course) => course.title === title))
+  .filter((course): course is (typeof TEACHING_EXPERIENCE_DATA)[number] => Boolean(course));
+const publicationSourceOrder = new Map(PUBLICATIONS_DATA.map((publication, index) => [publication.title, index]));
+const publicationRecencyRank = new Map<string, number>([
+  ['Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults', 600],
+  ['The Persistence of Self-Preference Bias in LLM Evaluations of Creativity', 500],
+  ['The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions', 400],
+  ['Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart', 300],
+  ['Who values passion in education?', 200],
+  ['Which foot forward? Cultural models of self-presentation in college applications', 100],
+  ['The Relationship Between Borderline Personality Features and Affective Responses to Altering Emotional Context', 30],
+  ['A Validation of the Korean Version of Adolescent Positive Mental Health Scale', 20],
+  ['The Mirror of Mind: Visualizing Mental Representations of Self Through Reverse Correlation', 10],
+  ['A Validation Study of Mental Health Two-Factor Model: In a Sexual Minority Population', 20],
+  ['The Effects of Ego Depletion and Psychological Burden on Fatigue in Everyday Life: Focusing on Narcissism', 10],
+]);
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
   if (right.year !== left.year) return right.year - left.year;
-  return left.title.localeCompare(right.title);
-};
-const isUnderConsiderationPublication = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
-  /^under (review|revision)\b/.test(publication.venue.trim().toLowerCase());
-const sortPublishedFirst = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
-  const leftIsUnderConsideration = isUnderConsiderationPublication(left);
-  const rightIsUnderConsideration = isUnderConsiderationPublication(right);
-  if (leftIsUnderConsideration !== rightIsUnderConsideration) return leftIsUnderConsideration ? 1 : -1;
-  return sortPublications(left, right);
+  const leftIsUnderReview = left.venue.toLowerCase().includes('under review');
+  const rightIsUnderReview = right.venue.toLowerCase().includes('under review');
+  if (leftIsUnderReview !== rightIsUnderReview) return leftIsUnderReview ? 1 : -1;
+  const leftRank = publicationRecencyRank.get(left.title);
+  const rightRank = publicationRecencyRank.get(right.title);
+  if (leftRank !== undefined || rightRank !== undefined) return (rightRank ?? 0) - (leftRank ?? 0);
+  return (publicationSourceOrder.get(left.title) ?? 0) - (publicationSourceOrder.get(right.title) ?? 0);
 };
 const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
-  const publishedPublications = publications.filter((publication) => !isUnderConsiderationPublication(publication));
-  const underConsiderationPublications = publications.filter(isUnderConsiderationPublication).sort(sortPublications);
-  const yearGroups = Array.from(
-    publishedPublications.reduce((groups, publication) => {
+  return Array.from(
+    publications.reduce((groups, publication) => {
       const yearGroup = groups.get(publication.year) || [];
       yearGroup.push(publication);
       groups.set(publication.year, yearGroup);
@@ -61,37 +75,14 @@ const groupAllPublications = (publications: typeof PUBLICATIONS_DATA) => {
     .sort(([leftYear], [rightYear]) => rightYear - leftYear)
     .map(([year, yearPublications]) => ({
       label: String(year),
-      publications: yearPublications,
-      showYear: false,
+      publications: yearPublications.sort(sortPublications),
     }));
-
-  if (underConsiderationPublications.length === 0) return yearGroups;
-
-  return [
-    ...yearGroups,
-    {
-      label: 'Under Review / Revision',
-      publications: underConsiderationPublications,
-      showYear: true,
-    },
-  ];
 };
-const awardEndYear = (period: string) => {
-  const matches = period.match(/\d{4}/g);
-  if (!matches) return 0;
-  return Math.max(...matches.map(Number));
-};
-
 const formatUpdateDate = (date: string) => {
   const parsedDate = new Date(date);
   if (Number.isNaN(parsedDate.getTime())) return date;
   return parsedDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
-
-const orderedAwardGroups = HONORS_AWARDS_DATA.map((category) => ({
-  ...category,
-  items: [...category.items].sort((a, b) => awardEndYear(b.period) - awardEndYear(a.period)),
-}));
 
 const formatAuthors = (authors: string[], coFirstAuthors: string[] = []) =>
   authors.map((author, index) => (
@@ -111,18 +102,9 @@ const SectionTitle: React.FC<{ title: string; subtitle?: string }> = ({ title, s
   </div>
 );
 
-const Subheading: React.FC<{ title: string }> = ({ title }) => (
-  <div className="mb-5 flex items-center gap-3">
-    <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-tr from-accent-1 to-accent-3 shadow-[0_0_8px_rgba(59,130,246,0.5)]" aria-hidden />
-    <h3 className="text-[0.85rem] font-bold uppercase tracking-[0.2em] text-text-secondary">{title}</h3>
-  </div>
-);
-
 const UpdatesPanel: React.FC = () => (
-  <section id="updates" className="font-sans">
-    <div className="mb-6">
-      <p className="text-[0.85rem] font-bold uppercase tracking-[0.2em] text-text-secondary">Latest Updates</p>
-    </div>
+  <section id="updates" className="py-10 font-sans">
+    <SectionTitle title="News & Updates" />
     <div className="border-y border-gray-200">
       {recentUpdates.map((update) => (
         <article
@@ -184,167 +166,166 @@ const UpdatesPanel: React.FC = () => (
   </section>
 );
 
-const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0]; showYear?: boolean }> = ({
-  publication,
-  showYear = true,
-}) => {
-  const doiLabel = publication.link.startsWith('https://doi.org/')
-    ? publication.link.replace('https://doi.org/', '')
-    : 'Open link';
+type ResearchProgram = (typeof RESEARCH_PROGRAMS)[number];
+type ResearchProject = ResearchProgram['projects'][number];
 
-  const hasCoverImage = Boolean(publication.image);
-  const isFigureImage = publication.imageKind === 'figure';
-  const isCardClickable = publication.isCardClickable !== false && publication.link !== '#';
-  const imageAspectClass = isFigureImage ? 'aspect-[4/3]' : 'aspect-[5/7]';
-  const imageFitClass = isFigureImage ? 'object-contain object-center' : 'object-contain object-top';
+const ResearchProjectCard: React.FC<{ project: ResearchProject }> = ({ project }) => {
+  const publication = PUBLICATIONS_DATA.find((item) => item.title === project.publicationTitle);
+  if (!publication) return null;
 
-  const publicationCard = (
-      <article className={`${cardLiftClass} px-5 py-4`}>
-        <span aria-hidden className={cardAccentClass} />
-        <div className={`relative z-10 grid gap-4 transition-transform duration-300 group-hover:translate-x-1 ${showYear ? 'md:grid-cols-[160px_minmax(0,1fr)_80px]' : 'md:grid-cols-[160px_minmax(0,1fr)]'} md:gap-6`}>
-          <div className="shrink-0 w-full sm:w-[160px]">
-            {hasCoverImage ? (
-              <div className="overflow-hidden rounded-md border border-gray-200/50 bg-white/50 p-1 shadow-sm transition-all duration-300 group-hover:border-accent-2/30 group-hover:shadow-md">
-                <div className={`${imageAspectClass} w-full bg-white rounded overflow-hidden`}>
-                  <img
-                    src={publication.image}
-                    alt={publication.title}
-                    className={`h-full w-full ${imageFitClass} transition-transform duration-700 group-hover:scale-105`}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            ) : (
-              <div className="flex aspect-[4/3] w-full flex-col justify-end rounded-md border border-gray-200/50 bg-gradient-to-br from-gray-50/50 to-gray-100/50 p-3 transition-all duration-300 group-hover:border-accent-2/30 group-hover:from-slate-50 group-hover:to-slate-100">
-                <h4 className="text-[0.95rem] font-heading font-medium leading-tight text-text-primary opacity-60">
-                  {publication.venue.split(',')[0]}
-                </h4>
-              </div>
-            )}
-          </div>
-          <div className="space-y-1">
-            <h3 className="text-[1.05rem] font-bold leading-snug text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
-              {publication.title}
-            </h3>
-            <p className="text-[0.85rem] leading-snug text-text-secondary">
-              {formatAuthors(publication.authors, publication.coFirstAuthors)}.
-            </p>
-            {publication.coFirstAuthors?.length ? (
-              <p className="text-[0.75rem] italic leading-snug text-text-secondary">* Co-first authors</p>
-            ) : null}
-            <p className="text-[0.85rem] font-medium italic text-text-secondary opacity-80 transition-all duration-200 group-hover:text-accent-2">
-              {publication.venue}
-            </p>
-            {publication.abstract && (
-              <p className="text-[0.8rem] leading-snug text-gray-600 mt-1">{publication.abstract}</p>
-            )}
-            {isCardClickable ? (
-              <div className="flex flex-wrap items-center gap-2 pt-1 text-[0.7rem] font-bold uppercase tracking-[0.15em] text-accent-1/70">
-                <span className="inline-flex items-center gap-2 transition-all duration-200 group-hover:text-accent-1">
-                  {doiLabel}
-                </span>
-              </div>
-            ) : null}
-          </div>
-          {showYear ? (
-            <p className="relative z-10 text-[0.75rem] font-bold uppercase tracking-[0.15em] text-gray-400 transition-colors duration-200 group-hover:text-accent-3 shrink-0 md:pt-0.5 md:text-right">
-              {publication.year}
-            </p>
-          ) : null}
-        </div>
-      </article>
-  );
-
-  if (!isCardClickable) {
-    return <div className="block">{publicationCard}</div>;
-  }
-
-  return (
-    <a
-      href={publication.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block"
-      aria-label={`Open publication: ${publication.title}`}
-    >
-      {publicationCard}
-    </a>
-  );
-};
-
-const ExperienceCard: React.FC<{ entry: CVEntry }> = ({ entry }) => {
-  const cardContent = (
+  const isClickable = publication.isCardClickable !== false && publication.link !== '#';
+  const content = (
     <>
-      <span aria-hidden className={cardAccentClass} />
-      <div className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
-        <h4 className="text-[1.1rem] font-bold leading-7 text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
-          {entry.title}
-        </h4>
-        <p className="mt-1 text-[0.9rem] font-medium leading-6 text-text-secondary">{entry.institution}</p>
-        {entry.details && <p className="mt-1.5 text-[0.85rem] leading-relaxed text-gray-500">{entry.details}</p>}
+      <div className="aspect-[16/9] border-b border-slate-200 bg-slate-50 p-3">
+        {publication.image ? (
+          <img src={publication.image} alt="" className="h-full w-full object-contain object-center" loading="lazy" />
+        ) : (
+          <div className="flex h-full items-center justify-center px-4 text-center text-xs font-semibold text-text-secondary">
+            {publication.venue.split(',')[0]}
+          </div>
+        )}
       </div>
-      <p className="relative z-10 text-[0.8rem] font-bold uppercase tracking-[0.15em] text-gray-400 transition-colors duration-200 group-hover:text-accent-2 shrink-0 md:text-right">
-        {entry.period}
-      </p>
+      <div className="flex flex-1 flex-col p-4">
+        <h4 className="font-heading text-[1rem] font-bold leading-snug text-text-primary transition-colors group-hover:text-accent-1">
+          {project.title}
+        </h4>
+        <p className="mt-2 text-[0.8rem] leading-5 text-text-secondary">{project.description}</p>
+        <span className="mt-auto pt-4 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-text-secondary">Paper</span>
+      </div>
     </>
   );
+  const className =
+    'group flex min-w-0 flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition duration-200 hover:-translate-y-0.5 hover:border-slate-400 hover:shadow-md';
 
-  if (!entry.link) {
-    return <article className={rowCardClass}>{cardContent}</article>;
-  }
-
-  return (
-    <a
-      href={entry.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={rowCardClass}
-      aria-label={`Open ${entry.institution || entry.title}`}
-    >
-      {cardContent}
+  return isClickable ? (
+    <a href={publication.link} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
     </a>
+  ) : (
+    <article className={className}>{content}</article>
   );
 };
 
-const HomePage: React.FC = () => {
-  const tabs = ['Selected', 'AI & Tech', 'Digital Well-being', 'Higher Ed', 'Clinical', 'Social/Culture', 'All'];
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boolean }> = ({ program, first = false }) => (
+  <section id={program.id} className={first ? '' : 'border-t border-slate-200 pt-10'}>
+    <div className="mb-6">
+      <div className="flex items-center gap-4">
+        <h3 className="font-heading text-2xl font-extrabold tracking-tight text-text-primary">{program.title}</h3>
+        <span className="h-px flex-1 bg-slate-300" aria-hidden />
+      </div>
+      <p className="mt-2 max-w-2xl text-[0.92rem] leading-6 text-text-secondary">{program.subtitle}</p>
+      {program.nextQuestion ? (
+        <p className="mt-3 max-w-2xl font-serif text-[0.86rem] italic leading-6 text-slate-500">{program.nextQuestion}</p>
+      ) : null}
+    </div>
+    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {program.projects.map((project) => (
+        <ResearchProjectCard key={project.publicationTitle} project={project} />
+      ))}
+    </div>
+  </section>
+);
 
-  const displayedPublications = useMemo(() => {
-    if (activeTab === 'All') {
-      return [...PUBLICATIONS_DATA].sort(sortPublications);
-    }
+const publicationLinkLabel = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
+  publication.venue.toLowerCase().includes('under review') ? 'Preprint' : 'Paper';
 
-    if (activeTab === 'Selected') {
-      const selected = PUBLICATIONS_DATA.filter((pub) => pub.authors[0].includes('Moon, K.')).sort(sortPublishedFirst);
-      const featuredPublications = [featuredSelectedPublicationTitle, socialTechnologyPublicationTitle]
-        .map((title) => PUBLICATIONS_DATA.find((publication) => publication.title === title))
-        .filter((publication): publication is (typeof PUBLICATIONS_DATA)[0] => Boolean(publication));
-      const featuredTitles = new Set(featuredPublications.map((publication) => publication.title));
+const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> = ({ publication }) => {
+  const hasImage = Boolean(publication.image);
+  const isFigure = publication.imageKind === 'figure';
+  const isClickable = publication.isCardClickable !== false && publication.link !== '#';
+  const resourceLinks = [
+    ...(isClickable ? [{ label: publicationLinkLabel(publication), href: publication.link }] : []),
+    ...(publication.resourceLinks ?? []),
+  ];
 
-      return [
-        ...featuredPublications,
-        ...selected.filter((publication) => !featuredTitles.has(publication.title)),
-      ];
-    }
-    const themeMap: Record<string, string[]> = {
-      'AI & Tech': ['AI', 'LLMs', 'Deep Learning', 'Recommender System', 'Mobile App', 'Online Learning', 'Prediction Model', 'Education', 'Creativity'],
-      'Digital Well-being': ['Digital Well-being', 'Well-being', 'Digital Detox', 'Intervention', 'COVID-19'],
-      'Higher Ed': ['Higher Ed'],
-      'Clinical': ['Clinical Psychology', 'Validation', 'Scale Development', 'Mental Representation', 'Personality'],
-      'Social/Culture': ['Culture', 'Social Relationships', 'Social Psychology', 'Narcissism', 'Self-Image', 'Ego Depletion', 'Reverse Correlation']
-    };
-    const targetTags = themeMap[activeTab] || [];
-    let filtered = PUBLICATIONS_DATA.filter((pub) => pub.tags.some((t) => targetTags.includes(t)));
-    if (activeTab === 'AI & Tech') {
-      filtered = filtered.filter(pub => !pub.title.includes('The Promise and Peril'));
-    }
-    return filtered.sort(sortPublishedFirst);
-  }, [activeTab]);
-  const publicationGroups = useMemo(
-    () => (activeTab === 'All' ? groupAllPublications(displayedPublications) : []),
-    [activeTab, displayedPublications],
+  return (
+    <article className="grid gap-4 border-b border-slate-200 py-5 sm:grid-cols-[108px_minmax(0,1fr)] md:grid-cols-[172px_minmax(0,1fr)] md:gap-6">
+      <div className="flex h-[84px] w-[108px] items-center justify-center md:h-[116px] md:w-[172px]">
+        {hasImage ? (
+          isFigure ? (
+            <img src={publication.image} alt="" className="h-full w-full object-contain object-center" loading="lazy" />
+          ) : (
+            <img
+              src={publication.image}
+              alt=""
+              className="max-h-full max-w-[64px] border border-slate-200 bg-white object-contain object-top shadow-sm md:max-w-[92px]"
+              loading="lazy"
+            />
+          )
+        ) : (
+          <div className="flex h-full w-full items-center justify-center border border-slate-200 bg-slate-50 p-3 text-center text-[0.65rem] font-semibold leading-tight text-text-secondary">
+            {publication.venue.split(',')[0]}
+          </div>
+        )}
+      </div>
+      <div className="min-w-0">
+        <h4 className="font-heading text-[1.05rem] font-bold leading-snug text-text-primary">
+          {isClickable ? (
+            <a
+              href={publication.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="decoration-accent-2/30 underline-offset-4 transition hover:text-accent-1 hover:underline"
+            >
+              {publication.title}
+            </a>
+          ) : (
+            publication.title
+          )}
+        </h4>
+        <p className="mt-1 text-[0.85rem] leading-snug text-text-secondary">
+          {formatAuthors(publication.authors, publication.coFirstAuthors)}.
+        </p>
+        {publication.coFirstAuthors?.length ? <p className="mt-1 text-[0.7rem] text-text-secondary">* Co-first authors</p> : null}
+        <p className="mt-1 text-[0.85rem] font-medium italic text-text-secondary">{publication.venue}</p>
+        {publication.abstract ? <p className="mt-2 text-[0.8rem] leading-5 text-gray-600">{publication.abstract}</p> : null}
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+          {resourceLinks.length ? (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              {resourceLinks.map((resource) => (
+                <a
+                  key={`${publication.title}-${resource.label}-${resource.href}`}
+                  href={resource.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[0.7rem] font-medium uppercase tracking-[0.04em] text-slate-500 transition-colors hover:text-text-primary"
+                >
+                  {resource.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
+          {publication.mediaCoverage?.length ? (
+            <div className="flex flex-wrap items-center gap-2 border-l border-slate-300 pl-3">
+              <span className="font-serif text-[0.72rem] italic text-text-secondary">Featured in</span>
+              {publication.mediaCoverage.map((outlet) => (
+                <a
+                  key={`${publication.title}-${outlet.label}`}
+                  href={outlet.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-[3px] border border-slate-300 bg-white px-2 py-1 text-[0.65rem] font-semibold text-text-secondary transition hover:border-slate-700 hover:text-text-primary"
+                >
+                  {outlet.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </article>
   );
+};
+
+const PublicationYearHeading: React.FC<{ label: string }> = ({ label }) => (
+  <div className="flex items-center gap-4 pt-4">
+    <h3 className="font-heading text-xl font-bold leading-none tracking-tight text-[#315f78]">{label}</h3>
+    <span className="h-px flex-1 bg-[#315f78]/25" aria-hidden />
+  </div>
+);
+
+const HomePage: React.FC = () => {
+  const publicationGroups = useMemo(() => groupAllPublications([...PUBLICATIONS_DATA].sort(sortPublications)), []);
 
   return (
     <div className="min-h-screen text-text-primary font-sans relative overflow-hidden">
@@ -404,8 +385,7 @@ const HomePage: React.FC = () => {
         <main className="min-w-0 glass-card rounded-3xl px-6 py-8 md:px-10 md:py-12 xl:px-12 shadow-sm border border-white/60">
           <section id="about" className="pb-12">
             <SectionTitle title="About" />
-            <div className="space-y-10">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
                 <div className="space-y-5 text-[1.05rem] leading-8 text-text-primary">
                   <p>{PROFILE_DATA.bio}</p>
                 </div>
@@ -420,132 +400,75 @@ const HomePage: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+            </div>
+          </section>
 
-              <div className="border-t border-[#e1e6e0] pt-6">
-                <UpdatesPanel />
-              </div>
+          <UpdatesPanel />
+
+          <section id="research" className="py-10">
+            <SectionTitle title="Research" />
+            <div className="space-y-12">
+              {RESEARCH_PROGRAMS.map((program, index) => (
+                <ResearchProgramSection key={program.id} program={program} first={index === 0} />
+              ))}
             </div>
           </section>
 
           <section id="publications" className="py-10">
             <SectionTitle title="Publications" />
-            <div className="mb-8 flex flex-wrap gap-2 pb-2">
-              {tabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`rounded-full px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.15em] transition-all duration-300 ${activeTab === tab
-                      ? 'bg-gradient-to-r from-accent-1 to-accent-2 text-white shadow-md shadow-accent-1/30 scale-105'
-                      : 'bg-white/50 border border-gray-200 text-text-secondary hover:-translate-y-0.5 hover:border-accent-2/50 hover:text-accent-2 hover:shadow-sm'
-                    }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-            {activeTab === 'All' ? (
-              <div className="space-y-7">
-                {publicationGroups.map(({ label, publications, showYear }) => (
-                  <div key={label}>
-                    <Subheading title={label} />
-                    <div className="space-y-3">
-                      {publications.map((publication) => (
-                        <PublicationCard
-                          key={`${publication.year}-${publication.title}`}
-                          publication={publication}
-                          showYear={showYear}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {displayedPublications.map((publication) => (
-                  <PublicationCard key={`${publication.year}-${publication.title}`} publication={publication} />
-                ))}
-              </div>
-            )}
-          </section>
-
-          <section id="teaching" className="py-10">
-            <SectionTitle title="Teaching" />
-            <div className="space-y-3">
-              {teachingHighlights.map((course) => (
-                <article key={`${course.period}-${course.title}`} className={rowCardClass}>
-                  <span aria-hidden className={cardAccentClass} />
-                  <div className="relative z-10">
-                    <h3 className="flex flex-wrap items-center gap-2 text-[1.1rem] font-bold leading-7 text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
-                      <span>{course.title}</span>
-                      {(course.links?.length
-                        ? course.links
-                        : course.link
-                          ? [{ label: course.link.endsWith('.pptx') ? 'Slides' : 'Syllabus', href: course.link }]
-                          : []
-                      ).map((action) => (
-                        <a key={`${course.title}-${action.label}`} href={action.href} target="_blank" rel="noopener noreferrer" className={pillLinkClass}>
-                          {action.label}
-                        </a>
-                      ))}
-                    </h3>
-                    <p className="mt-1 text-[0.9rem] font-medium leading-6 text-text-secondary">{course.institution}</p>
-                  </div>
-                  <p className="relative z-10 text-[0.8rem] font-bold uppercase tracking-[0.15em] text-gray-400 transition-colors duration-200 group-hover:text-accent-2 shrink-0 md:text-right">{course.period}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section id="experience" className="py-10">
-            <SectionTitle title="Experience" />
-
-            <div className="mb-8">
-              <Subheading title="Research Experience" />
-              <div className="space-y-3">
-                {RESEARCH_EXPERIENCE_DATA.map((exp) => (
-                  <ExperienceCard key={`${exp.period}-${exp.title}`} entry={exp} />
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <Subheading title="Professional Experience" />
-              <div className="space-y-3">
-                {PROFESSIONAL_EXPERIENCE_DATA.map((exp) => (
-                  <ExperienceCard key={`${exp.period}-${exp.title}`} entry={exp} />
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="awards" className="py-10">
-            <SectionTitle title="Honors & Awards" />
             <div className="space-y-8">
-              {orderedAwardGroups.map((group) => (
-                <div key={group.category}>
-                  <Subheading title={group.category} />
-                  <div className="space-y-3">
-                    {group.items.map((award) => (
-                      <article key={`${award.period}-${award.title}`} className={rowCardClass}>
-                        <span aria-hidden className={cardAccentClass} />
-                        <div className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
-                          <h3 className="text-[1.1rem] font-bold leading-7 text-text-primary transition-colors duration-200 group-hover:text-accent-1 font-heading">
-                            {award.title}
-                          </h3>
-                          {award.details ? <p className="mt-1 text-[0.9rem] leading-6 text-gray-500">{award.details}</p> : null}
-                        </div>
-                        <p className="relative z-10 text-[0.8rem] font-bold uppercase tracking-[0.15em] text-gray-400 transition-colors duration-200 group-hover:text-accent-2 shrink-0 md:text-right">
-                          {award.period}
-                        </p>
-                      </article>
+              {publicationGroups.map(({ label, publications }) => (
+                <div key={label}>
+                  <PublicationYearHeading label={label} />
+                  <div>
+                    {publications.map((publication) => (
+                      <PublicationCard key={`${publication.year}-${publication.title}`} publication={publication} />
                     ))}
                   </div>
                 </div>
               ))}
             </div>
           </section>
+
+          <section id="teaching" className="py-10">
+            <SectionTitle title="Selected Teaching" />
+            <div className="border-y border-slate-200">
+              {teachingHighlights.map((course) => (
+                <article
+                  key={`${course.period}-${course.title}`}
+                  className="grid gap-3 border-t border-slate-200 py-5 first:border-t-0 md:grid-cols-[150px_minmax(0,1fr)_auto] md:items-start md:gap-6"
+                >
+                  <div className="text-[0.72rem] leading-5 text-text-secondary">
+                    <p className="font-semibold uppercase tracking-[0.08em] text-[#315f78]">{course.period}</p>
+                    <p className="mt-1">{course.institution}</p>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-heading text-[1rem] font-bold leading-6 text-text-primary">{course.title}</h3>
+                    {course.details ? <p className="mt-1 text-[0.82rem] leading-5 text-text-secondary">{course.details}</p> : null}
+                  </div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 md:justify-end md:pt-0.5">
+                    {(course.links?.length
+                      ? course.links
+                      : course.link
+                        ? [{ label: 'Syllabus', href: course.link }]
+                        : []
+                    ).map((action) => (
+                      <a
+                        key={`${course.title}-${action.label}`}
+                        href={action.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-[3px] border border-slate-300 bg-white px-2.5 py-1 text-[0.67rem] font-semibold uppercase tracking-[0.05em] text-text-secondary transition-colors hover:border-slate-600 hover:text-text-primary"
+                      >
+                        {action.label}
+                      </a>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
         </main>
       </div>
 

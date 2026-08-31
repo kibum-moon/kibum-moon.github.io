@@ -20,7 +20,7 @@ export const PROFILE_DATA = {
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf",
-  lastUpdated: "Aug 4, 2026",
+  lastUpdated: "Aug 31, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -39,6 +39,55 @@ export const RESEARCH_INTERESTS: string[] = [
   "Digital Well-Being & Mental Health",
   "Self, Culture & Relationships",
 ];
+
+export const RESEARCH_PROGRAMS = [
+  {
+    id: "ai-collective-creativity",
+    title: "AI and collective creativity",
+    subtitle: "What happens to collective creativity when AI helps individuals generate ideas? I examine how generative systems reshape the diversity, originality, and evaluation of human creative work.",
+    nextQuestion: "Under what conditions can AI enhance individual creativity while preserving collective diversity?",
+    projects: [
+      {
+        publicationTitle: "Homogenizing Effect of Large Language Models (LLMs) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing",
+        title: "Collective creative diversity",
+        description: "How individual gains from generative AI can accumulate into a narrower collective pool of ideas.",
+      },
+      {
+        publicationTitle: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
+        title: "Words and ideas in the AI era",
+        description: "Whether increasingly diverse language still corresponds to increasingly original ideas.",
+      },
+      {
+        publicationTitle: "The Persistence of Self-Preference Bias in LLM Evaluations of Creativity",
+        title: "LLMs as creativity evaluators",
+        description: "Whether language models judge creative work neutrally or retain preferences for their own outputs.",
+      },
+    ],
+  },
+  {
+    id: "digital-wellbeing",
+    title: "Digital well-being",
+    subtitle: "When does technology support well-being—and when does stepping away help? I study these questions through longitudinal evidence, field interventions, and emerging mental-health technologies.",
+    nextQuestion: "",
+    projects: [
+      {
+        publicationTitle: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
+        title: "Social technology and life satisfaction",
+        description: "A five-wave panel study testing whether social technology use predicts changes in life satisfaction among U.S. adults.",
+      },
+      {
+        publicationTitle: "Time-Specific Digital Detox Interventions: Effects and Effectiveness Among College Students",
+        title: "Digital detox interventions",
+        description: "Whether time-specific breaks from digital technology improve affect and well-being among college students.",
+      },
+      {
+        publicationTitle: "The Promise and Peril of Mental Health Apps",
+        title: "Mental health apps",
+        description: "The promise and risks of mental health apps as tools for scalable psychological support.",
+      },
+    ],
+  },
+] as const;
 
 // --- FULL CV DATA ---
 
@@ -85,17 +134,6 @@ export const EDUCATION_DATA: CVEntry[] = [
 
 export const PUBLICATIONS_DATA: Publication[] = [
   {
-    title: "The Persistence of Self-Preference Bias in LLM Evaluations of Creativity",
-    authors: ["Tabatabaeian, S.", "Moon, K.", "Johnson, D.", "Kay, M. S.", "& Green, A. E."],
-    venue: "Proceedings of the Annual Meeting of the Cognitive Science Society, 48",
-    year: 2026,
-    link: "https://escholarship.org/content/qt6nk8f4xn/qt6nk8f4xn.pdf",
-    abstract: "",
-    tags: ["AI", "LLMs", "Creativity", "Evaluation"],
-    image: "/covers/figure_self_preference_bias_llm_evaluations.png",
-    imageKind: "figure"
-  },
-  {
     title: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
     authors: ["Wu, J.", "English, A.", "Zhou, X.", "Xu, Y.", "Brooks, C.", "Moon, K.", "& Chenstsova-Dutton, Y."],
     venue: "Personality and Social Psychology Bulletin",
@@ -125,7 +163,10 @@ export const PUBLICATIONS_DATA: Publication[] = [
     abstract: "",
     tags: ["LLMs", "Creativity", "AI", "Higher Ed"],
     image: "/covers/figure_homogenizing_creative_diversity.png",
-    imageKind: "figure"
+    imageKind: "figure",
+    mediaCoverage: [
+      { label: "New York Times", href: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html" },
+    ],
   },
   {
     title: "Time-Specific Digital Detox Interventions: Effects and Effectiveness Among College Students",
@@ -136,7 +177,10 @@ export const PUBLICATIONS_DATA: Publication[] = [
     abstract: "",
     tags: ["Digital Detox", "Well-being", "Intervention"],
     image: "/covers/figure_digital_detox_affect_balance.png",
-    imageKind: "figure"
+    imageKind: "figure",
+    mediaCoverage: [
+      { label: "New York Times", href: "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html" },
+    ],
   },
   {
     title: "Comparative analysis of sleep physiology using qualitative and quantitative criteria for insomnia symptoms",
@@ -282,21 +326,38 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://osf.io/preprints/psyarxiv/jsz58",
     abstract: "",
     tags: ["AI", "Creativity", "Higher Ed"],
-    image: "/covers/figure_creative_link_ai_semantic_diversity.png",
-    imageKind: "figure"
+    image: "/covers/semantic_disjunction_word_sentence_document.png",
+    imageKind: "figure",
+    mediaCoverage: [
+      { label: "New York Times", href: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html" },
+      { label: "Georgetown", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
+    ],
+    resourceLinks: [
+      { label: "OSF", href: "https://osf.io/yd94z/" },
+    ],
+  },
+  {
+    title: "The Persistence of Self-Preference Bias in LLM Evaluations of Creativity",
+    authors: ["Tabatabaeian, S.", "Moon, K.", "Johnson, D.", "Kay, M. S.", "& Green, A. E."],
+    venue: "Proceedings of the Annual Meeting of the Cognitive Science Society, 48",
+    year: 2026,
+    link: "https://escholarship.org/content/qt6nk8f4xn/qt6nk8f4xn.pdf",
+    abstract: "",
+    tags: ["AI", "Creativity", "LLMs"],
+    image: "/covers/figure_self_preference_bias_llm_evaluations.png",
+    imageKind: "figure",
   },
   {
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
-    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Fast, N.", "Schroeder, J."],
+    authors: ["Kushlev, K.", "Moon, K.", "Motyl, M.", "Fast, N. J.", "Schroeder, J."],
     coFirstAuthors: ["Kushlev, K.", "Moon, K."],
-    venue: "Nature Human Behaviour, in press",
+    venue: "Nature Human Behaviour",
     year: 2026,
-    link: "#",
+    link: "https://rdcu.be/aK3B88v4KA3a",
     abstract: "",
     tags: ["Digital Well-being"],
     image: "/covers/figure_social_technology_life_satisfaction.png",
-    imageKind: "figure",
-    isCardClickable: false
+    imageKind: "figure"
   },
   {
     title: "Who values passion in education?",
@@ -305,16 +366,22 @@ export const PUBLICATIONS_DATA: Publication[] = [
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/pytsa_v2",
     abstract: "",
-    tags: ["Culture", "Higher Ed"]
+    tags: ["Culture", "Higher Ed"],
+    resourceLinks: [
+      { label: "OSF", href: "https://osf.io/v5jc9/" },
+    ],
   },
   {
     title: "Which foot forward? Cultural models of self-presentation in college applications",
     authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-    venue: "Under revision, Higher Education",
+    venue: "Under review",
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/upnq8_v1",
     abstract: "",
-    tags: ["Culture", "Self-Image", "Higher Ed"]
+    tags: ["Culture", "Self-Image", "Higher Ed"],
+    resourceLinks: [
+      { label: "OSF", href: "https://osf.io/k3we5/" },
+    ],
   }
 ];
 
@@ -334,7 +401,7 @@ export const MANUSCRIPTS_DATA: Manuscript[] = [
     {
         authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
         title: "Which foot forward? Cultural models of self-presentation in college applications.",
-        status: "under revision, Higher Education",
+        status: "under review",
         link: "https://doi.org/10.31234/osf.io/upnq8_v1"
     }
 ];
@@ -457,7 +524,7 @@ export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
     { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick", details: "Led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.", link: WARWICK_WORKSHOP_MATERIAL_URL, links: WARWICK_WORKSHOP_LINKS },
     { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
-    { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
+    { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University", details: "Connected research on everyday technology use with practical questions about attention, habits, and well-being." },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
     { period: "Spring 2024", title: "Physiological Psychology – Teaching Fellow", institution: "Georgetown University" },
     { period: "Fall 2023", title: "Research Methods & Statistics – Recitation Instructor", institution: "Georgetown University" },
@@ -523,21 +590,11 @@ export const BLOG_DATA: BlogPost[] = [
   {
     eyebrow: "Paper",
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
-    date: "July 28, 2026",
-    summary: "Kosta and I are co-first authors on this paper, which has been accepted for publication in Nature Human Behaviour. More details soon!",
-    link: "https://www.nature.com/nathumbehav/",
+    date: "August 28, 2026",
+    summary: "Kosta and I are co-first authors on this paper, now published in Nature Human Behaviour.",
+    link: "https://rdcu.be/aK3B88v4KA3a",
     image: "https://media.springernature.com/full/nature-cms/uploads/product/nathumbehav/header-e3536822626c69ce82d4c250369d92d9.svg",
     imageAlt: "Nature Human Behaviour journal logo"
-  },
-
-  {
-    eyebrow: "Feature",
-    title: "Georgetown Spotlights Dr. Adam Green's Vision for Human Creativity",
-    date: "July 27, 2026",
-    summary: "The feature profiles Dr. Adam Green—recently named Georgetown's Innovator of the Year—and highlights our study of over 370,000 college admissions essays on AI-era creativity.",
-    link: "https://www.georgetown.edu/news/ai-human-creativity-research/",
-    image: "/updates/georgetown-ai-human-creativity.png",
-    imageAlt: "Brain illustration combining analytical formulas with colorful creative expression"
   },
 
   {
@@ -552,13 +609,13 @@ export const BLOG_DATA: BlogPost[] = [
   },
 
   {
-    eyebrow: "Media",
-    title: "Summer Challenge: Put Your Phone Away for Better Sleep",
-    date: "June 11, 2026",
-    summary: "The New York Times cited our digital detox study as part of its Touch Grass Challenge.",
-    link: "https://www.nytimes.com/interactive/2026/06/11/well/summer-challenge-phone-digital-detox-sleep.html",
-    image: "https://static01.nyt.com/images/2026/05/29/well/5Well-Summer-Challenge-STATIC-PROMO/5Well-Summer-Challenge-02-facebookJumbo-v3.png",
-    imageAlt: "New York Times link preview image for the Touch Grass Challenge sleep article"
+    eyebrow: "Conference",
+    title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
+    date: "June 1, 2026",
+    summary: "I presented this work at SfNC2026: Liberty to Create in Philadelphia.",
+    link: "https://www.tsfnc.org/sfnc2026-liberty-to-create-speaker-program",
+    image: "https://images.squarespace-cdn.com/content/v1/5e59499653df9c045ea75fd2/810648d4-b294-4e73-8391-4c41d19c220a/Copy+of+SfNC2026+Square.gif?format=750w",
+    imageAlt: "SfNC2026 Liberty to Create event thumbnail"
   },
 
   {
@@ -567,6 +624,10 @@ export const BLOG_DATA: BlogPost[] = [
     date: "May 27, 2026",
     summary: "The New York Times featured two of my first-authored papers on AI-era creativity.",
     link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
+    links: [
+      { label: "New York Times", href: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html" },
+      { label: "Georgetown", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
+    ],
     image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
     imageAlt: "New York Times link preview image for the AI and creativity guest essay"
   },
@@ -579,6 +640,14 @@ export const BLOG_DATA: BlogPost[] = [
     link: "https://doi.org/10.1177/01461672251404548"
   },
 
+
+  {
+    eyebrow: "Feature",
+    title: "A closer look at our AI and creativity work",
+    date: "October 10, 2025",
+    summary: "The Hoya featured our lab and some of the bigger questions we are asking about creativity in the age of AI.",
+    link: "https://thehoya.com/science/lab-spotlight-green-lab-explores-benefits-of-creativity-impacts-of-ai/"
+  },
 
   {
     eyebrow: "Paper",

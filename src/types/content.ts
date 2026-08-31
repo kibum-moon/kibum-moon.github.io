@@ -2,7 +2,6 @@
 export interface Publication {
   title: string;
   authors: string[];
-  coFirstAuthors?: string[];
   venue: string;
   year: number;
   link: string;
@@ -11,6 +10,15 @@ export interface Publication {
   image?: string;
   imageKind?: 'cover' | 'figure';
   isCardClickable?: boolean;
+  coFirstAuthors?: string[];
+  mediaCoverage?: Array<{
+    label: string;
+    href: string;
+  }>;
+  resourceLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 }
 
 export interface BlogPost {
