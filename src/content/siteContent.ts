@@ -12,15 +12,15 @@ const WARWICK_WORKSHOP_LINKS = [
 
 export const PROFILE_DATA = {
   name: "Kibum Moon",
-  title: "Ph.D. Student in Psychology",
+  title: "Ph.D. Candidate in Psychology",
   institution: "Georgetown University",
   email: "km1735@georgetown.edu",
   orcidId: "", // Set to empty to use manual publication list
-  bio: "I am a Ph.D. Student in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
+  bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=2cd31914d8ec",
-  lastUpdated: "Sep 14, 2026",
+  cvUrl: "/kibum_moon_cv.pdf?v=6c47e6ce6052",
+  lastUpdated: "Sep 30, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -94,7 +94,7 @@ export const RESEARCH_PROGRAMS = [
 export const EDUCATION_DATA: CVEntry[] = [
     {
         period: "Aug. 2022 – May 2027 (Expected)",
-        title: "Ph.D. Student in Psychology",
+        title: "Ph.D. Candidate in Psychology",
         institution: "Georgetown University",
         location: "Washington, DC",
         details: "Advisor: Kostadin Kushlev, Ph.D. & Adam Green, Ph.D. (Co-Advising)",
