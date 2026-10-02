@@ -16,7 +16,7 @@ export const PROFILE_DATA = {
   institution: "Georgetown University",
   email: "km1735@georgetown.edu",
   orcidId: "", // Set to empty to use manual publication list
-  bio: "I am a Ph.D. candidate in Psychology at Georgetown University. My research explores human creativity and well-being in the context of AI and digital technologies. My recent work examines how generative AI makes individual work appear more creative while narrowing the diversity of human ideas. My broader goal is to understand the conditions under which AI and digital technologies can expand human creative potential and support digital well-being. To address these questions at scale, I integrate computational methods with psychological theory, combining natural language processing, machine learning, Bayesian modeling, and behavioral experiments. My work has been published in journals such as *Nature Human Behaviour* and featured in major media outlets, including *The New York Times* and CNN.",
+  bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf?v=4c676386d363",
