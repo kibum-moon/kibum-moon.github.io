@@ -43,7 +43,7 @@ export const RESEARCH_INTERESTS: string[] = [
 export const RESEARCH_PROGRAMS = [
   {
     id: "ai-collective-creativity",
-    title: "AI and collective creativity",
+    title: "AI and human creativity",
     subtitle: "What happens to collective creativity when AI helps individuals generate ideas? I examine how generative systems reshape the diversity, originality, and evaluation of human creative work.",
     nextQuestion: "Under what conditions can AI enhance individual creativity while preserving collective diversity?",
     projects: [
