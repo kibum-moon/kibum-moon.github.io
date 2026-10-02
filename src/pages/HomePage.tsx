@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import {
   BLOG_DATA,
+  HIGHLIGHTED_UPDATE_TITLES,
   PROFILE_DATA,
   PUBLICATIONS_DATA,
   RESEARCH_INTERESTS,
@@ -22,12 +23,7 @@ const navigationLinks = [
   { label: 'Teaching', href: '#teaching' },
 ];
 
-const highlightedUpdateTitles = [
-  'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
-  'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
-  "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
-] as const;
-const recentUpdates = highlightedUpdateTitles
+const recentUpdates = HIGHLIGHTED_UPDATE_TITLES
   .map((title) => BLOG_DATA.find((update) => update.title === title))
   .filter((update): update is (typeof BLOG_DATA)[number] => Boolean(update));
 
@@ -387,7 +383,15 @@ const HomePage: React.FC = () => {
             <SectionTitle title="About" />
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
                 <div className="space-y-5 text-[1.05rem] leading-8 text-text-primary">
-                  <p>{PROFILE_DATA.bio}</p>
+                  {PROFILE_DATA.bio.split('\n\n').map((paragraph) => (
+                    <p key={paragraph}>
+                      {paragraph.split(/(\*[^*]+\*)/g).map((part, index) =>
+                        part.startsWith('*') && part.endsWith('*')
+                          ? <em key={index}>{part.slice(1, -1)}</em>
+                          : part
+                      )}
+                    </p>
+                  ))}
                 </div>
 
                 <div className="border-t border-gray-200/60 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">

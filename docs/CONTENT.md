@@ -4,7 +4,8 @@
 
 Edit [src/content/siteContent.ts](/Users/kibummoon/Library/CloudStorage/GoogleDrive-km1735@georgetown.edu/My%20Drive/homepage/src/content/siteContent.ts) for:
 
-- profile metadata
+- profile metadata (bio paragraphs are separated by blank lines; `*text*` renders in italics)
+- News & Updates entries (`BLOG_DATA`) and the selected display order (`HIGHLIGHTED_UPDATE_TITLES`)
 - social links
 - research interests
 - publications

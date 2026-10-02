@@ -16,11 +16,11 @@ export const PROFILE_DATA = {
   institution: "Georgetown University",
   email: "km1735@georgetown.edu",
   orcidId: "", // Set to empty to use manual publication list
-  bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
+  bio: "I am a Ph.D. candidate in Psychology at Georgetown University. My research explores human creativity and well-being in the context of AI and digital technologies.\n\nMy recent work examines how generative AI makes individual work appear more creative while narrowing the diversity of human ideas. My broader goal is to understand the conditions under which AI and digital technologies can expand human creative potential and support digital well-being.\n\nTo address these questions at scale, I integrate computational methods with psychological theory, combining natural language processing, machine learning, Bayesian modeling, and behavioral experiments. My work has been published in journals such as *Nature Human Behaviour* and featured in major media outlets, including *The New York Times* and CNN.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=89a85f6187c0",
-  lastUpdated: "Sep 30, 2026",
+  cvUrl: "/kibum_moon_cv.pdf?v=4c676386d363",
+  lastUpdated: "Oct 1, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -329,8 +329,9 @@ export const PUBLICATIONS_DATA: Publication[] = [
     image: "/covers/semantic_disjunction_word_sentence_document.png",
     imageKind: "figure",
     mediaCoverage: [
+      { label: "CNN", href: "https://www.youtube.com/watch?v=KDg9Ay4Xrk8" },
       { label: "New York Times", href: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html" },
-      { label: "Georgetown", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
+      { label: "Georgetown News", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
     ],
     resourceLinks: [
       { label: "OSF", href: "https://osf.io/yd94z/" },
@@ -609,6 +610,17 @@ export const BLOG_DATA: BlogPost[] = [
   },
 
   {
+    eyebrow: "Media",
+    title: "Our research on AI and creativity featured on CNN",
+    date: "June 2, 2026",
+    summary: "My advisor, Adam E. Green, discussed our research on AI-era college admissions essays on CNN’s Quest Means Business.",
+    link: "https://www.youtube.com/watch?v=KDg9Ay4Xrk8",
+    links: [
+      { label: "Watch on CNN", href: "https://www.youtube.com/watch?v=KDg9Ay4Xrk8" },
+    ],
+  },
+
+  {
     eyebrow: "Conference",
     title: "The Creative Link Between Words and Ideas is Weakening in the AI Era",
     date: "June 1, 2026",
@@ -626,7 +638,7 @@ export const BLOG_DATA: BlogPost[] = [
     link: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html",
     links: [
       { label: "New York Times", href: "https://www.nytimes.com/2026/05/27/opinion/writing-creativity-ai.html" },
-      { label: "Georgetown", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
+      { label: "Georgetown News", href: "https://www.georgetown.edu/news/ai-human-creativity-research/" },
     ],
     image: "https://static01.nyt.com/images/2026/05/27/opinion/27winthrop/27winthrop-facebookJumbo.jpg",
     imageAlt: "New York Times link preview image for the AI and creativity guest essay"
@@ -669,5 +681,12 @@ export const BLOG_DATA: BlogPost[] = [
 
 
 ];
+
+export const HIGHLIGHTED_UPDATE_TITLES = [
+  'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
+  'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
+  'Our research on AI and creativity featured on CNN',
+  "What 370,000 College Essays Tell Us About A.I.'s Effects on Creativity",
+] as const;
 
 // --- EDITABLE CONTENT ENDS HERE ---
