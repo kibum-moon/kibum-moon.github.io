@@ -23,3 +23,10 @@ Edit [src/content/siteContent.ts](/Users/kibummoon/Library/CloudStorage/GoogleDr
 ## Editing Principle
 
 Prefer changing structured content in one canonical file rather than scattering small constants across page components.
+
+## Blind Spots paper link
+
+- `/blind-spots/` is the stable URL encoded in the conference QR code.
+- `public/blind-spots/index.html` currently redirects directly to `/files/blind-spots.pdf` (October 12, 2026 clean preprint).
+- Once arXiv is live, update both URLs in that HTML file to the verified arXiv abstract URL; keep `/blind-spots/` unchanged so the QR continues to work.
+- The QR PNG is hosted at `/files/blind-spots-qr.png`.
