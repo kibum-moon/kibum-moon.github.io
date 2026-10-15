@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   BLOG_DATA,
   HIGHLIGHTED_UPDATE_TITLES,
@@ -207,7 +207,44 @@ const ResearchProjectCard: React.FC<{ project: ResearchProject }> = ({ project }
   );
 };
 
-const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boolean }> = ({ program, first = false }) => (
+const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boolean }> = ({ program, first = false }) => {
+  const isCarousel = program.id === 'ai-collective-creativity';
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const [canGoBack, setCanGoBack] = useState(false);
+  const [canGoForward, setCanGoForward] = useState(false);
+
+  useEffect(() => {
+    const cards = cardsRef.current;
+    if (!isCarousel || !cards) return;
+    const updateControls = () => {
+      setCanGoBack(cards.scrollLeft > 1);
+      setCanGoForward(cards.scrollLeft < cards.scrollWidth - cards.clientWidth - 1);
+    };
+    updateControls();
+    cards.addEventListener('scroll', updateControls, { passive: true });
+    const observer = new ResizeObserver(updateControls);
+    observer.observe(cards);
+    return () => {
+      cards.removeEventListener('scroll', updateControls);
+      observer.disconnect();
+    };
+  }, [isCarousel]);
+
+  const moveCard = (direction: -1 | 1) => {
+    const cards = cardsRef.current;
+    if (!cards || cards.children.length < 2) return;
+    const firstCard = cards.children[0].getBoundingClientRect();
+    const secondCard = cards.children[1].getBoundingClientRect();
+    const step = secondCard.left - firstCard.left;
+    cards.scrollBy({
+      left: direction * step,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+  };
+
+  const controlClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-slate-800 bg-slate-800 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 disabled:cursor-default disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-400 disabled:shadow-none';
+
+  return (
   <section id={program.id} className={first ? '' : 'border-t border-slate-200 pt-10'}>
     <div className="mb-6">
       <div className="flex items-center gap-4">
@@ -219,9 +256,21 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
         <p className="mt-3 max-w-2xl font-serif text-[0.86rem] italic leading-6 text-slate-500">{program.nextQuestion}</p>
       ) : null}
     </div>
+    {isCarousel ? (
+      <div className="mb-3 flex justify-end gap-2" aria-label="Project navigation">
+        <button type="button" className={controlClass} onClick={() => moveCard(-1)} disabled={!canGoBack} aria-label="Previous project" aria-controls={`${program.id}-cards`}>
+          <span aria-hidden="true">&larr;</span> Previous
+        </button>
+        <button type="button" className={controlClass} onClick={() => moveCard(1)} disabled={!canGoForward} aria-label="Next project" aria-controls={`${program.id}-cards`}>
+          Next <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    ) : null}
     <div
-      className={program.id === 'ai-collective-creativity'
-        ? 'grid grid-flow-col auto-cols-[85%] gap-4 overflow-x-auto overscroll-x-contain pb-4 pt-1 md:auto-cols-[calc((100%-1rem)/2)] xl:auto-cols-[calc((100%-2rem)/3)]'
+      ref={cardsRef}
+      id={`${program.id}-cards`}
+      className={isCarousel
+        ? 'grid grid-flow-col auto-cols-[85%] gap-4 overflow-x-auto overscroll-x-contain snap-x snap-mandatory [&>*]:snap-start pb-4 pt-1 md:auto-cols-[calc((100%-1rem)/2)] xl:auto-cols-[calc((100%-2rem)/3)]'
         : 'grid gap-4 md:grid-cols-2 xl:grid-cols-3'}
       tabIndex={program.id === 'ai-collective-creativity' ? 0 : undefined}
       role={program.id === 'ai-collective-creativity' ? 'region' : undefined}
@@ -232,7 +281,8 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
       ))}
     </div>
   </section>
-);
+  );
+};
 
 const publicationLinkLabel = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
   isPreprint(publication) ? 'Preprint' : 'Paper';
