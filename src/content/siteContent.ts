@@ -19,8 +19,8 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=f7a090cdf0e7",
-  lastUpdated: "Oct 6, 2026",
+  cvUrl: "/kibum_moon_cv.pdf?v=a7ac00fa4bb3",
+  lastUpdated: "Oct 15, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -47,6 +47,11 @@ export const RESEARCH_PROGRAMS = [
     subtitle: "What happens to collective creativity when AI helps individuals generate ideas? I examine how generative systems reshape the diversity, originality, and evaluation of human creative work.",
     nextQuestion: "Under what conditions can AI enhance individual creativity while preserving collective diversity?",
     projects: [
+      {
+        publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+        title: "Human ideas in AI’s semantic blind spots",
+        description: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
+      },
       {
         publicationTitle: "Homogenizing Effect of Large Language Models (LLMs) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing",
         title: "Collective creative diversity",
@@ -133,6 +138,18 @@ export const EDUCATION_DATA: CVEntry[] = [
 ];
 
 export const PUBLICATIONS_DATA: Publication[] = [
+  {
+    title: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+    authors: ["Moon, K.", "Johnson, D. R.", "Kushlev, K.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Beaty, R. E.", "Duckworth, A. L.", "& Green, A. E."],
+    coFirstAuthors: ["Moon, K.", "Johnson, D. R."],
+    venue: "arXiv preprint",
+    year: 2026,
+    link: "https://arxiv.org/abs/2610.17324",
+    abstract: "",
+    tags: ["AI", "Creativity", "Semantic Diversity"],
+    image: "/covers/figure_blind_spots_edge.png",
+    imageKind: "figure",
+  },
   {
     title: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
     authors: ["Wu, J.", "English, A.", "Zhou, X.", "Xu, Y.", "Brooks, C.", "Moon, K.", "& Chenstsova-Dutton, Y."],
@@ -601,6 +618,15 @@ export const BLOG_DATA: BlogPost[] = [
     imageAlt: "Psychology of Technology 2026 conference at UC Berkeley",
   },
   {
+    eyebrow: "Preprint",
+    title: "New preprint: Thinking Outside the Bots",
+    date: "October 14, 2026",
+    summary: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
+    link: "https://arxiv.org/abs/2610.17324",
+    image: "/covers/figure_blind_spots_edge.png",
+    imageAlt: "EDGE components illustrated across human and AI responses in three tasks",
+  },
+  {
     eyebrow: "Paper",
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
     date: "August 28, 2026",
@@ -696,6 +722,7 @@ export const BLOG_DATA: BlogPost[] = [
 
 export const HIGHLIGHTED_UPDATE_TITLES = [
   'Upcoming: Psychology of Technology 2026 at UC Berkeley',
+  'New preprint: Thinking Outside the Bots',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
   'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
   'Our research on AI and creativity featured on CNN',

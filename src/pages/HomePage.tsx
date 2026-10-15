@@ -38,6 +38,7 @@ const teachingHighlights = highlightedTeachingTitles
   .filter((course): course is (typeof TEACHING_EXPERIENCE_DATA)[number] => Boolean(course));
 const publicationSourceOrder = new Map(PUBLICATIONS_DATA.map((publication, index) => [publication.title, index]));
 const publicationRecencyRank = new Map<string, number>([
+  ["Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior", 700],
   ['Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults', 600],
   ['The Persistence of Self-Preference Bias in LLM Evaluations of Creativity', 500],
   ['The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions', 400],
@@ -50,10 +51,13 @@ const publicationRecencyRank = new Map<string, number>([
   ['A Validation Study of Mental Health Two-Factor Model: In a Sexual Minority Population', 20],
   ['The Effects of Ego Depletion and Psychological Burden on Fatigue in Everyday Life: Focusing on Narcissism', 10],
 ]);
+const isPreprint = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
+  /under review|preprint/i.test(publication.venue);
+
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
   if (right.year !== left.year) return right.year - left.year;
-  const leftIsUnderReview = left.venue.toLowerCase().includes('under review');
-  const rightIsUnderReview = right.venue.toLowerCase().includes('under review');
+  const leftIsUnderReview = isPreprint(left);
+  const rightIsUnderReview = isPreprint(right);
   if (leftIsUnderReview !== rightIsUnderReview) return leftIsUnderReview ? 1 : -1;
   const leftRank = publicationRecencyRank.get(left.title);
   const rightRank = publicationRecencyRank.get(right.title);
@@ -187,7 +191,7 @@ const ResearchProjectCard: React.FC<{ project: ResearchProject }> = ({ project }
           {project.title}
         </h4>
         <p className="mt-2 text-[0.8rem] leading-5 text-text-secondary">{project.description}</p>
-        <span className="mt-auto pt-4 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-text-secondary">Paper</span>
+        <span className="mt-auto pt-4 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-text-secondary">{publicationLinkLabel(publication)}</span>
       </div>
     </>
   );
@@ -224,7 +228,7 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
 );
 
 const publicationLinkLabel = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
-  publication.venue.toLowerCase().includes('under review') ? 'Preprint' : 'Paper';
+  isPreprint(publication) ? 'Preprint' : 'Paper';
 
 const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> = ({ publication }) => {
   const hasImage = Boolean(publication.image);
