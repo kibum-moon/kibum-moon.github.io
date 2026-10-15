@@ -219,7 +219,14 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
         <p className="mt-3 max-w-2xl font-serif text-[0.86rem] italic leading-6 text-slate-500">{program.nextQuestion}</p>
       ) : null}
     </div>
-    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div
+      className={program.id === 'ai-collective-creativity'
+        ? 'grid grid-flow-col auto-cols-[85%] gap-4 overflow-x-auto overscroll-x-contain pb-4 pt-1 md:auto-cols-[calc((100%-1rem)/2)] xl:auto-cols-[calc((100%-2rem)/3)]'
+        : 'grid gap-4 md:grid-cols-2 xl:grid-cols-3'}
+      tabIndex={program.id === 'ai-collective-creativity' ? 0 : undefined}
+      role={program.id === 'ai-collective-creativity' ? 'region' : undefined}
+      aria-label={program.id === 'ai-collective-creativity' ? 'AI and human creativity projects, scroll horizontally for more' : undefined}
+    >
       {program.projects.map((project) => (
         <ResearchProjectCard key={project.publicationTitle} project={project} />
       ))}
