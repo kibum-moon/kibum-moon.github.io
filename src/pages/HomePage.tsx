@@ -14,6 +14,7 @@ import { PROFILE_IMAGE_URL } from '../content/assets';
 const inlineLinkClass = 'inline-flex items-center transition-colors duration-200 hover:text-accent-1 font-medium';
 const sidebarContactLinkClass = 'block w-fit border-b border-transparent pb-0.5 text-text-secondary transition-colors duration-200 hover:border-accent-2 hover:text-accent-2 font-medium';
 const pillLinkClass = 'inline-flex items-center rounded-full bg-accent-1/10 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-accent-1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-1 hover:text-white hover:shadow-lg hover:shadow-accent-1/30';
+const publicationButtonClass = 'inline-flex items-center rounded-[3px] border border-slate-300 bg-white px-2 py-1 text-[0.65rem] font-semibold text-text-secondary transition hover:border-slate-700 hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
 
 const navigationLinks = [
   { label: 'About', href: '#about' },
@@ -102,7 +103,32 @@ const UpdatesPanel: React.FC = () => (
   <section id="updates" className="py-10 font-sans">
     <SectionTitle title="News & Updates" />
     <div className="border-y border-gray-200">
-      {recentUpdates.map((update) => (
+      {recentUpdates.map((update) => update.eyebrow === 'Upcoming' ? (
+        <article key={`${update.date}-${update.title}`} className="my-5 overflow-hidden rounded-xl border border-slate-300 bg-slate-100/80 shadow-sm">
+          <div className="grid gap-5 p-5 sm:grid-cols-[200px_minmax(0,1fr)] sm:items-center sm:p-6">
+            {update.image ? (
+              <a href={update.link} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-lg bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                <img src={update.image} alt={update.imageAlt ?? ''} className="aspect-[4/3] w-full object-contain" loading="lazy" />
+              </a>
+            ) : null}
+            <div className="min-w-0">
+              <div className="mb-3 flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">{update.eyebrow}</span>
+                <time dateTime={new Date(update.date).toISOString().slice(0, 10)} className="text-sm font-semibold text-slate-700">{update.date}</time>
+              </div>
+              <h3 className="font-heading text-2xl font-bold leading-tight text-text-primary sm:text-3xl">
+                <a href={update.link} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">{update.title}</a>
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-text-secondary">{update.summary}</p>
+              {update.links?.map((action) => (
+                <a key={action.href} href={action.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+                  {action.label} <span aria-hidden="true">&rarr;</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </article>
+      ) : (
         <article
           key={`${update.date}-${update.title}`}
           className="group border-t border-gray-200 px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-white/40 rounded-lg"
@@ -277,14 +303,14 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
         {publication.abstract ? <p className="mt-2 text-[0.8rem] leading-5 text-gray-600">{publication.abstract}</p> : null}
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
           {resourceLinks.length ? (
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <div className="flex flex-wrap items-center gap-2">
               {resourceLinks.map((resource) => (
                 <a
                   key={`${publication.title}-${resource.label}-${resource.href}`}
                   href={resource.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.7rem] font-medium uppercase tracking-[0.04em] text-slate-500 transition-colors hover:text-text-primary"
+                  className={`${publicationButtonClass} uppercase tracking-[0.04em]`}
                 >
                   {resource.label}
                 </a>
@@ -300,7 +326,7 @@ const PublicationCard: React.FC<{ publication: (typeof PUBLICATIONS_DATA)[0] }> 
                   href={outlet.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-[3px] border border-slate-300 bg-white px-2 py-1 text-[0.65rem] font-semibold text-text-secondary transition hover:border-slate-700 hover:text-text-primary"
+                  className={publicationButtonClass}
                 >
                   {outlet.label}
                 </a>
