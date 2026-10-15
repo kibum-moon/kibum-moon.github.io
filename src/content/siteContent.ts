@@ -593,13 +593,12 @@ export const CV_DATA: CVSection[] = [
 export const BLOG_DATA: BlogPost[] = [
   {
     eyebrow: "Upcoming",
-    title: "Psychology of Technology 2026 at UC Berkeley",
+    title: "Upcoming: Psychology of Technology 2026 at UC Berkeley",
     date: "November 7, 2026",
-    summary: "I will give a Datablitz talk on AI-era college admissions essays at UC Berkeley’s Haas School of Business.",
+    summary: "On November 7, I will give a Datablitz talk on AI-era college admissions essays at UC Berkeley’s Haas School of Business.",
     link: "https://www.psychoftech.org/2026-conference",
     image: "https://images.squarespace-cdn.com/content/v1/58dd832137c58106c9c86f71/60b68532-84bd-43b2-9c55-28fb7fd462e2/Conference%2Bimage.png?format=750w",
     imageAlt: "Psychology of Technology 2026 conference at UC Berkeley",
-    links: [{ label: "View conference program", href: "https://www.psychoftech.org/2026-conference" }],
   },
   {
     eyebrow: "Paper",
@@ -696,7 +695,7 @@ export const BLOG_DATA: BlogPost[] = [
 ];
 
 export const HIGHLIGHTED_UPDATE_TITLES = [
-  'Psychology of Technology 2026 at UC Berkeley',
+  'Upcoming: Psychology of Technology 2026 at UC Berkeley',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
   'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
   'Our research on AI and creativity featured on CNN',

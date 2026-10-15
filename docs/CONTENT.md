@@ -14,8 +14,6 @@ Edit [src/content/siteContent.ts](/Users/kibummoon/Library/CloudStorage/GoogleDr
 
 ## Assets
 
-- News entries with `eyebrow: "Upcoming"` render as prominent cards with the full date, thumbnail (`image` / `imageAlt`), and program buttons (`links`). Change the eyebrow and summary after the event to return the entry to the regular news layout.
-
 - Publication cover images live in `public/covers/`.
 - Use `imageKind: "figure"` on a publication only when the image is a figure or chart that should render in a wider frame. Leave it unset for normal paper covers.
 - The editable CV source lives at `kibum_moon_cv.pdf` in the repo root.

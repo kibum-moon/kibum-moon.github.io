@@ -103,32 +103,7 @@ const UpdatesPanel: React.FC = () => (
   <section id="updates" className="py-10 font-sans">
     <SectionTitle title="News & Updates" />
     <div className="border-y border-gray-200">
-      {recentUpdates.map((update) => update.eyebrow === 'Upcoming' ? (
-        <article key={`${update.date}-${update.title}`} className="my-5 overflow-hidden rounded-xl border border-slate-300 bg-slate-100/80 shadow-sm">
-          <div className="grid gap-5 p-5 sm:grid-cols-[200px_minmax(0,1fr)] sm:items-center sm:p-6">
-            {update.image ? (
-              <a href={update.link} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-lg bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                <img src={update.image} alt={update.imageAlt ?? ''} className="aspect-[4/3] w-full object-contain" loading="lazy" />
-              </a>
-            ) : null}
-            <div className="min-w-0">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">{update.eyebrow}</span>
-                <time dateTime={new Date(update.date).toISOString().slice(0, 10)} className="text-sm font-semibold text-slate-700">{update.date}</time>
-              </div>
-              <h3 className="font-heading text-2xl font-bold leading-tight text-text-primary sm:text-3xl">
-                <a href={update.link} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">{update.title}</a>
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-text-secondary">{update.summary}</p>
-              {update.links?.map((action) => (
-                <a key={action.href} href={action.href} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 rounded-md bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-slate-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                  {action.label} <span aria-hidden="true">&rarr;</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </article>
-      ) : (
+      {recentUpdates.map((update) => (
         <article
           key={`${update.date}-${update.title}`}
           className="group border-t border-gray-200 px-2 py-4 first:border-t-0 transition-all duration-300 hover:bg-white/40 rounded-lg"
