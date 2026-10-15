@@ -358,10 +358,13 @@ export const PUBLICATIONS_DATA: Publication[] = [
     abstract: "",
     tags: ["Digital Well-being"],
     image: "/covers/figure_social_technology_life_satisfaction.png",
-    imageKind: "figure"
+    imageKind: "figure",
+    mediaCoverage: [
+      { label: "Phys.org", href: "https://phys.org/news/2026-09-longitudinal-survey-evidence-social-tech.html" },
+    ],
   },
   {
-    title: "Who values passion in education?",
+    title: "The passion paradox: Passion is valued more in collectivistic societies",
     authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
     venue: "Under review",
     year: 2026,
@@ -373,7 +376,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
     ],
   },
   {
-    title: "Which foot forward? Cultural models of self-presentation in college applications",
+    title: "High-stake self-presentation is culturally accented",
     authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
     venue: "Under review",
     year: 2026,
@@ -395,13 +398,13 @@ export const MANUSCRIPTS_DATA: Manuscript[] = [
     },
     {
         authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-        title: "Who values passion in education?",
+        title: "The passion paradox: Passion is valued more in collectivistic societies",
         status: "under review",
         link: "https://doi.org/10.31234/osf.io/pytsa_v2"
     },
     {
         authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-        title: "Which foot forward? Cultural models of self-presentation in college applications.",
+        title: "High-stake self-presentation is culturally accented",
         status: "under review",
         link: "https://doi.org/10.31234/osf.io/upnq8_v1"
     }
@@ -589,6 +592,13 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
+    eyebrow: "Upcoming",
+    title: "Upcoming: Psychology of Technology Conference at UC Berkeley",
+    date: "November 7, 2026",
+    summary: "On November 7, I will give a Datablitz talk on AI-era college admissions essays at UC Berkeley.",
+    link: "https://www.psychoftech.org/2026-conference",
+  },
+  {
     eyebrow: "Paper",
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
     date: "August 28, 2026",
@@ -683,6 +693,7 @@ export const BLOG_DATA: BlogPost[] = [
 ];
 
 export const HIGHLIGHTED_UPDATE_TITLES = [
+  'Upcoming: Psychology of Technology Conference at UC Berkeley',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
   'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
   'Our research on AI and creativity featured on CNN',
