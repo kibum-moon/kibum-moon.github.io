@@ -242,7 +242,7 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
     });
   };
 
-  const controlClass = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-slate-800 bg-slate-800 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-800 disabled:cursor-default disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-400 disabled:shadow-none';
+  const controlClass = 'inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-transparent text-slate-500 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500 disabled:cursor-default disabled:border-slate-100 disabled:bg-transparent disabled:text-slate-200';
 
   return (
   <section id={program.id} className={first ? '' : 'border-t border-slate-200 pt-10'}>
@@ -257,12 +257,12 @@ const ResearchProgramSection: React.FC<{ program: ResearchProgram; first?: boole
       ) : null}
     </div>
     {isCarousel ? (
-      <div className="mb-3 flex justify-end gap-2" aria-label="Project navigation">
-        <button type="button" className={controlClass} onClick={() => moveCard(-1)} disabled={!canGoBack} aria-label="Previous project" aria-controls={`${program.id}-cards`}>
-          <span aria-hidden="true">&larr;</span> Previous
+      <div className="-mt-3 mb-2 flex justify-end gap-1.5" aria-label="Project navigation">
+        <button type="button" className={controlClass} onClick={() => moveCard(-1)} disabled={!canGoBack} aria-label="Previous project" title="Previous project" aria-controls={`${program.id}-cards`}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg>
         </button>
-        <button type="button" className={controlClass} onClick={() => moveCard(1)} disabled={!canGoForward} aria-label="Next project" aria-controls={`${program.id}-cards`}>
-          Next <span aria-hidden="true">&rarr;</span>
+        <button type="button" className={controlClass} onClick={() => moveCard(1)} disabled={!canGoForward} aria-label="Next project" title="Next project" aria-controls={`${program.id}-cards`}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg>
         </button>
       </div>
     ) : null}
