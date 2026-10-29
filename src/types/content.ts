@@ -33,6 +33,7 @@ export interface BlogPost {
   }>;
   image?: string;
   imageAlt?: string;
+  imageFit?: "contain" | "cover";
 }
 
 export interface CVSection {

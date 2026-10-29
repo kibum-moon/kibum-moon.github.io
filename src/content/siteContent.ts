@@ -627,6 +627,16 @@ export const BLOG_DATA: BlogPost[] = [
     imageAlt: "EDGE components illustrated across human and AI responses in three tasks",
   },
   {
+    eyebrow: "Fellowship",
+    title: "Selected for Georgetown’s inaugural AI Fellows Program",
+    date: "October 12, 2026",
+    summary: "As an AI fellow, I'll work to integrate AI tools into classroom activities and coursework.",
+    link: "https://www.georgetown.edu/artificial-intelligence/ai-fellows/",
+    image: "/updates/georgetown-wordmark.jpg",
+    imageAlt: "Georgetown University wordmark",
+    imageFit: "contain",
+  },
+  {
     eyebrow: "Paper",
     title: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
     date: "August 28, 2026",
@@ -723,6 +733,7 @@ export const BLOG_DATA: BlogPost[] = [
 export const HIGHLIGHTED_UPDATE_TITLES = [
   'Upcoming: Psychology of Technology 2026 at UC Berkeley',
   'New preprint: Thinking Outside the Bots',
+  'Selected for Georgetown’s inaugural AI Fellows Program',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
   'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
   'Our research on AI and creativity featured on CNN',
