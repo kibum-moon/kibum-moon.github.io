@@ -48,9 +48,9 @@ export const RESEARCH_PROGRAMS = [
     nextQuestion: "Under what conditions can AI enhance individual creativity while preserving collective diversity?",
     projects: [
       {
-        publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
-        title: "Human ideas in AI’s semantic blind spots",
-        description: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
+        publicationTitle: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
+        title: "Words and ideas in the AI era",
+        description: "Whether increasingly diverse language still corresponds to increasingly original ideas.",
       },
       {
         publicationTitle: "Homogenizing Effect of Large Language Models (LLMs) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing",
@@ -58,9 +58,14 @@ export const RESEARCH_PROGRAMS = [
         description: "How individual gains from generative AI can accumulate into a narrower collective pool of ideas.",
       },
       {
-        publicationTitle: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
-        title: "Words and ideas in the AI era",
-        description: "Whether increasingly diverse language still corresponds to increasingly original ideas.",
+        publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+        title: "Human ideas in AI’s semantic blind spots",
+        description: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
+      },
+      {
+        publicationTitle: "Governing AI's Common Novelty to Sustain Scientific Innovation",
+        title: "Governing AI for scientific innovation",
+        description: "How can AI governance sustain scientific innovation in the face of AI’s common novelty?",
       },
       {
         publicationTitle: "The Persistence of Self-Preference Bias in LLM Evaluations of Creativity",

@@ -191,7 +191,7 @@ const ResearchProjectCard: React.FC<{ project: ResearchProject }> = ({ project }
           {project.title}
         </h4>
         <p className="mt-2 text-[0.8rem] leading-5 text-text-secondary">{project.description}</p>
-        <span className="mt-auto pt-4 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-text-secondary">{publicationLinkLabel(publication)}</span>
+        <span className="mt-auto pt-4 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-text-secondary">{isClickable ? publicationLinkLabel(publication) : publication.venue}</span>
       </div>
     </>
   );
