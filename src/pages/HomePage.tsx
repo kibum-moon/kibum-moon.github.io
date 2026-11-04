@@ -52,7 +52,7 @@ const publicationRecencyRank = new Map<string, number>([
   ['The Effects of Ego Depletion and Psychological Burden on Fatigue in Everyday Life: Focusing on Narcissism', 10],
 ]);
 const isPreprint = (publication: (typeof PUBLICATIONS_DATA)[0]) =>
-  /under review|preprint/i.test(publication.venue);
+  /under review|under revision|preprint/i.test(publication.venue);
 
 const sortPublications = (left: (typeof PUBLICATIONS_DATA)[0], right: (typeof PUBLICATIONS_DATA)[0]) => {
   if (right.year !== left.year) return right.year - left.year;

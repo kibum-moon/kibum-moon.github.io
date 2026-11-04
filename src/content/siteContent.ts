@@ -19,8 +19,8 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=7fee55f2bc80",
-  lastUpdated: "Oct 29, 2026",
+  cvUrl: "/kibum_moon_cv.pdf?v=c53190b537fe",
+  lastUpdated: "Nov 4, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -138,6 +138,15 @@ export const EDUCATION_DATA: CVEntry[] = [
 ];
 
 export const PUBLICATIONS_DATA: Publication[] = [
+  {
+    title: "Governing AI's Common Novelty to Sustain Scientific Innovation",
+    authors: ["Kizilcec, R. F.", "Alvero, A. J.", "Johnson, D. R.", "Lucas, B.", "Moon, K.", "Rafner, J.", "Sherson, J.", "Yin, Y.", "& Green, A. E."],
+    venue: "Under revision at Science",
+    year: 2026,
+    link: "#",
+    abstract: "",
+    tags: ["AI", "Creativity"],
+  },
   {
     title: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
     authors: ["Moon, K.", "Johnson, D. R.", "Kushlev, K.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Beaty, R. E.", "Duckworth, A. L.", "& Green, A. E."],
