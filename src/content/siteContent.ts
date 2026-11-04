@@ -19,7 +19,7 @@ export const PROFILE_DATA = {
   bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=2958333300ea",
+  cvUrl: "/kibum_moon_cv.pdf?v=66c3a5468a84",
   lastUpdated: "Nov 4, 2026",
 };
 
@@ -558,7 +558,7 @@ export const PROFESSIONAL_EXPERIENCE_DATA: CVEntry[] = [
 
 export const TEACHING_EXPERIENCE_DATA: CVEntry[] = [
     { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick", details: "Led a hands-on computational workshop where participants used semantic embeddings to map human and AI-generated response spaces and analyze generative diversity.", link: WARWICK_WORKSHOP_MATERIAL_URL, links: WARWICK_WORKSHOP_LINKS },
-    { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
+    { period: "Fall 2025", title: "AI & Data-Driven Psychology – Instructor of Record", institution: "Georgetown University", details: "Sole course designer; full enrollment (15 students); student evaluation: 4.86/5.", link: "https://docs.google.com/document/d/1u_52wXFUYPBY2xTKSl6iXBSoQxhcAYsv/edit?usp=sharing&ouid=114722874428676194609&rtpof=true&sd=true" },
     { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University", details: "Connected research on everyday technology use with practical questions about attention, habits, and well-being." },
     { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
     { period: "Spring 2024", title: "Physiological Psychology – Teaching Fellow", institution: "Georgetown University" },
@@ -605,7 +605,7 @@ export const CV_DATA: CVSection[] = [
         title: "Selected Teaching Experience",
         items: [
             { period: "July 2026", title: "Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings – Workshop Instructor", institution: "University of Warwick" },
-            { period: "Fall 2025", title: "AI & Data-Driven Psychology – Main Instructor", institution: "Georgetown University" },
+            { period: "Fall 2025", title: "AI & Data-Driven Psychology – Instructor of Record", institution: "Georgetown University" },
             { period: "Spring 2025", title: "Digital Well-being – Teaching Tutorials", institution: "Georgetown University" },
             { period: "Fall 2024", title: "Social Psychology – Teaching Fellow", institution: "Georgetown University" },
         ]
