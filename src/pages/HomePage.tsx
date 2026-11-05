@@ -168,6 +168,9 @@ const Header: React.FC = () => {
 // Phrases that carry the headline; only these get the marker underline.
 const HEADLINE_KEYWORDS = ['human creativity and well-being', 'ideas, language, and behavior', 'AI and digital technologies'];
 
+// On tablets and up the headline starts a new line here so the closing phrase lands on its own line.
+const HEADLINE_BREAK_BEFORE = 'AI and digital technologies';
+
 const headlineParts = () => {
   const pattern = new RegExp(`(${HEADLINE_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`);
   return PROFILE_DATA.headline.split(pattern).filter(Boolean).map((text) => ({ text, isKeyword: HEADLINE_KEYWORDS.includes(text) }));
@@ -202,9 +205,10 @@ const HeroIntro: React.FC = () => {
           <p className="font-heading text-[1.75rem] font-semibold leading-[1.3] tracking-tight text-neutral-900 md:text-[2.3rem]">
             {headlineParts().map(({ text, isKeyword }) =>
               isKeyword ? (
-                <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">
-                  {text}
-                </span>
+                <React.Fragment key={text}>
+                  {text === HEADLINE_BREAK_BEFORE ? <br className="hidden sm:inline" /> : null}
+                  <span className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
+                </React.Fragment>
               ) : (
                 text
               ),
@@ -213,7 +217,7 @@ const HeroIntro: React.FC = () => {
           <p className="mt-6 text-[1.05rem] leading-[1.7] text-neutral-700">{PROFILE_DATA.affiliation}</p>
           <HeroLinks className="mt-6" />
         </div>
-        <ProfilePhoto className="order-first aspect-[4/5] w-[160px] rounded-2xl sm:order-none sm:w-full" />
+        <ProfilePhoto className="order-first aspect-[4/5] w-[160px] rounded-2xl object-top sm:order-none sm:w-full" />
       </div>
       <ol className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
         {sentences.map((sentence, index) => (
