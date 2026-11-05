@@ -16,7 +16,10 @@ export const PROFILE_DATA = {
   institution: "Georgetown University",
   email: "km1735@georgetown.edu",
   orcidId: "", // Set to empty to use manual publication list
-  bio: "I am a Ph.D. Candidate in Psychology at Georgetown University, advised by Dr. Kostadin Kushlev and Dr. Adam Green. My research explores the intersection of technology, psychology, and creativity, aiming to understand how we can leverage innovations like AI to help people live happier, smarter, and more creative lives while fostering digital well-being. I leverage computational methods and experimental designs to tackle these complex questions.",
+  // The hero reads headline (large), affiliation (light), then bio (body text).
+  headline: "I study human creativity and well-being by tracking how ideas, language, and behavior shift in massive real-world data across the rise of AI and digital technologies.",
+  affiliation: "I am a Ph.D. candidate in Psychology and an AI Fellow at Georgetown University, working with Dr. Kostadin Kushlev and Dr. Adam Green.",
+  bio: "Integrating large-scale text analysis with behavioral experiments and longitudinal studies, my recent work examines what happens when people use AI to develop and express their ideas. While AI can make individual work feel and appear more creative, it often pulls people’s thinking toward similar ideas—making it harder to distinguish colorful wording from genuine originality. By uncovering these hidden trade-offs, I aim to understand how we can use AI to expand, rather than narrow, both individual and collective creative potential.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
   cvUrl: "/kibum_moon_cv.pdf?v=66c3a5468a84",
@@ -43,7 +46,7 @@ export const RESEARCH_INTERESTS: string[] = [
 export const RESEARCH_PROGRAMS = [
   {
     id: "ai-collective-creativity",
-    title: "AI and human creativity",
+    title: "AI and creativity",
     subtitle: "What happens to collective creativity when AI helps individuals generate ideas? I examine how generative systems reshape the diversity, originality, and evaluation of human creative work.",
     nextQuestion: "Under what conditions can AI enhance individual creativity while preserving collective diversity?",
     projects: [
@@ -72,6 +75,16 @@ export const RESEARCH_PROGRAMS = [
         title: "LLMs as creativity evaluators",
         description: "Whether language models judge creative work neutrally or retain preferences for their own outputs.",
       },
+      {
+        publicationTitle: "The Early Prediction Model of Student Performance Based on Deep Neural Network Using Massive LMS Log Data",
+        title: "Predicting student performance",
+        description: "Using deep learning on large-scale LMS logs to flag students who may struggle early in a course.",
+      },
+      {
+        publicationTitle: "Development and Application of an AI-Powered Adaptive Course Recommender System in Higher Education: An Example from K University",
+        title: "AI course recommendation",
+        description: "Building and testing an adaptive AI system that recommends courses to university students.",
+      },
     ],
   },
   {
@@ -94,6 +107,107 @@ export const RESEARCH_PROGRAMS = [
         publicationTitle: "The Promise and Peril of Mental Health Apps",
         title: "Mental health apps",
         description: "The promise and risks of mental health apps as tools for scalable psychological support.",
+      },
+      {
+        publicationTitle: "Online learning performance and engagement during the COVID-19 pandemic: Application of the dual-continua model of mental health",
+        title: "Online learning and mental health",
+        description: "How students' mental health related to their engagement and performance in online learning during the pandemic.",
+      },
+    ],
+  },
+  {
+    id: "mental-health",
+    title: "Mental health",
+    subtitle: "What shapes mental health, and how can we measure it well? I study risk factors, emotion, and the validity of mental health measures across populations.",
+    nextQuestion: "",
+    projects: [
+      {
+        publicationTitle: "Comparative analysis of sleep physiology using qualitative and quantitative criteria for insomnia symptoms",
+        title: "Sleep and insomnia",
+        description: "Comparing qualitative and quantitative criteria for insomnia through sleep physiology.",
+      },
+      {
+        publicationTitle: "Childhood Maltreatment and Suicide Attempts in Major Depression and Bipolar Disorders in South Korea: A prospective Nationwide Cohort Study",
+        title: "Childhood maltreatment and suicide risk",
+        description: "A nationwide cohort study of childhood maltreatment and suicide attempts in mood disorders.",
+      },
+      {
+        publicationTitle: "Development and validation of COVID-19 Impact Scale",
+        title: "Measuring COVID-19's impact",
+        description: "Developing and validating a scale of the pandemic's psychological impact.",
+      },
+      {
+        publicationTitle: "A Validation of the Korean Version of Adolescent Positive Mental Health Scale",
+        title: "Adolescent positive mental health",
+        description: "Validating a Korean scale of positive mental health for adolescents.",
+      },
+      {
+        publicationTitle: "A Validation Study of Mental Health Two-Factor Model: In a Sexual Minority Population",
+        title: "Two-factor model of mental health",
+        description: "Testing the two-factor model of mental health in a sexual minority population.",
+      },
+      {
+        publicationTitle: "The Relationship Between Borderline Personality Features and Affective Responses to Altering Emotional Context",
+        title: "Borderline features and emotion",
+        description: "How borderline personality features relate to emotional responses when the emotional context shifts.",
+      },
+      {
+        publicationTitle: "Online learning performance and engagement during the COVID-19 pandemic: Application of the dual-continua model of mental health",
+        title: "Online learning and mental health",
+        description: "How students' mental health related to their engagement and performance in online learning during the pandemic.",
+      },
+      {
+        publicationTitle: "The Promise and Peril of Mental Health Apps",
+        title: "Mental health apps",
+        description: "The promise and risks of mental health apps as tools for scalable psychological support.",
+      },
+    ],
+  },
+  {
+    id: "culture-personality",
+    title: "Culture and personality",
+    subtitle: "How do culture and personality shape how we see ourselves and others? I study self-image, self-presentation, and relationships across cultures and personality traits.",
+    nextQuestion: "",
+    projects: [
+      {
+        publicationTitle: "Relational Compartmentalization: How Culture Keeps Our Social Worlds Apart",
+        title: "Relational compartmentalization",
+        description: "How culture shapes whether people keep their different social circles apart.",
+      },
+      {
+        publicationTitle: "The passion paradox: Passion is valued more in collectivistic societies",
+        title: "The passion paradox",
+        description: "Why passion is valued more in collectivistic societies.",
+      },
+      {
+        publicationTitle: "High-stake self-presentation is culturally accented",
+        title: "Culturally accented self-presentation",
+        description: "How cultural background shapes the way people present themselves in high-stakes settings.",
+      },
+      {
+        publicationTitle: "The Mirror of Mind: Visualizing Mental Representations of Self Through Reverse Correlation",
+        title: "Visualizing self-image",
+        description: "Using reverse correlation to make people's mental image of themselves visible.",
+      },
+      {
+        publicationTitle: "The Relationship between Mental Representations of Self and Social Evaluation: Examining the Validity and Usefulness of Visual Proxies of Self-Image",
+        title: "Self-image and social evaluation",
+        description: "Whether visual proxies of self-image relate to how people are evaluated by others.",
+      },
+      {
+        publicationTitle: "Study Examines Difference between Communal Narcissism and Altruism in Korean College Students Using Close-Other Reports",
+        title: "Communal narcissism and altruism",
+        description: "Telling communal narcissism apart from genuine altruism using reports from close others.",
+      },
+      {
+        publicationTitle: "The Effects of Ego Depletion and Psychological Burden on Fatigue in Everyday Life: Focusing on Narcissism",
+        title: "Narcissism and everyday fatigue",
+        description: "How ego depletion and psychological burden relate to fatigue, depending on narcissism.",
+      },
+      {
+        publicationTitle: "The Relationship Between Borderline Personality Features and Affective Responses to Altering Emotional Context",
+        title: "Borderline features and emotion",
+        description: "How borderline personality features relate to emotional responses when the emotional context shifts.",
       },
     ],
   },
@@ -352,7 +466,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
     authors: ["Moon, K.", "Kushlev, K.", "Bank, A.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Johnson, D. R.", "Duckworth, A. L.", "Green, A. E."],
-    venue: "Under review",
+    venue: "Under review at Nature Communications",
     year: 2026,
     link: "https://osf.io/preprints/psyarxiv/jsz58",
     abstract: "",
@@ -397,7 +511,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "The passion paradox: Passion is valued more in collectivistic societies",
     authors: ["Wu, J.", "Brooks, C.", "Zhang, R.", "Yuan, J.", "Amormino, P.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-    venue: "Under review",
+    venue: "Submitted to Social Psychology of Education",
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/pytsa_v2",
     abstract: "",
@@ -409,7 +523,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
   {
     title: "High-stake self-presentation is culturally accented",
     authors: ["Wu, J.", "Moon, K.", "Green, A. E.", "Chentsova-Dutton, Y."],
-    venue: "Under review",
+    venue: "Under review at Cultural Diversity & Ethnic Minority Psychology",
     year: 2026,
     link: "https://doi.org/10.31234/osf.io/upnq8_v1",
     abstract: "",
@@ -755,3 +869,33 @@ export const HIGHLIGHTED_UPDATE_TITLES = [
 ] as const;
 
 // --- EDITABLE CONTENT ENDS HERE ---
+
+// Featured work shown above Publications. Question and finding are short, plain-language summaries;
+// image overrides the publication figure when a different one tells the story better.
+export const FEATURED_WORK = [
+  {
+    publicationTitle: "The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions",
+    label: "Semantic disjunction",
+    question: "Do more diverse words still mean more original ideas in the AI era?",
+    finding: "In college admissions essays, the link between diverse wording and original ideas has weakened since generative AI arrived.",
+  },
+  {
+    publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+    label: "AI's blind spots",
+    question: "When AI misses some human ideas, is it missing good ones or just avoiding weak ones?",
+    finding: "Human ideas in AI's semantic blind spots are just as creative, high-quality, and effective as the ideas AI does produce.",
+  },
+  {
+    publicationTitle: "Homogenizing Effect of Large Language Models (LLMs) on Creative Diversity: An Empirical Comparison of Human and ChatGPT Writing",
+    label: "Diversity loss",
+    image: "/covers/figure_homogenizing_diversity_growth_rate.png",
+    question: "If many people write with the same model, what happens to the collective pool of ideas?",
+    finding: "Using the diversity growth rate, we found that each additional human essay adds more new ideas than each additional GPT-4 essay, and the gap widens as more essays accumulate.",
+  },
+  {
+    publicationTitle: "Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults",
+    label: "Social technology",
+    question: "Does using social technology change how satisfied people are with their lives over time?",
+    finding: "Following U.S. adults across five waves, we separate within-person changes in social technology use from stable differences between people to test whether use predicts later life satisfaction.",
+  },
+] as const;
