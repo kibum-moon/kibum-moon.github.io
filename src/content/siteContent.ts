@@ -17,7 +17,7 @@ export const PROFILE_DATA = {
   email: "km1735@georgetown.edu",
   orcidId: "", // Set to empty to use manual publication list
   // The hero reads headline (large), affiliation (light), then bio (body text).
-  headline: "I study human creativity and well-being by tracking how ideas, language, and behavior shift in massive real-world data across the rise of AI and digital technologies.",
+  headline: "I study human creativity and well-being by tracking how ideas, language, and behavior shift across massive real-world data as AI and digital technologies rise.",
   affiliation: "I am a Ph.D. candidate in Psychology and an AI Fellow at Georgetown University, working with Dr. Kostadin Kushlev and Dr. Adam Green.",
   bio: "Integrating large-scale text analysis with behavioral experiments and longitudinal studies, my recent work examines what happens when people use AI to develop and express their ideas. While AI can make individual work feel and appear more creative, it often pulls people’s thinking toward similar ideas—making it harder to distinguish colorful wording from genuine originality. By uncovering these hidden trade-offs, I aim to understand how we can use AI to expand, rather than narrow, both individual and collective creative potential.",
   rotatingQuote: "",
