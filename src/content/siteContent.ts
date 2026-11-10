@@ -22,8 +22,8 @@ export const PROFILE_DATA = {
   bio: "Integrating large-scale text analysis with behavioral experiments and longitudinal studies, my recent work examines what happens when people use AI to develop and express their ideas. While AI can make individual work feel and appear more creative, it often pulls people’s thinking toward similar ideas—making it harder to distinguish colorful wording from genuine originality. By uncovering these hidden trade-offs, I aim to understand how we can use AI to expand, rather than narrow, both individual and collective creative potential.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=66c3a5468a84",
-  lastUpdated: "Nov 4, 2026",
+  cvUrl: "/kibum_moon_cv.pdf?v=52865213ebde",
+  lastUpdated: "Nov 10, 2026",
 };
 
 export const SOCIAL_LINKS = {
@@ -737,10 +737,10 @@ export const CV_DATA: CVSection[] = [
 
 export const BLOG_DATA: BlogPost[] = [
   {
-    eyebrow: "Upcoming",
-    title: "Upcoming: Psychology of Technology 2026 at UC Berkeley",
+    eyebrow: "Presentation",
+    title: "Semantic disjunction at Psychology of Technology 2026",
     date: "November 7, 2026",
-    summary: "On November 7, I will give a Datablitz talk on AI-era college admissions essays at UC Berkeley’s Haas School of Business.",
+    summary: "On November 7, I presented “Semantic disjunction: How generative AI makes individual work appear more creative while narrowing the diversity of human ideas” in the Datablitz session at the Psychology of Technology Conference at UC Berkeley’s Haas School of Business.",
     link: "https://www.psychoftech.org/2026-conference",
     image: "https://images.squarespace-cdn.com/content/v1/58dd832137c58106c9c86f71/60b68532-84bd-43b2-9c55-28fb7fd462e2/Conference%2Bimage.png?format=750w",
     imageAlt: "Psychology of Technology 2026 conference at UC Berkeley",
@@ -859,7 +859,7 @@ export const BLOG_DATA: BlogPost[] = [
 ];
 
 export const HIGHLIGHTED_UPDATE_TITLES = [
-  'Upcoming: Psychology of Technology 2026 at UC Berkeley',
+  'Semantic disjunction at Psychology of Technology 2026',
   'New preprint: Thinking Outside the Bots',
   'Selected for Georgetown’s inaugural AI Fellows Program',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
