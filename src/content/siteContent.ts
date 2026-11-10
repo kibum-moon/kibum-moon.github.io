@@ -22,7 +22,7 @@ export const PROFILE_DATA = {
   bio: "Integrating large-scale text analysis with behavioral experiments and longitudinal studies, my recent work examines what happens when people use AI to develop and express their ideas. While AI can make individual work feel and appear more creative, it often pulls people’s thinking toward similar ideas—making it harder to distinguish colorful wording from genuine originality. By uncovering these hidden trade-offs, I aim to understand how we can use AI to expand, rather than narrow, both individual and collective creative potential.",
   rotatingQuote: "",
   contactAddress: "Department of Psychology, Georgetown University, Washington, D.C.",
-  cvUrl: "/kibum_moon_cv.pdf?v=52865213ebde",
+  cvUrl: "/kibum_moon_cv.pdf?v=b67389257ea2",
   lastUpdated: "Nov 10, 2026",
 };
 
