@@ -199,17 +199,13 @@ const HeroIntro: React.FC = () => {
     <>
       <div className="grid grid-cols-[minmax(0,1fr)] gap-10 sm:grid-cols-[minmax(0,1fr)_200px] sm:items-start md:gap-14">
         <div className="min-w-0">
-          <div className="space-y-4 font-heading text-[1.75rem] font-semibold leading-[1.3] tracking-tight text-neutral-900 md:text-[2.3rem]">
-            {PROFILE_DATA.headline.split(/(?<=\.)\s+/).map((sentence) => (
-              <p key={sentence}>
-                {headlineParts(sentence).map(({ text, isKeyword }) =>
-                  isKeyword ? (
-                    <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
-                  ) : text,
-                )}
-              </p>
-            ))}
-          </div>
+          <p className="font-sans text-[1.4rem] font-normal leading-[1.5] text-neutral-800 md:text-[1.875rem]">
+            {headlineParts(PROFILE_DATA.headline).map(({ text, isKeyword }) =>
+              isKeyword ? (
+                <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
+              ) : text,
+            )}
+          </p>
           <p className="mt-6 text-[1.05rem] leading-[1.7] text-neutral-700">{PROFILE_DATA.affiliation}</p>
           <HeroLinks className="mt-6" />
         </div>
