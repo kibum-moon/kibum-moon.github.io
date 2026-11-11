@@ -166,14 +166,11 @@ const Header: React.FC = () => {
 };
 
 // Phrases that carry the headline; only these get the marker underline.
-const HEADLINE_KEYWORDS = ['human creativity and well-being', 'ideas, language, and behavior', 'AI and digital technologies'];
+const HEADLINE_KEYWORDS = ['human creativity and well-being', 'computational methods and large-scale real-world data', 'over time and across cultures'];
 
-// On tablets and up the headline starts a new line here so the closing phrase lands on its own line.
-const HEADLINE_BREAK_BEFORE = 'AI and digital technologies';
-
-const headlineParts = () => {
+const headlineParts = (sentence: string) => {
   const pattern = new RegExp(`(${HEADLINE_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`);
-  return PROFILE_DATA.headline.split(pattern).filter(Boolean).map((text) => ({ text, isKeyword: HEADLINE_KEYWORDS.includes(text) }));
+  return sentence.split(pattern).filter(Boolean).map((text) => ({ text, isKeyword: HEADLINE_KEYWORDS.includes(text) }));
 };
 
 const HeroLinks: React.FC<{ className?: string }> = ({ className = '' }) => (
@@ -202,18 +199,17 @@ const HeroIntro: React.FC = () => {
     <>
       <div className="grid grid-cols-[minmax(0,1fr)] gap-10 sm:grid-cols-[minmax(0,1fr)_200px] sm:items-start md:gap-14">
         <div className="min-w-0">
-          <p className="font-heading text-[1.75rem] font-semibold leading-[1.3] tracking-tight text-neutral-900 md:text-[2.3rem]">
-            {headlineParts().map(({ text, isKeyword }) =>
-              isKeyword ? (
-                <React.Fragment key={text}>
-                  {text === HEADLINE_BREAK_BEFORE ? <br className="hidden sm:inline" /> : null}
-                  <span className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
-                </React.Fragment>
-              ) : (
-                text
-              ),
-            )}
-          </p>
+          <div className="space-y-4 font-heading text-[1.75rem] font-semibold leading-[1.3] tracking-tight text-neutral-900 md:text-[2.3rem]">
+            {PROFILE_DATA.headline.split(/(?<=\.)\s+/).map((sentence) => (
+              <p key={sentence}>
+                {headlineParts(sentence).map(({ text, isKeyword }) =>
+                  isKeyword ? (
+                    <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
+                  ) : text,
+                )}
+              </p>
+            ))}
+          </div>
           <p className="mt-6 text-[1.05rem] leading-[1.7] text-neutral-700">{PROFILE_DATA.affiliation}</p>
           <HeroLinks className="mt-6" />
         </div>
