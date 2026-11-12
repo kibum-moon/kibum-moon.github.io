@@ -199,7 +199,7 @@ const HeroIntro: React.FC = () => {
     <>
       <div className="grid grid-cols-[minmax(0,1fr)] gap-10 sm:grid-cols-[minmax(0,1fr)_200px] sm:items-start md:gap-14">
         <div className="min-w-0">
-          <p className="font-sans text-[1.4rem] font-bold leading-[1.5] text-neutral-800 md:text-[1.875rem]">
+          <p className="font-heading text-[1.4rem] font-medium leading-[1.5] text-neutral-800 md:text-[1.875rem]">
             {headlineParts(PROFILE_DATA.headline).map(({ text, isKeyword }) =>
               isKeyword ? (
                 <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
