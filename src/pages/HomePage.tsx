@@ -202,7 +202,7 @@ const HeroIntro: React.FC = () => {
           <p className="font-heading text-[1.4rem] font-medium leading-[1.5] text-neutral-800 md:text-[1.875rem]">
             {headlineParts(PROFILE_DATA.headline).map(({ text, isKeyword }) =>
               isKeyword ? (
-                <span key={text} className="bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
+                <span key={text} className="font-semibold bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone]">{text}</span>
               ) : text,
             )}
           </p>
