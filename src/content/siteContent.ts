@@ -275,7 +275,7 @@ export const PUBLICATIONS_DATA: Publication[] = [
     link: "https://arxiv.org/abs/2610.17324",
     abstract: "",
     tags: ["AI", "Creativity", "Semantic Diversity"],
-    image: "/covers/figure_blind_spots_edge.png",
+    image: "/covers/figure_blind_spots_edge.png?v=20261115",
     imageKind: "figure",
   },
   {
@@ -751,7 +751,7 @@ export const BLOG_DATA: BlogPost[] = [
     date: "October 14, 2026",
     summary: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
     link: "https://arxiv.org/abs/2610.17324",
-    image: "/covers/figure_blind_spots_edge.png",
+    image: "/covers/figure_blind_spots_edge.png?v=20261115",
     imageAlt: "EDGE components illustrated across human and AI responses in three tasks",
   },
   {
