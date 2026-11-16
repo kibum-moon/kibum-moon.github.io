@@ -166,7 +166,7 @@ const Header: React.FC = () => {
 };
 
 // Phrases that carry the headline; only these get the marker underline.
-const HEADLINE_KEYWORDS = ['human creativity and well-being', 'computational methods and large-scale real-world data', 'over time and across cultures'];
+const HEADLINE_KEYWORDS = ['human creativity and well-being', 'computational methods and large-scale real-world data', 'over time and across contexts'];
 
 const headlineParts = (sentence: string) => {
   const pattern = new RegExp(`(${HEADLINE_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`);
