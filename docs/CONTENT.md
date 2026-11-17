@@ -27,6 +27,6 @@ Prefer changing structured content in one canonical file rather than scattering 
 ## Blind Spots paper link
 
 - `/blind-spots/` is the stable URL encoded in the conference QR code.
-- `public/blind-spots/index.html` currently redirects directly to `/files/blind-spots.pdf` (October 12, 2026 clean preprint).
-- Once arXiv is live, update both URLs in that HTML file to the verified arXiv abstract URL; keep `/blind-spots/` unchanged so the QR continues to work.
+- `public/blind-spots/index.html` redirects to `https://arxiv.org/abs/2610.17324`, which resolves to the latest arXiv version.
+- Keep `/blind-spots/` unchanged so the conference QR continues to work.
 - The QR PNG is hosted at `/files/blind-spots-qr.png`.
