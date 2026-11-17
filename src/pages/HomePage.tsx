@@ -39,7 +39,7 @@ const teachingHighlights = highlightedTeachingTitles
 
 const publicationSourceOrder = new Map(PUBLICATIONS_DATA.map((publication, index) => [publication.title, index]));
 const publicationRecencyRank = new Map<string, number>([
-  ["Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior", 700],
+  ["Good human thinking populates AI's semantic blind spots", 700],
   ['Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults', 600],
   ['The Persistence of Self-Preference Bias in LLM Evaluations of Creativity', 500],
   ['The Link Between Diverse Words and Original Ideas Is Weakening in the AI-Era College Admissions', 400],
