@@ -61,7 +61,7 @@ export const RESEARCH_PROGRAMS = [
         description: "How individual gains from generative AI can accumulate into a narrower collective pool of ideas.",
       },
       {
-        publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+        publicationTitle: "Good human thinking populates AI's semantic blind spots",
         title: "Human ideas in AI’s semantic blind spots",
         description: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
       },
@@ -267,8 +267,8 @@ export const PUBLICATIONS_DATA: Publication[] = [
     tags: ["AI", "Creativity"],
   },
   {
-    title: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
-    authors: ["Moon, K.", "Johnson, D. R.", "Kushlev, K.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Beaty, R. E.", "Duckworth, A. L.", "& Green, A. E."],
+    title: "Good human thinking populates AI's semantic blind spots",
+    authors: ["Moon, K.", "Johnson, D. R.", "Kushlev, K.", "Kleinmintz, O.", "Lira, B.", "Viskontas, I.", "Kaufman, J. C.", "Beaty, R. E.", "Patel, N.", "Wenger, E.", "Duckworth, A. L.", "& Green, A. E."],
     coFirstAuthors: ["Moon, K.", "Johnson, D. R."],
     venue: "arXiv preprint",
     year: 2026,
@@ -747,7 +747,7 @@ export const BLOG_DATA: BlogPost[] = [
   },
   {
     eyebrow: "Preprint",
-    title: "New preprint: Thinking Outside the Bots",
+    title: "New preprint: Good human thinking populates AI’s semantic blind spots",
     date: "October 14, 2026",
     summary: "AI can homogenize ideas. Does it miss valuable human ideas, or simply avoid low-quality ones? Our findings show that human ideas in AI’s semantic blind spots can be just as creative, high-quality, and effective.",
     link: "https://arxiv.org/abs/2610.17324",
@@ -860,7 +860,7 @@ export const BLOG_DATA: BlogPost[] = [
 
 export const HIGHLIGHTED_UPDATE_TITLES = [
   'Semantic disjunction at Psychology of Technology 2026',
-  'New preprint: Thinking Outside the Bots',
+  'New preprint: Good human thinking populates AI’s semantic blind spots',
   'Selected for Georgetown’s inaugural AI Fellows Program',
   'Social Technology Use and Life Satisfaction in a Five-Wave Panel Study of U.S. Adults',
   'Human vs. AI: Analyzing Generative Diversity Using Semantic Embeddings',
@@ -880,7 +880,7 @@ export const FEATURED_WORK = [
     finding: "In college admissions essays, the link between diverse wording and original ideas has weakened since generative AI arrived.",
   },
   {
-    publicationTitle: "Thinking Outside the Bots: Human Ideas in AI's Semantic Blind Spots Are Not Inferior",
+    publicationTitle: "Good human thinking populates AI's semantic blind spots",
     label: "AI's blind spots",
     question: "When AI misses some human ideas, is it missing good ones or just avoiding weak ones?",
     finding: "Human ideas in AI's semantic blind spots are just as creative, high-quality, and effective as the ideas AI does produce.",
