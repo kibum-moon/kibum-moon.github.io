@@ -166,7 +166,42 @@ const Header: React.FC = () => {
 };
 
 // Phrases that carry the headline; only these get the marker underline.
-const HEADLINE_KEYWORDS = ['human creativity and well-being', 'computational methods and large-scale real-world data', 'over time and across contexts'];
+const HEADLINE_KEYWORDS = [
+  'human creativity and well-being',
+  'computational lens',
+  'experiments and large-scale data',
+  'over time and across contexts',
+];
+
+// Curated editorial marker washes; a fresh tint is chosen on each visit without repeating the previous one.
+const HEADLINE_ACCENT_COLORS = [
+  '#f3e4be', // Warm Champagne
+  '#d6e4f2', // Georgetown Slate Blue
+  '#d2e5d9', // Muted Sage
+  '#f2d6ca', // Soft Terracotta
+  '#c4d3e6', // Georgetown Navy
+] as const;
+
+const ACCENT_STORAGE_KEY = 'hero-headline-accent-index';
+
+const pickVisitAccentColor = (): string => {
+  if (typeof window === 'undefined') return HEADLINE_ACCENT_COLORS[0];
+  let previousIndex = -1;
+  try {
+    const stored = window.localStorage.getItem(ACCENT_STORAGE_KEY);
+    if (stored !== null) previousIndex = Number.parseInt(stored, 10);
+  } catch {
+    // Ignore storage access errors in restricted browsing modes.
+  }
+  const candidates = HEADLINE_ACCENT_COLORS.map((_, index) => index).filter((index) => index !== previousIndex);
+  const nextIndex = candidates[Math.floor(Math.random() * candidates.length)] ?? 0;
+  try {
+    window.localStorage.setItem(ACCENT_STORAGE_KEY, String(nextIndex));
+  } catch {
+    // Ignore storage write errors in restricted browsing modes.
+  }
+  return HEADLINE_ACCENT_COLORS[nextIndex];
+};
 
 const headlineParts = (sentence: string) => {
   const pattern = new RegExp(`(${HEADLINE_KEYWORDS.map((word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`);
@@ -194,22 +229,49 @@ const ProfilePhoto: React.FC<{ className: string }> = ({ className }) => (
 // Marker-underlined statement beside the photo, then the bio broken into its three sentences.
 const bioSteps = ['Approach', 'Finding', 'Aim'];
 const HeroIntro: React.FC = () => {
+  const [accentColor] = useState(pickVisitAccentColor);
+  const headlineSentences = PROFILE_DATA.headline.split(/(?<=\.)\s+/);
   const sentences = PROFILE_DATA.bio.split(/(?<=\.)\s+/);
+  const highlightBackground = `linear-gradient(transparent 66%, ${accentColor} 66%, ${accentColor} 94%, transparent 94%)`;
+  const renderHeadlineSentence = (sentence: string) =>
+    headlineParts(sentence).map(({ text, isKeyword }) =>
+      isKeyword ? (
+        <span
+          key={text}
+          style={{ backgroundImage: highlightBackground }}
+          className={`font-semibold text-neutral-950 [box-decoration-break:clone] ${
+            text === HEADLINE_KEYWORDS[2] || text === HEADLINE_KEYWORDS[3] ? 'whitespace-nowrap' : ''
+          }`}
+        >
+          {text}
+        </span>
+      ) : (
+        text
+          .replace(/\bto $/g, 'to\u00A0')
+          .replace(/\bI examine\b/g, 'I\u00A0examine')
+      ),
+    );
   return (
     <>
-      <div className="grid grid-cols-[minmax(0,1fr)] gap-10 sm:grid-cols-[minmax(0,1fr)_200px] sm:items-start md:gap-14">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-9 sm:grid-cols-[minmax(0,1fr)_212px] sm:items-start md:gap-12 lg:grid-cols-[minmax(0,1fr)_240px] lg:gap-14">
         <div className="min-w-0">
-          <p className="font-heading text-[1.4rem] font-medium leading-[1.5] text-neutral-800 md:text-[1.9375rem]">
-            {headlineParts(PROFILE_DATA.headline).map(({ text, isKeyword }) =>
-              isKeyword ? (
-                <span key={text} className={`font-semibold bg-[linear-gradient(transparent_60%,#e5e5e5_60%)] [box-decoration-break:clone] ${text === HEADLINE_KEYWORDS[2] ? 'lg:whitespace-nowrap' : ''}`}>{text}</span>
-              ) : text,
-            )}
-          </p>
-          <p className="mt-6 text-[1.05rem] leading-[1.7] text-neutral-700">{PROFILE_DATA.affiliation}</p>
-          <HeroLinks className="mt-6" />
+          <div className="max-w-[615px] space-y-3.5">
+            <p className="font-heading text-[1.28rem] font-medium leading-[1.42] tracking-[-0.015em] text-neutral-700 [text-wrap:balance] md:text-[1.75rem]">
+              {renderHeadlineSentence(headlineSentences[0] ?? PROFILE_DATA.headline)}
+            </p>
+            {headlineSentences.slice(1).map((sentence) => (
+              <p
+                key={sentence}
+                className="font-heading text-[1.28rem] font-medium leading-[1.44] tracking-[-0.015em] text-neutral-700 md:text-[1.75rem]"
+              >
+                {renderHeadlineSentence(sentence)}
+              </p>
+            ))}
+          </div>
+          <p className="mt-7 max-w-[58ch] text-[0.98rem] leading-[1.7] text-neutral-500">{PROFILE_DATA.affiliation}</p>
+          <HeroLinks className="mt-5" />
         </div>
-        <ProfilePhoto className="order-first aspect-[4/5] w-[160px] rounded-2xl object-top sm:order-none sm:w-full" />
+        <ProfilePhoto className="order-first aspect-[4/5] w-[160px] rounded-2xl object-top ring-1 ring-black/[0.06] sm:order-none sm:mt-1.5 sm:w-full" />
       </div>
       <ol className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
         {sentences.map((sentence, index) => (
