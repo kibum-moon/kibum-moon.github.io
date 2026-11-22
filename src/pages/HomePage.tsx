@@ -179,7 +179,6 @@ const HEADLINE_ACCENT_COLORS = [
   '#d6e4f2', // Georgetown Slate Blue
   '#d2e5d9', // Muted Sage
   '#f2d6ca', // Soft Terracotta
-  '#c4d3e6', // Georgetown Navy
 ] as const;
 
 const ACCENT_STORAGE_KEY = 'hero-headline-accent-index';
